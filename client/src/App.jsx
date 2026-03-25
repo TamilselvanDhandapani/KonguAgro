@@ -11,15 +11,15 @@ import Contact from "./components/Contact";
 const App = () => {
   return (
     <>
-    <ScrollToTop />
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/contact" element={<Contact/>} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/request-quote" element={<RequestQuote />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 };
