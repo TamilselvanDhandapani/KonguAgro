@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaBars, FaTimes, FaPhoneAlt, FaLeaf } from "react-icons/fa";
+import { FaBars, FaTimes, FaPhoneAlt, FaLeaf, FaSignInAlt } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
@@ -40,12 +40,12 @@ const Navbar = () => {
 
   return (
     <header
-  className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-    isScrolled
-      ? "bg-white shadow-md border-b border-gray-100"
-      : "bg-white shadow-sm"
-  }`}
->
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white shadow-md border-b border-gray-100"
+          : "bg-white shadow-sm"
+      }`}
+    >
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-10">
         <nav className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -79,7 +79,8 @@ const Navbar = () => {
                 key={index}
                 to={item.link}
                 className={`px-4 py-2 rounded-lg text-[15px] font-medium transition-all duration-300 
-                ${                  location.pathname === item.link
+                ${
+                  location.pathname === item.link
                     ? item.highlight
                       ? "text-[#16a34a] border-b-2 border-[#16a34a]"
                       : "text-[#14532d]"
@@ -92,24 +93,29 @@ const Navbar = () => {
               </Link>
             ))}
 
-            <Link
-              to="/request-quote"
-              className="ml-4 px-5 py-2.5 rounded-lg bg-[#16a34a] text-white text-sm font-semibold shadow-md hover:shadow-lg transition-all hover:bg-[#15803d]"
-            >
-              Request a Quote
-            </Link>
-
            
+            {/* Login Button */}
+            <a
+              href="http://82.29.160.52:8070/odoo/discuss"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-3 px-5 py-2.5 rounded-lg bg-[#14532d] text-white text-sm font-semibold shadow-md hover:shadow-lg transition-all hover:bg-[#166534]"
+            >
+              Login
+            </a>
           </div>
 
           {/* Mobile Navigation Button */}
           <div className="flex lg:hidden items-center gap-3">
-            <Link
-              to="/contact"
+            {/* Login Icon */}
+            <a
+              href="http://82.29.160.52:8070/odoo/discuss"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-1 px-3 py-2 rounded-lg bg-[#16a34a] text-white text-xs font-semibold shadow"
             >
-              <FaPhoneAlt className="text-sm" />
-            </Link>
+              <FaSignInAlt className="text-sm" />
+            </a>
 
             <button
               onClick={toggleMenu}
@@ -212,6 +218,7 @@ const Navbar = () => {
                     Request a Quote
                   </Link>
 
+                  {/* Contact Us (kept as requested) */}
                   <Link
                     to="/contact"
                     onClick={toggleMenu}
