@@ -1,85 +1,99 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaIndustry, FaLeaf, FaLightbulb, FaAward, FaHistory, FaChartLine, FaUsers } from "react-icons/fa";
-import { MdPrecisionManufacturing } from "react-icons/md";
+
+import {
+  FaIndustry,
+  FaLeaf,
+  FaLightbulb,
+  FaAward,
+  FaHistory,
+  FaUsers,
+  FaTint,
+  FaHandshake,
+  FaRocket,
+} from "react-icons/fa";
+
+import {
+  MdPrecisionManufacturing,
+  MdAgriculture,
+} from "react-icons/md";
+
+import {
+  GiFarmer,
+  GiSprout,
+  GiWaterDrop,
+} from "react-icons/gi";
+
 import aboutImg from "../assets/home1.png";
-import historyImg from "../assets/home2.png";
 
 const About = () => {
   const stats = [
-    { value: "1984", label: "Year Founded" },
-    { value: "40+", label: "Years Experience" },
-    { value: "2", label: "States Served" },
-    { value: "5000+", label: "Happy Farmers" },
+    {
+      value: "1984",
+      label: "Year Founded",
+      icon: <FaHistory className="text-2xl" />,
+    },
+    {
+      value: "40+",
+      label: "Years Experience",
+      icon: <FaRocket className="text-2xl" />,
+    },
+    {
+      value: "2",
+      label: "States Served",
+      icon: <MdAgriculture className="text-2xl" />,
+    },
+    {
+      value: "5000+",
+      label: "Happy Farmers",
+      icon: <GiFarmer className="text-2xl" />,
+    },
   ];
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
-  const fadeInLeft = {
-    hidden: { opacity: 0, x: -80 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.7, ease: "easeOut" },
-    },
-  };
-
-  const fadeInRight = {
-    hidden: { opacity: 0, x: 80 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.7, ease: "easeOut" },
-    },
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
+  /* =========================
+     REDESIGNED TIMELINE DATA
+  ========================== */
 
   const timeline = [
     {
       year: "1984",
       title: "The Beginning",
-      text: "Started as SN Engineering Works with Gobar Gas plant in Erode district, laying the foundation for agricultural innovation.",
-      icon: <FaHistory className="text-2xl" />,
+      description: "Founded as SN Engineering Works, starting our journey in agricultural innovation with Gobar Gas systems.",
+      icon: <FaHistory />,
+      color: "from-emerald-400 to-green-600",
+      bgColor: "bg-emerald-50",
     },
     {
       year: "1992",
       title: "Plastics Manufacturing",
-      text: "Entered plastic manufacturing with water pots and became a leading supplier in the Kongu region.",
-      icon: <MdPrecisionManufacturing className="text-2xl" />,
+      description: "Expanded into plastics manufacturing, laying the foundation for future irrigation products.",
+      icon: <MdPrecisionManufacturing />,
+      color: "from-blue-400 to-indigo-600",
+      bgColor: "bg-blue-50",
     },
     {
       year: "2011",
       title: "Drip Irrigation Entry",
-      text: "Expanded into drip irrigation as a trading business, recognizing the growing need for efficient water management.",
-      icon: <FaLeaf className="text-2xl" />,
+      description: "Entered the drip irrigation market with innovative water-saving solutions for farmers.",
+      icon: <FaLeaf />,
+      color: "from-green-400 to-teal-600",
+      bgColor: "bg-green-50",
     },
     {
-      year: "2013–2019",
+      year: "2013",
       title: "Manufacturing Excellence",
-      text: "Launched own manufacturing: Inline drip (2013), injection moulding (2017), and flat drip systems (2019).",
-      icon: <FaIndustry className="text-2xl" />,
+      description: "Established state-of-the-art manufacturing facility with advanced quality control systems.",
+      icon: <FaIndustry />,
+      color: "from-orange-400 to-red-600",
+      bgColor: "bg-orange-50",
     },
     {
       year: "2021",
       title: "Government Recognition",
-      text: "Recognized under Tamil Nadu Govt subsidy scheme with our trusted brand VISDHA.",
-      icon: <FaAward className="text-2xl" />,
+      description: "VISDHA brand approved under Tamil Nadu Government subsidy scheme, reaching more farmers.",
+      icon: <FaAward />,
+      color: "from-purple-400 to-pink-600",
+      bgColor: "bg-purple-50",
     },
   ];
 
@@ -88,331 +102,446 @@ const About = () => {
       icon: <FaLightbulb className="text-3xl" />,
       title: "Innovation",
       subtitle: "Pushing Boundaries",
-      desc: "Continuously improving irrigation technology through R&D and modern manufacturing processes.",
+      desc:
+        "Continuously improving irrigation technology through modern manufacturing and R&D.",
+      color: "from-yellow-400 to-orange-500",
     },
     {
       icon: <FaLeaf className="text-3xl" />,
       title: "Sustainability",
       subtitle: "Eco-Friendly Focus",
-      desc: "Promoting water-efficient farming practices that protect natural resources for future generations.",
+      desc:
+        "Promoting water-efficient farming practices for future generations.",
+      color: "from-green-400 to-emerald-500",
     },
     {
       icon: <FaIndustry className="text-3xl" />,
       title: "Quality",
       subtitle: "Precision Manufacturing",
-      desc: "Strict quality control, advanced testing facilities, and adherence to international standards.",
+      desc:
+        "Strict quality control and advanced testing for reliable products.",
+      color: "from-blue-400 to-indigo-500",
     },
     {
       icon: <FaAward className="text-3xl" />,
       title: "Trust",
       subtitle: "Building Relationships",
-      desc: "Over 40 years of building long-term partnerships with farmers, dealers, and the agricultural community.",
+      desc:
+        "40+ years of strong partnerships with farmers and dealers.",
+      color: "from-purple-400 to-pink-500",
     },
   ];
 
   return (
-    <div className="w-full min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-28 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#f8fcf8] via-white to-[#eef7f1]">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-[#7bc47f]/10 rounded-full blur-3xl" />
+    <div className="w-full min-h-screen bg-white overflow-hidden">
+
+      {/* =======================================================
+                            HERO SECTION
+      ======================================================= */}
+
+      <section className="relative overflow-hidden pt-32 pb-24 bg-gradient-to-br from-[#f8fcf8] via-white to-[#eef7f1]">
+
+        {/* Blur Background */}
+        <div className="absolute top-0 left-0 w-72 h-72 bg-[#9ac80f]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#2d6f68]/10 rounded-full blur-3xl" />
 
-        <div className="relative max-w-7xl mx-auto text-center">
+        {/* Floating Icons */}
+        <div className="absolute top-20 left-10 opacity-20 animate-bounce">
+          <GiSprout className="text-5xl text-[#2f7d4b]" />
+        </div>
+
+        <div className="absolute bottom-20 right-10 opacity-20 animate-bounce delay-700">
+          <GiWaterDrop className="text-5xl text-[#9ac80f]" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e8f5e9] text-[#2f7d4b] text-sm font-semibold mb-6"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#e8f5e9] text-[#2f7d4b] font-semibold shadow-md"
           >
-            <MdPrecisionManufacturing className="text-lg" />
-            Kongunadu Agro Products (KAPS)
+            <MdPrecisionManufacturing />
+            Kongunadu Agro Products
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight"
+            transition={{ delay: 0.1 }}
+            className="mt-8 text-5xl md:text-7xl font-black tracking-tight"
           >
             <span className="text-[#173c36]">About </span>
-            <span className="bg-gradient-to-r from-[#2f7d4b] via-[#3f9c68] to-[#2d6f68] bg-clip-text text-transparent">
+
+            <span className="bg-gradient-to-r from-[#2f7d4b] to-[#9ac80f] bg-clip-text text-transparent">
               Us
             </span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-6 text-lg text-[#5f6f68] max-w-3xl mx-auto leading-relaxed"
+            transition={{ delay: 0.2 }}
+            className="mt-6 max-w-3xl mx-auto text-lg leading-relaxed text-[#5f6f68]"
           >
-            Driven by the vision "Irrigation Made Easy," we combine decades of 
-            manufacturing expertise with cutting-edge technology to deliver 
-            reliable drip irrigation solutions that empower farmers across 
-            Tamil Nadu and Karnataka.
+            Driven by the vision of
+            <span className="font-semibold text-[#2f7d4b]">
+              {" "}
+              "Irrigation Made Easy"
+            </span>
+            , we deliver innovative and reliable irrigation solutions empowering farmers across South India.
           </motion.p>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-[#edf2ee] overflow-hidden">
-            <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-[#edf2ee]">
-              {stats.map((stat, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="px-6 py-8 text-center"
-                >
-                  <div className="text-3xl lg:text-4xl font-bold text-[#173c36]">
-                    {stat.value}
-                  </div>
-                  <div className="mt-2 text-sm text-[#63736c] font-medium">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+      {/* =======================================================
+                            STATS SECTION
+      ======================================================= */}
+
+      <section className="-mt-12 relative z-20 px-4 sm:px-6 lg:px-8">
+
+        <div className="max-w-7xl mx-auto bg-white rounded-[2rem] border border-[#edf2ee] shadow-[0_20px_50px_rgba(0,0,0,0.06)] overflow-hidden">
+
+          <div className="grid grid-cols-2 lg:grid-cols-4">
+
+            {stats.map((stat, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="p-8 text-center border-b lg:border-b-0 lg:border-r border-[#edf2ee] last:border-r-0 group hover:bg-[#f8fcf8] transition"
+              >
+                <div className="flex justify-center text-[#9ac80f] mb-4 group-hover:scale-110 transition">
+                  {stat.icon}
+                </div>
+
+                <div className="text-4xl font-black text-[#173c36]">
+                  {stat.value}
+                </div>
+
+                <div className="mt-2 text-sm text-[#5f6f68] font-medium">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Company Story Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 mt-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* =======================================================
+                            STORY SECTION
+      ======================================================= */}
+
+      <section className="py-24">
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* IMAGE */}
             <motion.div
-              variants={fadeInLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               className="relative"
             >
-              {/* Decorative elements */}
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#9ac80f]/10 rounded-2xl" />
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#2d6f68]/10 rounded-2xl" />
-              
-              <div className="relative rounded-2xl sm:rounded-[2rem] border-2 border-[#9ac80f] overflow-hidden bg-white shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
+              <div className="absolute -top-6 -left-6 w-32 h-32 bg-[#9ac80f]/10 rounded-3xl" />
+
+              <div className="relative rounded-[2rem] overflow-hidden border-2 border-[#9ac80f] shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
                 <img
                   src={aboutImg}
-                  alt="KAPS Manufacturing Facility"
-                  className="w-full h-full object-cover aspect-[4/3]"
-                  loading="lazy"
+                  alt="About"
+                  className="w-full object-cover aspect-[4/3]"
                 />
               </div>
             </motion.div>
 
+            {/* CONTENT */}
             <motion.div
-              variants={fadeInRight}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#173c36] mb-4">
+              <h2 className="text-4xl font-bold text-[#173c36]">
                 Our Story
               </h2>
-              <div className="mb-6 h-1 w-20 sm:w-24 rounded-full bg-[#9ac80f]" />
 
-              <p className="text-[#5f6f68] mb-4 leading-relaxed text-justify">
-                Kongunadu Agro Products (KAPS) is driven by innovation under the 
-                vision of <strong className="text-[#173c36]">"Irrigation Made Easy."</strong> Our journey 
-                began in 1984 as SN Engineering Works, where we established a 
-                Gobar Gas plant and served the Erode district with dedication.
+              <div className="mt-4 w-24 h-1 rounded-full bg-gradient-to-r from-[#9ac80f] to-[#2f7d4b]" />
+
+              <p className="mt-6 text-[#5f6f68] leading-relaxed">
+                Kongunadu Agro Products (KAPS) began its journey in 1984 as SN Engineering Works. Over four decades, we evolved from Gobar Gas systems into one of the trusted irrigation manufacturing brands in South India.
               </p>
 
-              <p className="text-[#5f6f68] mb-4 leading-relaxed text-justify">
-                In 1992, we expanded into the plastics industry, manufacturing 
-                water pots and becoming one of the largest suppliers in the Kongu 
-                region. With continuous growth and market understanding, we entered 
-                the drip irrigation sector in 2011.
+              <p className="mt-5 text-[#5f6f68] leading-relaxed">
+                Our expertise spans plastics manufacturing, drip irrigation systems, inline drip technology, and precision agriculture products designed for modern farming.
               </p>
 
-              <p className="text-[#5f6f68] leading-relaxed text-justify">
-                By 2013, we established our own manufacturing unit producing inline 
-                and flat drip irrigation systems. Today, KAPS is a trusted supplier 
-                across Tamil Nadu and Karnataka, recognized under the Tamil Nadu 
-                Government subsidy scheme with our brand{" "}
-                <strong className="text-[#2f7d4b]">VISDHA</strong>.
+              <p className="mt-5 text-[#5f6f68] leading-relaxed">
+                Today, our VISDHA brand is recognized under the Tamil Nadu Government subsidy scheme, serving thousands of farmers with reliable and sustainable irrigation solutions.
               </p>
+
+              {/* BADGES */}
+              <div className="mt-8 flex flex-wrap gap-3">
+
+                <div className="px-4 py-2 rounded-full bg-[#e8f5e9] text-[#173c36] flex items-center gap-2">
+                  <FaAward className="text-[#9ac80f]" />
+                  ISO Certified
+                </div>
+
+                <div className="px-4 py-2 rounded-full bg-[#e8f5e9] text-[#173c36] flex items-center gap-2">
+                  <FaHandshake className="text-[#9ac80f]" />
+                  Govt Approved
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#f8fcf8]">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={staggerContainer}
-            className="text-center mb-8 sm:mb-12"
+      {/* =======================================================
+                      REDESIGNED MODERN TIMELINE
+      ======================================================= */}
+
+      <section className="py-24 bg-gradient-to-b from-[#f8fcf8] via-white to-[#f0f7f0] overflow-hidden relative">
+        
+        {/* Background decorative elements */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-[#9ac80f]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2d6f68]/5 rounded-full blur-3xl" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+          {/* HEADING */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
           >
-            <motion.h2
-              variants={fadeInUp}
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#173c36]"
-            >
+            <h2 className="text-4xl md:text-5xl font-black text-[#173c36]">
               Our Journey
-            </motion.h2>
-            <motion.div
-              variants={fadeInUp}
-              className="mt-2 sm:mt-3 h-1 w-20 sm:w-24 rounded-full bg-[#9ac80f] mx-auto"
-            />
-            <motion.p
-              variants={fadeInUp}
-              className="mt-4 text-[#5f6f68] max-w-2xl mx-auto"
-            >
-              A legacy of growth, innovation, and trust spanning four decades
-            </motion.p>
+            </h2>
+            <p className="mt-4 text-[#5f6f68] max-w-2xl mx-auto">
+              From humble beginnings to becoming a trusted name in irrigation solutions
+            </p>
+            <div className="mt-4 w-24 h-1 bg-gradient-to-r from-[#9ac80f] to-[#2f7d4b] mx-auto rounded-full" />
           </motion.div>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            className="relative"
-          >
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-[#9ac80f]/20 hidden lg:block" />
+          {/* ================= DESKTOP TIMELINE ================= */}
+          <div className="hidden lg:block relative">
+            
+            {/* Vertical timeline line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#9ac80f] via-[#2f7d4b] to-[#9ac80f] rounded-full" />
 
-            <div className="space-y-6 lg:space-y-8">
+            <div className="space-y-20">
               {timeline.map((item, index) => (
                 <motion.div
                   key={index}
-                  variants={fadeInUp}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
                   className={`relative flex items-center ${
-                    index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                  } flex-col lg:gap-8`}
+                    index % 2 === 0 ? "justify-start" : "justify-end"
+                  }`}
                 >
                   {/* Content Card */}
-                  <div className={`w-full lg:w-1/2 ${index % 2 === 0 ? "lg:pr-12" : "lg:pl-12"}`}>
-                    <div className="rounded-2xl sm:rounded-[2rem] bg-white border border-[#dce7c4] p-6 sm:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] transition-shadow">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-[#e8f5e9] flex items-center justify-center text-[#2f7d4b]">
-                          {item.icon}
-                        </div>
-                        <div>
-                          <h3 className="text-2xl font-bold text-[#9ac80f]">
-                            {item.year}
-                          </h3>
-                          <p className="text-sm text-[#63736c] font-medium">
-                            {item.title}
-                          </p>
-                        </div>
+                  <div className={`w-5/12 ${index % 2 === 0 ? "pr-12 text-right" : "pl-12 text-left"}`}>
+                    <motion.div
+                      whileHover={{ scale: 1.02, y: -5 }}
+                      className={`${item.bgColor} rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 relative group`}
+                    >
+                      {/* Year Badge */}
+                      <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${item.color} text-white font-bold text-lg shadow-lg mb-4`}>
+                        <span className="text-2xl">{item.icon}</span>
+                        {item.year}
                       </div>
+                      
+                      <h3 className="text-2xl font-bold text-[#173c36] mb-3">
+                        {item.title}
+                      </h3>
+                      
                       <p className="text-[#5f6f68] leading-relaxed">
-                        {item.text}
+                        {item.description}
                       </p>
-                    </div>
+
+                      {/* Decorative corner */}
+                      <div className={`absolute top-0 ${index % 2 === 0 ? "right-0" : "left-0"} w-2 h-2 bg-gradient-to-r ${item.color} rounded-full opacity-0 group-hover:opacity-100 transition-opacity`} />
+                    </motion.div>
                   </div>
 
-                  {/* Timeline dot */}
-                  <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-[#9ac80f] rounded-full border-4 border-white shadow-lg z-10" />
-
-                  {/* Spacer for alternating layout */}
-                  <div className="hidden lg:block lg:w-1/2" />
+                  {/* Timeline Dot */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+                    <motion.div
+                      whileHover={{ scale: 1.3 }}
+                      className={`w-16 h-16 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center shadow-2xl cursor-pointer relative`}
+                    >
+                      <div className="text-white text-2xl">
+                        {item.icon}
+                      </div>
+                      {/* Pulse ring */}
+                      <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${item.color} animate-ping opacity-20`} />
+                    </motion.div>
+                  </div>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
+
+          {/* ================= MOBILE TIMELINE ================= */}
+          <div className="lg:hidden relative">
+            
+            {/* Mobile timeline line */}
+            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#9ac80f] via-[#2f7d4b] to-[#9ac80f] rounded-full" />
+
+            <div className="space-y-12">
+              {timeline.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative pl-20"
+                >
+                  {/* Timeline Dot */}
+                  <motion.div
+                    whileHover={{ scale: 1.2 }}
+                    className={`absolute left-2 w-12 h-12 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg z-10`}
+                  >
+                    <div className="text-white text-xl">
+                      {item.icon}
+                    </div>
+                  </motion.div>
+
+                  {/* Content Card */}
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className={`${item.bgColor} rounded-2xl p-6 shadow-lg border border-gray-100`}
+                  >
+                    <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r ${item.color} text-white font-bold text-sm shadow-md mb-3`}>
+                      <span>{item.icon}</span>
+                      {item.year}
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-[#173c36] mb-2">
+                      {item.title}
+                    </h3>
+                    
+                    <p className="text-[#5f6f68] text-sm leading-relaxed">
+                      {item.description}
+                    </p>
+                  </motion.div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={staggerContainer}
-            className="text-center mb-8 sm:mb-12"
-          >
-            <motion.h2
-              variants={fadeInUp}
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#173c36]"
-            >
-              Our Core Values
-            </motion.h2>
-            <motion.div
-              variants={fadeInUp}
-              className="mt-2 sm:mt-3 h-1 w-20 sm:w-24 rounded-full bg-[#9ac80f] mx-auto"
-            />
-            <motion.p
-              variants={fadeInUp}
-              className="mt-4 text-[#5f6f68] max-w-2xl mx-auto"
-            >
-              Principles that guide every product we manufacture and every decision we make
-            </motion.p>
-          </motion.div>
+      {/* =======================================================
+                            VALUES SECTION
+      ======================================================= */}
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-          >
+      <section className="py-24 bg-white">
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="text-center mb-14">
+
+            <h2 className="text-4xl font-bold text-[#173c36]">
+              Our Core Values
+            </h2>
+
+            <div className="mt-4 w-24 h-1 rounded-full bg-gradient-to-r from-[#9ac80f] to-[#2f7d4b] mx-auto" />
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
             {values.map((item, i) => (
               <motion.div
                 key={i}
-                variants={fadeInUp}
-                className="group rounded-2xl sm:rounded-[2rem] bg-white border border-[#dce7c4] p-6 sm:p-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.1)] transition-all duration-300 hover:-translate-y-1"
+                whileHover={{ y: -10 }}
+                className="group rounded-[2rem] bg-white border border-[#dce7c4] p-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all"
               >
-                <div className="w-16 h-16 mx-auto rounded-2xl bg-[#e8f5e9] flex items-center justify-center text-[#2f7d4b] group-hover:bg-[#9ac80f] group-hover:text-white transition-colors duration-300">
+
+                <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white shadow-lg`}>
                   {item.icon}
                 </div>
-                <h3 className="mt-6 text-xl font-bold text-[#173c36]">
+
+                <h3 className="mt-6 text-2xl font-bold text-[#173c36]">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-[#9ac80f] font-semibold uppercase tracking-wide">
+
+                <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-[#9ac80f]">
                   {item.subtitle}
                 </p>
-                <p className="mt-4 text-[#5f6f68] leading-relaxed">
+
+                <p className="mt-4 text-[#5f6f68] leading-relaxed text-sm">
                   {item.desc}
                 </p>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      {/* =======================================================
+                            CTA SECTION
+      ======================================================= */}
+
+      <section className="py-24 px-4 sm:px-6 lg:px-8">
+
         <div className="max-w-6xl mx-auto">
+
           <motion.div
-            initial={{ opacity: 0, y: 26 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
-            className="rounded-[2rem] bg-gradient-to-r from-[#173c36] via-[#1d4b42] to-[#2d6f68] px-8 sm:px-12 py-12 text-center shadow-[0_20px_50px_rgba(23,60,54,0.25)]"
+            className="rounded-[2rem] bg-gradient-to-br from-[#173c36] via-[#1d4b42] to-[#2d6f68] p-12 text-center shadow-[0_20px_50px_rgba(23,60,54,0.35)] relative overflow-hidden"
           >
-            <div className="w-20 h-20 mx-auto rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-6">
+
+            <div className="w-20 h-20 mx-auto rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6">
               <FaUsers className="text-4xl text-white" />
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+            <h2 className="text-4xl font-bold text-white">
               Join Our Growing Network
             </h2>
-            <p className="mt-4 text-white/80 max-w-2xl mx-auto leading-relaxed">
-              Partner with us to bring efficient irrigation solutions to farmers. 
-              Whether you're a dealer, distributor, or farmer, we have the right 
-              products and support for your needs.
+
+            <p className="mt-5 text-white/80 max-w-2xl mx-auto leading-relaxed">
+              Partner with us to bring efficient irrigation solutions to farmers across India.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="px-7 py-3 rounded-xl bg-[#2f7d4b] hover:bg-[#25663c] text-white font-semibold shadow-lg transition">
+
+              <button className="px-8 py-3 rounded-xl bg-gradient-to-r from-[#2f7d4b] to-[#3f9c68] text-white font-semibold shadow-lg hover:scale-105 transition">
                 Become a Dealer
               </button>
-              <button className="px-7 py-3 rounded-xl border border-white/25 text-white hover:bg-white/10 font-semibold transition">
+
+              <button className="px-8 py-3 rounded-xl border border-white/30 text-white hover:bg-white/10 transition">
                 Contact Us
               </button>
+            </div>
+
+            <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-white/70">
+
+              <span className="flex items-center gap-2">
+                <FaHandshake className="text-[#9ac80f]" />
+                Trusted Partnerships
+              </span>
+
+              <span className="flex items-center gap-2">
+                <FaAward className="text-[#9ac80f]" />
+                Govt Approved
+              </span>
+
+              <span className="flex items-center gap-2">
+                <FaTint className="text-[#9ac80f]" />
+                Water Saving Solutions
+              </span>
             </div>
           </motion.div>
         </div>
