@@ -9,7 +9,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import FloatingQuoteButton from "./components/FloatingQuoteButton";
-
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsConditions from "./components/Terms";
 const App = () => {
   return (
     <>
@@ -21,6 +22,8 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/request-quote" element={<RequestQuote />} />
         <Route path="/about" element={<About />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-conditions" element={<TermsConditions />} />
       </Routes>
        <FloatingQuoteButton />
       <Footer />

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -32,15 +33,15 @@ const contactItems = [
   {
     icon: Mail,
     title: "Email",
-    value: "dtamilselvan1004@gmail.com",
-    href: "mailto:dtamilselvan1004@gmail.com",
+    value: "kongunaduagroproduct@gmail.com",
+    href: "mailto:kongunaduagroproduct@gmail.com",
     description: "Send us your product, pricing, or support queries anytime.",
   },
   {
     icon: Phone,
     title: "Phone",
-    value: "+91 93617 84871",
-    href: "tel:+919361784871",
+    value: "+91 99626 99988",
+    href: "tel:+919962699988",
     description: "Talk directly with us for faster help and recommendations.",
   },
   {
@@ -53,8 +54,48 @@ const contactItems = [
 ];
 
 export default function ContactPage() {
+  // Local Business SEO Schema tailored for Contact Page
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "KonguNadu Agro Products",
+      "description": "Get in touch with KonguNadu Agro Products for premium drip irrigation systems, agriculture pipes, and farm accessories.",
+      "telephone": "+91-9962699988",
+      "email": "kongunaduagroproduct@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "No. 123, Irrigation Complex, Bhavani Main Road",
+        "addressLocality": "Gobichettipalayam",
+        "addressRegion": "Tamil Nadu",
+        "postalCode": "638452",
+        "addressCountry": "IN"
+      },
+      "areaServed": [
+        "Gobichettipalayam",
+        "Erode",
+        "Coimbatore",
+        "Salem",
+        "Karur",
+        "Nilgiris",
+        "Pollachi"
+      ]
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-slate-900 overflow-hidden">
+      {/* SEO Helmet */}
+      <Helmet>
+        <title>Contact KonguNadu Agro Products | Drip Irrigation Gobichettipalayam</title>
+        <meta name="description" content="Contact KonguNadu Agro Products in Gobichettipalayam for premium drip irrigation systems. Proudly serving farms in Erode, Coimbatore, Salem, Karur, Nilgiris & Pollachi." />
+        <meta name="keywords" content="Contact KonguNadu Agro, Drip irrigation Gobichettipalayam contact, Agriculture pipes Erode, Irrigation dealers Coimbatore, Salem farm supplies, Karur micro irrigation, Pollachi drip tape" />
+        <script type="application/ld+json">
+          {JSON.stringify(contactSchema)}
+        </script>
+      </Helmet>
+
       <div className="fixed inset-0 -z-10">
         <div className="absolute top-[-8rem] left-[-6rem] h-[24rem] w-[24rem] rounded-full bg-emerald-200/40 blur-3xl" />
         <div className="absolute right-[-8rem] top-[10rem] h-[28rem] w-[28rem] rounded-full bg-cyan-200/30 blur-3xl" />
@@ -73,37 +114,37 @@ export default function ContactPage() {
 
             <div className="relative grid lg:grid-cols-[1.1fr_0.9fr] gap-10 px-6 py-10 sm:px-10 sm:py-14 lg:px-14 lg:py-16">
               <motion.div variants={fadeUp} className="max-w-2xl">
-                <div className="text-center">
-                  <div className="inline-flex items-center gap-2  rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700">
+                <div className="text-center sm:text-left">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700">
                     <MessageSquare className="h-4 w-4" />
-                    Contact Us
+                    Contact KonguNadu Agro
                   </div>
                 </div>
 
-                <h1 className="mt-4  text-center text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] text-slate-900">
+                {/* SEO Optimized H1 */}
+                <h1 className="mt-4 text-center sm:text-left text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] text-slate-900">
                   Build the right
                   <span className="block bg-gradient-to-r from-emerald-600 via-green-600 to-teal-500 bg-clip-text text-transparent">
                     irrigation solution
                   </span>
-                  with expert support.
+                  for the Kongu region.
                 </h1>
 
-                <p className="mt-5 max-w-xl text-base sm:text-lg Sm:text-center text-justify leading-6 text-slate-600">
-                  Reach out for product guidance, pricing, installation support,
-                  and business enquiries. We’ll help you choose a solution that
-                  fits your land, water needs, and budget.
+                {/* Localized Body Copy */}
+                <p className="mt-5 max-w-xl text-base sm:text-lg text-center sm:text-left leading-6 text-slate-600">
+                  Based in <strong>Gobichettipalayam</strong>, we provide expert product guidance, pricing, and installation support for farms across <strong>Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi</strong>. Reach out to choose a solution that fits your land and water needs.
                 </p>
 
-                <div className="mt-8 flex flex-wrap justify-center gap-4">
+                <div className="mt-8 flex flex-wrap justify-center sm:justify-start gap-4">
                   <a
-                    href="mailto:dtamilselvan1004@gmail.com"
+                    href="mailto:kongunaduagroproduct@gmail.com"
                     className="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/15 transition hover:-translate-y-0.5"
                   >
                     Email Us
                     <Send className="h-4 w-4" />
                   </a>
                   <a
-                    href="tel:+919361784871"
+                    href="tel:+919962699988"
                     className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-emerald-300 hover:text-emerald-700"
                   >
                     Call Now
@@ -119,17 +160,14 @@ export default function ContactPage() {
                       Send a Message
                     </h2>
                     <p className="mt-2 text-sm leading-6 text-slate-500">
-                      Fill in your details and we’ll get back to you as soon as
-                      possible.
+                      Fill in your details and our Gobichettipalayam team will get back to you promptly.
                     </p>
                   </div>
 
                   <form className="space-y-4">
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="mb-2 block text-sm font-medium text-slate-700">
-                          First Name
-                        </label>
+                        <label className="mb-2 block text-sm font-medium text-slate-700">First Name</label>
                         <input
                           type="text"
                           placeholder="Enter first name"
@@ -137,9 +175,7 @@ export default function ContactPage() {
                         />
                       </div>
                       <div>
-                        <label className="mb-2 block text-sm font-medium text-slate-700">
-                          Last Name
-                        </label>
+                        <label className="mb-2 block text-sm font-medium text-slate-700">Last Name</label>
                         <input
                           type="text"
                           placeholder="Enter last name"
@@ -150,9 +186,7 @@ export default function ContactPage() {
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="mb-2 block text-sm font-medium text-slate-700">
-                          Email Address
-                        </label>
+                        <label className="mb-2 block text-sm font-medium text-slate-700">Email Address</label>
                         <input
                           type="email"
                           placeholder="Enter email address"
@@ -160,9 +194,7 @@ export default function ContactPage() {
                         />
                       </div>
                       <div>
-                        <label className="mb-2 block text-sm font-medium text-slate-700">
-                          Phone Number
-                        </label>
+                        <label className="mb-2 block text-sm font-medium text-slate-700">Phone Number</label>
                         <input
                           type="tel"
                           placeholder="Enter phone number"
@@ -172,23 +204,19 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-medium text-slate-700">
-                        Subject
-                      </label>
+                      <label className="mb-2 block text-sm font-medium text-slate-700">Subject / Location</label>
                       <input
                         type="text"
-                        placeholder="How can we help you?"
+                        placeholder="E.g., Drip Irrigation inquiry in Pollachi"
                         className="w-full rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 outline-none transition focus:border-emerald-400 focus:bg-white"
                       />
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-medium text-slate-700">
-                        Message
-                      </label>
+                      <label className="mb-2 block text-sm font-medium text-slate-700">Message</label>
                       <textarea
                         rows={5}
-                        placeholder="Tell us about your requirement..."
+                        placeholder="Tell us about your farm's requirement..."
                         className="w-full resize-none rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 outline-none transition focus:border-emerald-400 focus:bg-white"
                       />
                     </div>
@@ -277,12 +305,12 @@ export default function ContactPage() {
                   <MapPin className="h-5 w-5" />
                 </div>
 
+                {/* SEO Optimized H2 */}
                 <h2 className="mt-6 text-3xl font-bold text-slate-900">
-                  Visit Our Office
+                  Visit Our Gobichettipalayam Office
                 </h2>
                 <p className="mt-3 max-w-md text-sm leading-7 text-slate-600">
-                  Meet us at our business location in Gobichettipalayam for
-                  product discussions, order support, and direct consultation.
+                  Meet us at our headquarters for product discussions, bulk orders, and direct consultation before we deploy to your farm.
                 </p>
 
                 <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-white p-5">
@@ -290,6 +318,8 @@ export default function ContactPage() {
                     Address
                   </p>
                   <address className="mt-3 not-italic text-slate-700 leading-7">
+                    <strong>KonguNadu Agro Products</strong>
+                    <br />
                     No. 123, Irrigation Complex,
                     <br />
                     Bhavani Main Road,
@@ -313,7 +343,7 @@ export default function ContactPage() {
 
               <div className="p-4 sm:p-5 lg:p-6">
                 <iframe
-                  title="Gobichettipalayam Location"
+                  title="KonguNadu Agro Products Location in Gobichettipalayam"
                   src="https://maps.google.com/maps?q=Gobichettipalayam%2C%20Tamil%20Nadu%20638452%2C%20India&z=15&output=embed"
                   width="100%"
                   height="100%"

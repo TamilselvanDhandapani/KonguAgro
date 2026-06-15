@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { FaBars, FaTimes, FaPhoneAlt, FaLeaf, FaSignInAlt } from "react-icons/fa";
+import {
+  FaBars,
+  FaTimes,
+  FaPhoneAlt,
+  FaLeaf,
+  FaSignInAlt,
+  FaMapMarkerAlt,
+  FaEnvelope,
+} from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
@@ -9,11 +17,20 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
+  // Added descriptive SEO titles to the nav items
   const navItems = [
-    { name: "Home", link: "/" },
-    { name: "Products", link: "/products" },
-    { name: "About Us", link: "/about" },
-    { name: "Contact", link: "/contact" },
+    { name: "Home", link: "/", title: "KonguNadu Agro Products Home" },
+    {
+      name: "Products",
+      link: "/products",
+      title: "Drip Irrigation Products & Pipes",
+    },
+    {
+      name: "About Us",
+      link: "/about",
+      title: "About Our Gobichettipalayam Manufacturing",
+    },
+    { name: "Contact", link: "/contact", title: "Contact KonguNadu Agro" },
   ];
 
   useEffect(() => {
@@ -46,15 +63,26 @@ const Navbar = () => {
           : "bg-white shadow-sm"
       }`}
     >
+      {/* NEW: Local SEO Top Banner */}
+      <div
+        className={`w-full bg-[#14532d] text-white transition-all duration-300 overflow-hidden  `}
+      >
+       
+      </div>
+
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-10">
         <nav className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link
+            to="/"
+            className="flex items-center"
+            title="KonguNadu Agro Products"
+          >
             <div className="flex items-center justify-center w-12 h-12 rounded-full mr-3 bg-green-50 border border-green-100 overflow-hidden">
               {logo ? (
                 <img
                   src={logo}
-                  alt="DropSmart Irrigation Logo"
+                  alt="KonguNadu Agro Products - Drip Irrigation Gobichettipalayam"
                   className="h-full w-full object-contain"
                 />
               ) : (
@@ -67,7 +95,7 @@ const Navbar = () => {
                 KonguAgro
               </span>
               <span className="text-xs text-[#2f855a] font-medium">
-                Irrigation
+                Products
               </span>
             </div>
           </Link>
@@ -78,27 +106,19 @@ const Navbar = () => {
               <Link
                 key={index}
                 to={item.link}
-                className={`px-4 py-2 rounded-lg text-[15px] font-medium transition-all duration-300 
-                ${
-                  location.pathname === item.link
-                    ? item.highlight
-                      ? "text-[#16a34a] border-b-2 border-[#16a34a]"
-                      : "text-[#14532d]"
-                    : item.highlight
-                    ? "text-[#14532d] hover:text-[#16a34a]"
-                    : "text-[#14532d]/80 hover:text-[#14532d]"
-                }`}
+                title={item.title}
+                className="px-4 py-2 rounded-lg text-[15px] font-medium transition-all duration-300 text-[#14532d]/80 hover:text-[#16a34a]"
               >
                 {item.name}
               </Link>
             ))}
 
-           
             {/* Login Button */}
             <a
               href="http://82.29.160.52:8070/odoo/discuss"
               target="_blank"
               rel="noopener noreferrer"
+              title="Employee Portal Login"
               className="ml-3 px-5 py-2.5 rounded-lg bg-[#14532d] text-white text-sm font-semibold shadow-md hover:shadow-lg transition-all hover:bg-[#166534]"
             >
               Login
@@ -107,11 +127,21 @@ const Navbar = () => {
 
           {/* Mobile Navigation Button */}
           <div className="flex lg:hidden items-center gap-3">
+            {/* Call Action for Mobile (Great for Local SEO Conversions) */}
+            <a
+              href="tel:+919962699988"
+              className="flex items-center justify-center w-9 h-9 rounded-full bg-green-50 text-green-700 border border-green-100"
+              aria-label="Call KonguNadu Agro"
+            >
+              <FaPhoneAlt className="text-sm" />
+            </a>
+
             {/* Login Icon */}
             <a
               href="http://82.29.160.52:8070/odoo/discuss"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Portal Login"
               className="flex items-center gap-1 px-3 py-2 rounded-lg bg-[#16a34a] text-white text-xs font-semibold shadow"
             >
               <FaSignInAlt className="text-sm" />
@@ -120,7 +150,8 @@ const Navbar = () => {
             <button
               onClick={toggleMenu}
               className="text-[#14532d] hover:text-[#16a34a] p-1 rounded-md focus:outline-none"
-              aria-label="Toggle menu"
+              aria-label="Toggle navigation menu"
+              aria-expanded={isOpen}
             >
               {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
@@ -138,6 +169,7 @@ const Navbar = () => {
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black z-40"
               onClick={toggleMenu}
+              aria-hidden="true"
             />
 
             <motion.div
@@ -153,7 +185,7 @@ const Navbar = () => {
                     {logo ? (
                       <img
                         src={logo}
-                        alt="DropSmart Irrigation Logo"
+                        alt="KonguNadu Agro Products Mobile Logo"
                         className="h-full w-full object-contain"
                       />
                     ) : (
@@ -163,10 +195,10 @@ const Navbar = () => {
 
                   <div className="flex flex-col">
                     <span className="text-lg font-extrabold text-[#14532d] leading-tight">
-                      DROPSMART
+                      KONGU AGRO
                     </span>
                     <span className="text-xs text-[#2f855a] font-medium">
-                      Irrigation
+                      Products
                     </span>
                   </div>
                 </Link>
@@ -174,13 +206,14 @@ const Navbar = () => {
                 <button
                   onClick={toggleMenu}
                   className="p-1 text-[#14532d] hover:text-[#16a34a] rounded-full"
+                  aria-label="Close menu"
                 >
                   <FaTimes size={18} />
                 </button>
               </div>
 
               {/* Navigation Items */}
-              <div className="flex flex-col justify-between h-full py-6">
+              <div className="flex flex-col justify-between h-full py-6 overflow-y-auto">
                 <ul className="w-full">
                   {navItems.map((item, index) => (
                     <motion.li
@@ -192,16 +225,9 @@ const Navbar = () => {
                     >
                       <Link
                         to={item.link}
+                        title={item.title}
                         onClick={toggleMenu}
-                        className={`block px-6 py-4 text-base text-center font-medium border-b border-gray-50 ${
-                          location.pathname === item.link
-                            ? item.highlight
-                              ? "text-[#16a34a]"
-                              : "text-[#14532d]"
-                            : item.highlight
-                            ? "text-[#14532d] hover:text-[#16a34a]"
-                            : "text-[#14532d]/80 hover:text-[#14532d]"
-                        }`}
+                        className="block px-6 py-4 text-base text-center font-medium border-b border-gray-50 text-[#14532d]/80 hover:text-[#16a34a]"
                       >
                         {item.name}
                       </Link>
@@ -209,7 +235,7 @@ const Navbar = () => {
                   ))}
                 </ul>
 
-                <div className="px-6 pt-6 space-y-3">
+                <div className="px-6 pt-6 space-y-3 pb-8">
                   <Link
                     to="/request-quote"
                     onClick={toggleMenu}
@@ -218,15 +244,13 @@ const Navbar = () => {
                     Request a Quote
                   </Link>
 
-                  {/* Contact Us (kept as requested) */}
-                  <Link
-                    to="/contact"
-                    onClick={toggleMenu}
+                  <a
+                    href="tel:+919962699988"
                     className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg bg-[#14532d] text-white text-sm font-semibold shadow hover:bg-[#166534] transition"
                   >
                     <FaPhoneAlt className="text-sm" />
-                    Contact Us
-                  </Link>
+                    Call Us Now
+                  </a>
                 </div>
               </div>
             </motion.div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 
 import {
@@ -27,38 +28,45 @@ import {
 import aboutImg from "../assets/home1.png";
 
 const About = () => {
-  const stats = [
-    {
-      value: "1984",
-      label: "Year Founded",
-      icon: <FaHistory className="text-2xl" />,
-    },
-    {
-      value: "40+",
-      label: "Years Experience",
-      icon: <FaRocket className="text-2xl" />,
-    },
-    {
-      value: "2",
-      label: "States Served",
-      icon: <MdAgriculture className="text-2xl" />,
-    },
-    {
-      value: "5000+",
-      label: "Happy Farmers",
-      icon: <GiFarmer className="text-2xl" />,
-    },
-  ];
+  // Local Business SEO Schema targeting the Kongu belt
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "KonguNadu Agro Products",
+      "foundingDate": "1984",
+      "description": "Trusted drip irrigation manufacturer and agricultural supplier based in Gobichettipalayam, with over 40 years of experience.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gobichettipalayam",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      },
+      "areaServed": [
+        "Gobichettipalayam",
+        "Erode",
+        "Coimbatore",
+        "Salem",
+        "Karur",
+        "Nilgiris",
+        "Pollachi"
+      ]
+    }
+  };
 
-  /* =========================
-     REDESIGNED TIMELINE DATA
-  ========================== */
+  const stats = [
+    { value: "1984", label: "Year Founded", icon: <FaHistory className="text-2xl" /> },
+    { value: "40+", label: "Years Experience", icon: <FaRocket className="text-2xl" /> },
+    { value: "2", label: "States Served", icon: <MdAgriculture className="text-2xl" /> },
+    { value: "5000+", label: "Happy Farmers", icon: <GiFarmer className="text-2xl" /> },
+  ];
 
   const timeline = [
     {
       year: "1984",
       title: "The Beginning",
-      description: "Founded as SN Engineering Works, starting our journey in agricultural innovation with Gobar Gas systems.",
+      description: "Founded as SN Engineering Works in Gobichettipalayam, starting our journey in agricultural innovation with Gobar Gas systems.",
       icon: <FaHistory />,
       color: "from-emerald-400 to-green-600",
       bgColor: "bg-emerald-50",
@@ -66,7 +74,7 @@ const About = () => {
     {
       year: "1992",
       title: "Plastics Manufacturing",
-      description: "Expanded into plastics manufacturing, laying the foundation for future irrigation products.",
+      description: "Expanded into plastics manufacturing, laying the foundation for future irrigation products across the Kongu region.",
       icon: <MdPrecisionManufacturing />,
       color: "from-blue-400 to-indigo-600",
       bgColor: "bg-blue-50",
@@ -74,7 +82,7 @@ const About = () => {
     {
       year: "2011",
       title: "Drip Irrigation Entry",
-      description: "Entered the drip irrigation market with innovative water-saving solutions for farmers.",
+      description: "Entered the drip irrigation market with innovative water-saving solutions tailored for Erode and Coimbatore farmers.",
       icon: <FaLeaf />,
       color: "from-green-400 to-teal-600",
       bgColor: "bg-green-50",
@@ -82,7 +90,7 @@ const About = () => {
     {
       year: "2013",
       title: "Manufacturing Excellence",
-      description: "Established state-of-the-art manufacturing facility with advanced quality control systems.",
+      description: "Established a state-of-the-art manufacturing facility with advanced quality control systems to serve Salem, Karur, and Pollachi.",
       icon: <FaIndustry />,
       color: "from-orange-400 to-red-600",
       bgColor: "bg-orange-50",
@@ -90,7 +98,7 @@ const About = () => {
     {
       year: "2021",
       title: "Government Recognition",
-      description: "VISDHA brand approved under Tamil Nadu Government subsidy scheme, reaching more farmers.",
+      description: "VISDHA brand approved under Tamil Nadu Government subsidy scheme, reaching more farmers from Nilgiris to deep South India.",
       icon: <FaAward />,
       color: "from-purple-400 to-pink-600",
       bgColor: "bg-purple-50",
@@ -102,45 +110,46 @@ const About = () => {
       icon: <FaLightbulb className="text-3xl" />,
       title: "Innovation",
       subtitle: "Pushing Boundaries",
-      desc:
-        "Continuously improving irrigation technology through modern manufacturing and R&D.",
+      desc: "Continuously improving irrigation technology through modern manufacturing and R&D.",
       color: "from-yellow-400 to-orange-500",
     },
     {
       icon: <FaLeaf className="text-3xl" />,
       title: "Sustainability",
       subtitle: "Eco-Friendly Focus",
-      desc:
-        "Promoting water-efficient farming practices for future generations.",
+      desc: "Promoting water-efficient farming practices for future generations.",
       color: "from-green-400 to-emerald-500",
     },
     {
       icon: <FaIndustry className="text-3xl" />,
       title: "Quality",
       subtitle: "Precision Manufacturing",
-      desc:
-        "Strict quality control and advanced testing for reliable products.",
+      desc: "Strict quality control and advanced testing for reliable agricultural products.",
       color: "from-blue-400 to-indigo-500",
     },
     {
       icon: <FaAward className="text-3xl" />,
       title: "Trust",
       subtitle: "Building Relationships",
-      desc:
-        "40+ years of strong partnerships with farmers and dealers.",
+      desc: "40+ years of strong partnerships with local farmers and dealers.",
       color: "from-purple-400 to-pink-500",
     },
   ];
 
   return (
     <div className="w-full min-h-screen bg-white overflow-hidden">
+      {/* SEO Helmet */}
+      <Helmet>
+        <title>About Us | KonguNadu Agro Products - Drip Irrigation Gobichettipalayam</title>
+        <meta name="description" content="Learn about KonguNadu Agro Products, Gobichettipalayam's trusted drip irrigation manufacturer with 40+ years of experience serving Erode, Coimbatore, Salem, Karur, Nilgiris & Pollachi." />
+        <meta name="keywords" content="KonguNadu Agro Products history, drip irrigation manufacturers Gobichettipalayam, agricultural pipes Coimbatore, Erode irrigation, Salem micro irrigation, Karur farm supplies, Nilgiris drip tape, Pollachi agriculture" />
+        <script type="application/ld+json">
+          {JSON.stringify(aboutSchema)}
+        </script>
+      </Helmet>
 
-      {/* =======================================================
-                            HERO SECTION
-      ======================================================= */}
-
+    
       <section className="relative overflow-hidden pt-32 pb-24 bg-gradient-to-br from-[#f8fcf8] via-white to-[#eef7f1]">
-
         {/* Blur Background */}
         <div className="absolute top-0 left-0 w-72 h-72 bg-[#9ac80f]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#2d6f68]/10 rounded-full blur-3xl" />
@@ -149,13 +158,11 @@ const About = () => {
         <div className="absolute top-20 left-10 opacity-20 animate-bounce">
           <GiSprout className="text-5xl text-[#2f7d4b]" />
         </div>
-
         <div className="absolute bottom-20 right-10 opacity-20 animate-bounce delay-700">
           <GiWaterDrop className="text-5xl text-[#9ac80f]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -173,9 +180,8 @@ const About = () => {
             className="mt-8 text-5xl md:text-7xl font-black tracking-tight"
           >
             <span className="text-[#173c36]">About </span>
-
             <span className="bg-gradient-to-r from-[#2f7d4b] to-[#9ac80f] bg-clip-text text-transparent">
-              Us
+              KonguNadu Agro
             </span>
           </motion.h1>
 
@@ -190,21 +196,15 @@ const About = () => {
               {" "}
               "Irrigation Made Easy"
             </span>
-            , we deliver innovative and reliable irrigation solutions empowering farmers across South India.
+            , we deliver innovative and reliable irrigation solutions empowering farmers across <strong>Gobichettipalayam, Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi.</strong>
           </motion.p>
         </div>
       </section>
 
-      {/* =======================================================
-                            STATS SECTION
-      ======================================================= */}
-
+     
       <section className="-mt-12 relative z-20 px-4 sm:px-6 lg:px-8">
-
         <div className="max-w-7xl mx-auto bg-white rounded-[2rem] border border-[#edf2ee] shadow-[0_20px_50px_rgba(0,0,0,0.06)] overflow-hidden">
-
           <div className="grid grid-cols-2 lg:grid-cols-4">
-
             {stats.map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -217,11 +217,9 @@ const About = () => {
                 <div className="flex justify-center text-[#9ac80f] mb-4 group-hover:scale-110 transition">
                   {stat.icon}
                 </div>
-
                 <div className="text-4xl font-black text-[#173c36]">
                   {stat.value}
                 </div>
-
                 <div className="mt-2 text-sm text-[#5f6f68] font-medium">
                   {stat.label}
                 </div>
@@ -231,16 +229,10 @@ const About = () => {
         </div>
       </section>
 
-      {/* =======================================================
-                            STORY SECTION
-      ======================================================= */}
-
+     
       <section className="py-24">
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-
             {/* IMAGE */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
@@ -249,11 +241,10 @@ const About = () => {
               className="relative"
             >
               <div className="absolute -top-6 -left-6 w-32 h-32 bg-[#9ac80f]/10 rounded-3xl" />
-
               <div className="relative rounded-[2rem] overflow-hidden border-2 border-[#9ac80f] shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
                 <img
                   src={aboutImg}
-                  alt="About"
+                  alt="KonguNadu Agro Products manufacturing facility in Gobichettipalayam serving Erode and Coimbatore"
                   className="w-full object-cover aspect-[4/3]"
                 />
               </div>
@@ -266,34 +257,28 @@ const About = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl font-bold text-[#173c36]">
-                Our Story
+                Our Story in Gobichettipalayam
               </h2>
-
               <div className="mt-4 w-24 h-1 rounded-full bg-gradient-to-r from-[#9ac80f] to-[#2f7d4b]" />
-
               <p className="mt-6 text-[#5f6f68] leading-relaxed">
-                Kongunadu Agro Products (KAPS) began its journey in 1984 as SN Engineering Works. Over four decades, we evolved from Gobar Gas systems into one of the trusted irrigation manufacturing brands in South India.
+                Kongunadu Agro Products (KAPS) began its journey in 1984 as SN Engineering Works in the heart of Gobichettipalayam. Over four decades, we evolved from Gobar Gas systems into one of the most trusted irrigation manufacturing brands in Tamil Nadu.
               </p>
-
               <p className="mt-5 text-[#5f6f68] leading-relaxed">
-                Our expertise spans plastics manufacturing, drip irrigation systems, inline drip technology, and precision agriculture products designed for modern farming.
+                Our expertise spans plastics manufacturing, drip irrigation systems, inline drip technology, and precision agriculture products designed to handle the specific soil and climate conditions of the wider Kongu belt.
               </p>
-
               <p className="mt-5 text-[#5f6f68] leading-relaxed">
-                Today, our VISDHA brand is recognized under the Tamil Nadu Government subsidy scheme, serving thousands of farmers with reliable and sustainable irrigation solutions.
+                Today, our VISDHA brand is recognized under the Tamil Nadu Government subsidy scheme, serving thousands of farmers across Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi with reliable and sustainable irrigation solutions.
               </p>
 
               {/* BADGES */}
               <div className="mt-8 flex flex-wrap gap-3">
-
                 <div className="px-4 py-2 rounded-full bg-[#e8f5e9] text-[#173c36] flex items-center gap-2">
                   <FaAward className="text-[#9ac80f]" />
                   ISO Certified
                 </div>
-
                 <div className="px-4 py-2 rounded-full bg-[#e8f5e9] text-[#173c36] flex items-center gap-2">
                   <FaHandshake className="text-[#9ac80f]" />
-                  Govt Approved
+                  Govt Approved Subsidy
                 </div>
               </div>
             </motion.div>
@@ -301,18 +286,13 @@ const About = () => {
         </div>
       </section>
 
-      {/* =======================================================
-                      REDESIGNED MODERN TIMELINE
-      ======================================================= */}
-
+    
       <section className="py-24 bg-gradient-to-b from-[#f8fcf8] via-white to-[#f0f7f0] overflow-hidden relative">
-        
         {/* Background decorative elements */}
         <div className="absolute top-0 left-0 w-64 h-64 bg-[#9ac80f]/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2d6f68]/5 rounded-full blur-3xl" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-
           {/* HEADING */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -321,20 +301,18 @@ const About = () => {
             className="text-center mb-20"
           >
             <h2 className="text-4xl md:text-5xl font-black text-[#173c36]">
-              Our Journey
+              Our Journey in the Kongu Region
             </h2>
             <p className="mt-4 text-[#5f6f68] max-w-2xl mx-auto">
-              From humble beginnings to becoming a trusted name in irrigation solutions
+              From humble beginnings in Gobi to becoming a trusted name in irrigation solutions across Western Tamil Nadu.
             </p>
             <div className="mt-4 w-24 h-1 bg-gradient-to-r from-[#9ac80f] to-[#2f7d4b] mx-auto rounded-full" />
           </motion.div>
 
           {/* ================= DESKTOP TIMELINE ================= */}
           <div className="hidden lg:block relative">
-            
             {/* Vertical timeline line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#9ac80f] via-[#2f7d4b] to-[#9ac80f] rounded-full" />
-
             <div className="space-y-20">
               {timeline.map((item, index) => (
                 <motion.div
@@ -358,15 +336,12 @@ const About = () => {
                         <span className="text-2xl">{item.icon}</span>
                         {item.year}
                       </div>
-                      
                       <h3 className="text-2xl font-bold text-[#173c36] mb-3">
                         {item.title}
                       </h3>
-                      
                       <p className="text-[#5f6f68] leading-relaxed">
                         {item.description}
                       </p>
-
                       {/* Decorative corner */}
                       <div className={`absolute top-0 ${index % 2 === 0 ? "right-0" : "left-0"} w-2 h-2 bg-gradient-to-r ${item.color} rounded-full opacity-0 group-hover:opacity-100 transition-opacity`} />
                     </motion.div>
@@ -392,10 +367,8 @@ const About = () => {
 
           {/* ================= MOBILE TIMELINE ================= */}
           <div className="lg:hidden relative">
-            
             {/* Mobile timeline line */}
             <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#9ac80f] via-[#2f7d4b] to-[#9ac80f] rounded-full" />
-
             <div className="space-y-12">
               {timeline.map((item, index) => (
                 <motion.div
@@ -425,11 +398,9 @@ const About = () => {
                       <span>{item.icon}</span>
                       {item.year}
                     </div>
-                    
                     <h3 className="text-xl font-bold text-[#173c36] mb-2">
                       {item.title}
                     </h3>
-                    
                     <p className="text-[#5f6f68] text-sm leading-relaxed">
                       {item.description}
                     </p>
@@ -441,44 +412,32 @@ const About = () => {
         </div>
       </section>
 
-      {/* =======================================================
-                            VALUES SECTION
-      ======================================================= */}
-
+     
       <section className="py-24 bg-white">
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
           <div className="text-center mb-14">
-
             <h2 className="text-4xl font-bold text-[#173c36]">
               Our Core Values
             </h2>
-
             <div className="mt-4 w-24 h-1 rounded-full bg-gradient-to-r from-[#9ac80f] to-[#2f7d4b] mx-auto" />
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-
             {values.map((item, i) => (
               <motion.div
                 key={i}
                 whileHover={{ y: -10 }}
                 className="group rounded-[2rem] bg-white border border-[#dce7c4] p-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all"
               >
-
                 <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white shadow-lg`}>
                   {item.icon}
                 </div>
-
                 <h3 className="mt-6 text-2xl font-bold text-[#173c36]">
                   {item.title}
                 </h3>
-
                 <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-[#9ac80f]">
                   {item.subtitle}
                 </p>
-
                 <p className="mt-4 text-[#5f6f68] leading-relaxed text-sm">
                   {item.desc}
                 </p>
@@ -493,16 +452,13 @@ const About = () => {
       ======================================================= */}
 
       <section className="py-24 px-4 sm:px-6 lg:px-8">
-
         <div className="max-w-6xl mx-auto">
-
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="rounded-[2rem] bg-gradient-to-br from-[#173c36] via-[#1d4b42] to-[#2d6f68] p-12 text-center shadow-[0_20px_50px_rgba(23,60,54,0.35)] relative overflow-hidden"
           >
-
             <div className="w-20 h-20 mx-auto rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6">
               <FaUsers className="text-4xl text-white" />
             </div>
@@ -512,32 +468,27 @@ const About = () => {
             </h2>
 
             <p className="mt-5 text-white/80 max-w-2xl mx-auto leading-relaxed">
-              Partner with us to bring efficient irrigation solutions to farmers across India.
+              Partner with Gobichettipalayam's leading manufacturer to bring efficient irrigation solutions to Erode, Coimbatore, Salem, and beyond.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-
               <button className="px-8 py-3 rounded-xl bg-gradient-to-r from-[#2f7d4b] to-[#3f9c68] text-white font-semibold shadow-lg hover:scale-105 transition">
                 Become a Dealer
               </button>
-
               <button className="px-8 py-3 rounded-xl border border-white/30 text-white hover:bg-white/10 transition">
                 Contact Us
               </button>
             </div>
 
             <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-white/70">
-
               <span className="flex items-center gap-2">
                 <FaHandshake className="text-[#9ac80f]" />
                 Trusted Partnerships
               </span>
-
               <span className="flex items-center gap-2">
                 <FaAward className="text-[#9ac80f]" />
                 Govt Approved
               </span>
-
               <span className="flex items-center gap-2">
                 <FaTint className="text-[#9ac80f]" />
                 Water Saving Solutions

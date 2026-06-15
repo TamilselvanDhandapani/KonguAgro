@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import {
   FaUser,
   FaPhoneAlt,
@@ -35,6 +36,33 @@ const RequestQuote = () => {
 
   const [submitted, setSubmitted] = useState(false);
 
+  // Localized WebPage Schema for the Quote Form
+  const quoteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Request a Drip Irrigation Quote - KonguNadu Agro Products",
+    "description": "Request a custom quotation for drip irrigation systems, agriculture pipes, and farm accessories in Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "KonguNadu Agro Products",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gobichettipalayam",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      },
+      "areaServed": [
+        "Gobichettipalayam",
+        "Erode",
+        "Coimbatore",
+        "Salem",
+        "Karur",
+        "Nilgiris",
+        "Pollachi"
+      ]
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -48,7 +76,7 @@ Additional Notes:
 ${form.notes}`;
 
     window.open(
-      `https://wa.me/919361784871?text=${encodeURIComponent(message)}`,
+      `https://wa.me/919962699988?text=${encodeURIComponent(message)}`,
       "_blank"
     );
 
@@ -70,15 +98,21 @@ ${form.notes}`;
   if (submitted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#f3fbf5] via-white to-[#eef7f1] flex items-center justify-center px-4">
+        {/* SEO Helmet for Success State */}
+        <Helmet>
+          <title>Quote Request Sent | KonguNadu Agro Products</title>
+          <meta name="robots" content="noindex" />
+        </Helmet>
+        
         <div className="max-w-xl w-full bg-white rounded-[2rem] border border-[#e7efe9] shadow-[0_20px_60px_rgba(0,0,0,0.06)] p-10 text-center">
           <div className="w-20 h-20 mx-auto rounded-full bg-green-100 flex items-center justify-center text-3xl mb-6">
             🌿
           </div>
           <h2 className="text-3xl font-bold text-[#173c36]">
-            Quote Request Sent
+            Request Sent to KonguNadu Agro
           </h2>
           <p className="mt-4 text-[#5f6f68] leading-relaxed">
-            WhatsApp should have opened with your details pre-filled.
+            WhatsApp should have opened with your details pre-filled. Our Gobichettipalayam team will review your requirements and reply shortly.
           </p>
           <button
             onClick={resetForm}
@@ -93,6 +127,16 @@ ${form.notes}`;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f3fbf5] via-white to-[#eef7f1]">
+      {/* SEO Helmet */}
+      <Helmet>
+        <title>Request a Drip Irrigation Quote | KonguNadu Agro Products</title>
+        <meta name="description" content="Get a custom quote for drip irrigation systems, pipes, and filters. KonguNadu Agro Products serves farms in Erode, Coimbatore, Salem, Karur, Nilgiris & Pollachi." />
+        <meta name="keywords" content="Drip irrigation quote Gobichettipalayam, agriculture pipes estimate Coimbatore, Erode farm irrigation cost, Salem micro irrigation setup, Karur drip accessories" />
+        <script type="application/ld+json">
+          {JSON.stringify(quoteSchema)}
+        </script>
+      </Helmet>
+
       {/* Hero */}
       <section className="relative overflow-hidden pt-28 pb-10 px-4 sm:px-6 lg:px-8">
         <div className="absolute top-0 left-0 w-72 h-72 bg-green-100/50 rounded-full blur-3xl" />
@@ -109,8 +153,7 @@ ${form.notes}`;
           </h1>
 
           <p className="mt-5 max-w-2xl mx-auto text-[#5f6f68] text-base sm:text-lg leading-relaxed">
-            Share your contact details and project requirements. We’ll prepare a
-            tailored quotation for your irrigation needs.
+            Share your farm's details and project requirements. Our Gobichettipalayam-based experts will prepare a tailored drip irrigation quotation for your farm in <strong>Erode, Coimbatore, Salem, Karur, Nilgiris, or Pollachi</strong>.
           </p>
         </div>
       </section>
@@ -123,8 +166,7 @@ ${form.notes}`;
               Your Contact Details
             </h2>
             <p className="mt-2 text-[#63736c] text-center">
-              Fill out the form below and we’ll get back to you with a custom
-              quote.
+              Fill out the form below and we’ll get back to you with a competitive local quote.
             </p>
           </div>
 
@@ -192,7 +234,7 @@ ${form.notes}`;
                     onChange={(e) =>
                       setForm((prev) => ({ ...prev, location: e.target.value }))
                     }
-                    placeholder="e.g. Coimbatore, Tamil Nadu"
+                    placeholder="e.g. Erode, Coimbatore, or Pollachi"
                     className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-[#dce8de] bg-[#fcfffc] focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
                 </Field>
@@ -208,7 +250,7 @@ ${form.notes}`;
                   onChange={(e) =>
                     setForm((prev) => ({ ...prev, farmType: e.target.value }))
                   }
-                  placeholder="e.g. Drip irrigated sugarcane, 5 acres"
+                  placeholder="e.g. Drip irrigated sugarcane in Salem, 5 acres"
                   className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-[#dce8de] bg-[#fcfffc] focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
               </Field>
@@ -223,7 +265,7 @@ ${form.notes}`;
                   onChange={(e) =>
                     setForm((prev) => ({ ...prev, notes: e.target.value }))
                   }
-                  placeholder="Any special requirements, pipe lengths, pressure specs..."
+                  placeholder="Any special requirements, pipe lengths, pressure specs, or specific terrain details..."
                   className="w-full px-4 py-3.5 rounded-xl border border-[#dce8de] bg-[#fcfffc] focus:outline-none focus:ring-2 focus:ring-green-500 resize-none"
                 />
               </div>
@@ -233,11 +275,11 @@ ${form.notes}`;
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-green-600 to-emerald-700 text-white font-semibold shadow-lg hover:shadow-xl transition"
               >
                 <FaPaperPlane className="text-sm" />
-                Send via WhatsApp
+                Send Request via WhatsApp
               </button>
 
               <p className="text-center text-xs text-[#88a08f]">
-                This opens WhatsApp with all details pre-filled.
+                This will open WhatsApp with your details pre-filled for our KonguNadu Agro support team.
               </p>
             </form>
           </div>
