@@ -2,15 +2,6 @@
 
 /home    /    301
 
-# Keep sitemap and robots accessible
-
-/sitemap.xml    /sitemap.xml    200
-/robots.txt     /robots.txt     200
-
-# Redirect www → non-www
-
-https://www.kongunaduagroproduct.com/*    https://kongunaduagroproduct.com/:splat    301!
-
 # React Router fallback
 
 /*    /index.html    200
