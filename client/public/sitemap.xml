@@ -1,60 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <!-- Home Page (Highest Priority) -->
-  <url>
-    <loc>https://www.yourwebsite.com/</loc>
-    <lastmod>2026-06-05</lastmod>
+
+```
+<!-- Home Page -->
+<url>
+    <loc>https://kongunaduagroproduct.com/</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
+</url>
 
-  <!-- Products Page -->
-  <url>
-    <loc>https://www.yourwebsite.com/products</loc>
-    <lastmod>2026-06-05</lastmod>
+<!-- Products Page -->
+<url>
+    <loc>https://kongunaduagroproduct.com/products</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>
+</url>
 
-  <!-- About Us Page -->
-  <url>
-    <loc>https://www.yourwebsite.com/about</loc>
-    <lastmod>2026-06-05</lastmod>
+<!-- About Us Page -->
+<url>
+    <loc>https://kongunaduagroproduct.com/about</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
+</url>
 
-  <!-- Contact Page -->
-  <url>
-    <loc>https://www.yourwebsite.com/contact</loc>
-    <lastmod>2026-06-05</lastmod>
+<!-- Contact Page -->
+<url>
+    <loc>https://kongunaduagroproduct.com/contact</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
+</url>
 
-  <!-- Request a Quote Page -->
-  <url>
-    <loc>https://www.yourwebsite.com/request-quote</loc>
-    <lastmod>2026-06-05</lastmod>
+<!-- Request Quote Page -->
+<url>
+    <loc>https://kongunaduagroproduct.com/request-quote</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
+</url>
 
-  <!-- Privacy Policy (Lower Priority) -->
-  <url>
-    <loc>https://www.yourwebsite.com/privacy-policy</loc>
-    <lastmod>2026-06-05</lastmod>
+<!-- Privacy Policy -->
+<url>
+    <loc>https://kongunaduagroproduct.com/privacy-policy</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
-  </url>
+</url>
 
-  <!-- Terms & Conditions (Lower Priority) -->
-  <url>
-    <loc>https://www.yourwebsite.com/terms</loc>
-    <lastmod>2026-06-05</lastmod>
+<!-- Terms & Conditions -->
+<url>
+    <loc>https://kongunaduagroproduct.com/terms</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
-  </url>
+</url>
+```
 
 </urlset>

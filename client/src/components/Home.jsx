@@ -8,13 +8,13 @@ import {
 } from "react-icons/fa";
 import { GiValve } from "react-icons/gi";
 import heroImg from "../assets/home2.png";
-import aboutImg from "../assets/home1.png";
+import aboutImg from "../assets/About.png";
 import supportBg from "../assets/img1.png";
 
 import pipeImg from "../assets/home3.png";
 import dripAccessoriesImg from "../assets/home4.png";
 import filtersImg from "../assets/home5.png";
-import venturiImg from "../assets/home2.png";
+import venturiImg from "../assets/Venturi.png";
 import { Link } from "react-router-dom";
 
 const Home = () => {
