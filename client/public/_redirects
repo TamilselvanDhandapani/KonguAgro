@@ -1,0 +1,8 @@
+# Redirect old pages from previous hosting
+/home   /   301
+
+# Redirect www → non-www
+https://www.kongunaduagroproduct.com/*  https://kongunaduagroproduct.com/:splat  301!
+
+# React routing fallback
+/*    /index.html   200
