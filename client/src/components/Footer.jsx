@@ -47,8 +47,8 @@ const Footer = () => {
               </div>
 
               <div className="flex flex-col">
-                <span className="text-2xl font-extrabold tracking-wide text-[#14532d]">
-                  KonguAgro
+                <span className="text-xl font-extrabold tracking-wide text-[#14532d]">
+                  KonguNadu Agro 
                 </span>
                 <span className="text-sm text-[#2f855a] font-medium">
                   Products

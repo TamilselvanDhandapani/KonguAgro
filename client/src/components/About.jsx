@@ -25,7 +25,7 @@ import {
   GiWaterDrop,
 } from "react-icons/gi";
 
-import aboutImg from "../assets/home1.png";
+import aboutImg from "../assets/story.png";
 
 const About = () => {
   // Local Business SEO Schema targeting the Kongu belt
@@ -170,7 +170,7 @@ const About = () => {
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#e8f5e9] text-[#2f7d4b] font-semibold shadow-md"
           >
             <MdPrecisionManufacturing />
-            Kongunadu Agro Products
+            KonguNadu Agro Products
           </motion.div>
 
           <motion.h1
@@ -245,7 +245,7 @@ const About = () => {
                 <img
                   src={aboutImg}
                   alt="KonguNadu Agro Products manufacturing facility in Gobichettipalayam serving Erode and Coimbatore"
-                  className="w-full object-cover aspect-[4/3]"
+                  className="w-full object-fit aspect-[4/3]"
                 />
               </div>
             </motion.div>
@@ -261,7 +261,7 @@ const About = () => {
               </h2>
               <div className="mt-4 w-24 h-1 rounded-full bg-gradient-to-r from-[#9ac80f] to-[#2f7d4b]" />
               <p className="mt-6 text-[#5f6f68] leading-relaxed">
-                Kongunadu Agro Products (KAPS) began its journey in 1984 as SN Engineering Works in the heart of Gobichettipalayam. Over four decades, we evolved from Gobar Gas systems into one of the most trusted irrigation manufacturing brands in Tamil Nadu.
+                KonguNadu Agro Products (KAPS) began its journey in 1984 as SN Engineering Works in the heart of Gobichettipalayam. Over four decades, we evolved from Gobar Gas systems into one of the most trusted irrigation manufacturing brands in Tamil Nadu.
               </p>
               <p className="mt-5 text-[#5f6f68] leading-relaxed">
                 Our expertise spans plastics manufacturing, drip irrigation systems, inline drip technology, and precision agriculture products designed to handle the specific soil and climate conditions of the wider Kongu belt.

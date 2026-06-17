@@ -149,7 +149,7 @@ const Home = () => {
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={fadeInLeft} className="space-y-6">
               {/* Optimized H2 */}
               <motion.h2 variants={fadeInUp} className="text-3xl sm:text-4xl font-bold text-gray-900 relative inline-block pb-2">
-                Welcome To Kongunadu Agro Products
+                Welcome To KonguNadu Agro Products
                 <span className="block text-xl sm:text-2xl text-green-700 mt-2 font-semibold">Top Irrigation Dealers in Gobichettipalayam</span>
                 <motion.span
                   initial={{ width: 0 }}
@@ -160,7 +160,7 @@ const Home = () => {
               </motion.h2>
 
               <motion.p variants={fadeInUp} className="text-gray-600 leading-relaxed text-justify">
-                Kongunadu Agro Products is a trusted name in the agricultural sector, offering high-quality agro-based products and solutions to farmers and agribusinesses. Established in Gobichettipalayam, the heart of Tamil Nadu's fertile Kongu region, we have grown into a reliable partner for farms across Erode, Coimbatore, and Salem seeking premium agricultural inputs and sustainable farming solutions.
+                KonguNadu Agro Products is a trusted name in the agricultural sector, offering high-quality agro-based products and solutions to farmers and agribusinesses. Established in Gobichettipalayam, the heart of Tamil Nadu's fertile Kongu region, we have grown into a reliable partner for farms across Erode, Coimbatore, and Salem seeking premium agricultural inputs and sustainable farming solutions.
               </motion.p>
 
               <motion.p variants={fadeInUp} className="text-gray-600 leading-relaxed text-justify">
@@ -179,7 +179,7 @@ const Home = () => {
               <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }} className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src={aboutImg}
-                  alt="Sustainable agriculture and drip irrigation supplied by Kongunadu Agro Products in Erode"
+                  alt="Sustainable agriculture and drip irrigation supplied by KonguNadu Agro Products in Erode"
                   className="w-full h-auto object-cover rounded-2xl"
                 />
                 <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.5 }} className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent rounded-2xl" />

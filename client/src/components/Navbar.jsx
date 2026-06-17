@@ -92,7 +92,7 @@ const Navbar = () => {
 
             <div className="flex flex-col">
               <span className="text-xl font-extrabold text-[#14532d] leading-tight tracking-wide">
-                KonguAgro
+                KonguNadu Agro
               </span>
               <span className="text-xs text-[#2f855a] font-medium">
                 Products
