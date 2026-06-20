@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; // SEO UPGRADE: Added for crawlable internal linking
 
 import {
   FaIndustry,
@@ -28,15 +29,20 @@ import {
 import aboutImg from "../assets/story.png";
 
 const About = () => {
-  // Local Business SEO Schema targeting the Kongu belt
+  // SEO UPGRADE: Enriched LocalBusiness Schema with Brand and Canonical URL data
   const aboutSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     "mainEntity": {
       "@type": "LocalBusiness",
       "name": "KonguNadu Agro Products",
+      "alternateName": "KAPS",
       "foundingDate": "1984",
       "description": "Trusted drip irrigation manufacturer and agricultural supplier based in Gobichettipalayam, with over 40 years of experience.",
+      "brand": {
+        "@type": "Brand",
+        "name": "VISDHA"
+      },
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Gobichettipalayam",
@@ -51,7 +57,8 @@ const About = () => {
         "Karur",
         "Nilgiris",
         "Pollachi"
-      ]
+      ],
+      "url": "https://www.kongunaduagroproduct.com/about"
     }
   };
 
@@ -98,7 +105,7 @@ const About = () => {
     {
       year: "2021",
       title: "Government Recognition",
-      description: "VISDHA brand approved under Tamil Nadu Government subsidy scheme, reaching more farmers from Nilgiris to deep South India.",
+      description: "VISDHA brand approved under Tamil Nadu PMKSY subsidy scheme, reaching more farmers from Nilgiris to deep South India.",
       icon: <FaAward />,
       color: "from-purple-400 to-pink-600",
       bgColor: "bg-purple-50",
@@ -138,11 +145,12 @@ const About = () => {
 
   return (
     <div className="w-full min-h-screen bg-white overflow-hidden">
-      {/* SEO Helmet */}
+      {/* SEO UPGRADE: Added Canonical URL to Helmet */}
       <Helmet>
         <title>About Us | KonguNadu Agro Products - Drip Irrigation Gobichettipalayam</title>
         <meta name="description" content="Learn about KonguNadu Agro Products, Gobichettipalayam's trusted drip irrigation manufacturer with 40+ years of experience serving Erode, Coimbatore, Salem, Karur, Nilgiris & Pollachi." />
         <meta name="keywords" content="KonguNadu Agro Products history, drip irrigation manufacturers Gobichettipalayam, agricultural pipes Coimbatore, Erode irrigation, Salem micro irrigation, Karur farm supplies, Nilgiris drip tape, Pollachi agriculture" />
+        <link rel="canonical" href="https://www.kongunaduagroproduct.com/about" />
         <script type="application/ld+json">
           {JSON.stringify(aboutSchema)}
         </script>
@@ -201,7 +209,6 @@ const About = () => {
         </div>
       </section>
 
-     
       <section className="-mt-12 relative z-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto bg-white rounded-[2rem] border border-[#edf2ee] shadow-[0_20px_50px_rgba(0,0,0,0.06)] overflow-hidden">
           <div className="grid grid-cols-2 lg:grid-cols-4">
@@ -229,7 +236,6 @@ const About = () => {
         </div>
       </section>
 
-     
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -267,7 +273,7 @@ const About = () => {
                 Our expertise spans plastics manufacturing, drip irrigation systems, inline drip technology, and precision agriculture products designed to handle the specific soil and climate conditions of the wider Kongu belt.
               </p>
               <p className="mt-5 text-[#5f6f68] leading-relaxed">
-                Today, our VISDHA brand is recognized under the Tamil Nadu Government subsidy scheme, serving thousands of farmers across Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi with reliable and sustainable irrigation solutions.
+                Today, our <strong>VISDHA</strong> brand is recognized under the <strong>Tamil Nadu PMKSY government subsidy scheme</strong>, serving thousands of farmers across Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi with reliable and sustainable irrigation solutions.
               </p>
 
               {/* BADGES */}
@@ -286,7 +292,6 @@ const About = () => {
         </div>
       </section>
 
-    
       <section className="py-24 bg-gradient-to-b from-[#f8fcf8] via-white to-[#f0f7f0] overflow-hidden relative">
         {/* Background decorative elements */}
         <div className="absolute top-0 left-0 w-64 h-64 bg-[#9ac80f]/5 rounded-full blur-3xl" />
@@ -412,7 +417,6 @@ const About = () => {
         </div>
       </section>
 
-     
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
@@ -471,13 +475,14 @@ const About = () => {
               Partner with Gobichettipalayam's leading manufacturer to bring efficient irrigation solutions to Erode, Coimbatore, Salem, and beyond.
             </p>
 
+            {/* SEO CRAWLABILITY FIX: Swapped un-crawlable <button> tags with <Link> to pass authority */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="px-8 py-3 rounded-xl bg-gradient-to-r from-[#2f7d4b] to-[#3f9c68] text-white font-semibold shadow-lg hover:scale-105 transition">
+              <Link to="/contact" className="px-8 py-3 rounded-xl bg-gradient-to-r from-[#2f7d4b] to-[#3f9c68] text-white font-semibold shadow-lg hover:scale-105 transition text-center inline-block">
                 Become a Dealer
-              </button>
-              <button className="px-8 py-3 rounded-xl border border-white/30 text-white hover:bg-white/10 transition">
+              </Link>
+              <Link to="/contact" className="px-8 py-3 rounded-xl border border-white/30 text-white hover:bg-white/10 transition text-center inline-block">
                 Contact Us
-              </button>
+              </Link>
             </div>
 
             <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-white/70">

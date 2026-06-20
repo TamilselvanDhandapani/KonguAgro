@@ -18,13 +18,14 @@ import venturiImg from "../assets/Venturi.png";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  // SEO Schema Markup targeting the Kongu Belt
+
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "KonguNadu Agro Products",
-    "image": heroImg,
-    "description": "Premium drip irrigation systems, agriculture pipes, and farm accessories supplier based in Gobichettipalayam, serving Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi.",
+    "alternateName": "KAPS",
+    "image": "https://www.kongunaduagroproduct.com/assets/home2.png",
+    "description": "Established in 1984, KAPS manufactures VISDHA micro-irrigation systems. Authorized dealer under the Tamil Nadu Government PMKSY subsidy scheme.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Gobichettipalayam",
@@ -32,10 +33,14 @@ const Home = () => {
       "addressCountry": "IN"
     },
     "areaServed": [
-      "Gobichettipalayam", "Erode", "Coimbatore", "Salem", "Karur", "Nilgiri", "Pollachi"
+      "Gobichettipalayam", "Erode", "Coimbatore", "Salem", "Karur", "Nilgiris", "Pollachi"
     ],
-    "telephone": "+91-XXXXXXXXXX", // Add your phone number here
-    "url": "https://www.yourwebsite.com" // Add your actual domain here
+    "brand": {
+      "@type": "Brand",
+      "name": "VISDHA"
+    },
+    "telephone": "+91- 9962699988", 
+    "url": "https://www.kongunaduagroproduct.com" 
   };
 
   const features = [
@@ -61,11 +66,12 @@ const Home = () => {
 
   return (
     <div className="w-full min-h-screen bg-white">
-      {/* SEO Helmet */}
+      {/* UPGRADED SEO HELMET: Targeting exact keywords and canonical links */}
       <Helmet>
-        <title>Best Drip Irrigation in Erode, Coimbatore & Salem | KonguNadu Agro</title>
-        <meta name="description" content="KonguNadu Agro Products in Gobichettipalayam offers premium drip irrigation systems for farms. Serving Erode, Coimbatore, Salem, Karur, Nilgiris & Pollachi." />
-        <meta name="keywords" content="Drip irrigation Gobichettipalayam, Drip irrigation Erode, Micro irrigation Coimbatore, Farm irrigation Salem, Drip tape Nilgiris, Agriculture pipes Pollachi, KonguNadu Agro Products" />
+        <title>Top Irrigation Dealers in Gobichettipalayam | VISDHA Subsidy | KAPS</title>
+        <meta name="description" content="KonguNadu Agro Products manufactures VISDHA micro-irrigation systems. 100% TN Govt PMKSY subsidy approved. Serving Erode, Salem, Coimbatore & Pollachi." />
+        <meta name="keywords" content="Irrigation Dealers in Gobichettipalayam, Drip irrigation systems Erode, VISDHA brand subsidy, Micro irrigation Tamil Nadu, Agriculture products Salem" />
+        <link rel="canonical" href="https://www.kongunaduagroproduct.com/" />
         <script type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
         </script>
@@ -97,19 +103,20 @@ const Home = () => {
                   For the Kongu Region.
                 </h1>
 
-                {/* Localized Subtext */}
+                {/* Localized Subtext with SEO Brand & Subsidy injection */}
                 <p className="mt-4 text-base sm:text-md lg:text-lg text-white/90 max-w-xl leading-relaxed text-center sm:text-left mx-auto sm:mx-0">
-                  Based in <strong>Gobichettipalayam</strong>, we supply efficient micro-irrigation solutions for sustainable farming across <strong>Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi.</strong>
+                  Based in <strong>Gobichettipalayam</strong>, we manufacture <strong>VISDHA</strong> micro-irrigation solutions approved for <strong>100% PMKSY government subsidies</strong>. Serving farms across Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi.
                 </p>
 
                 <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 justify-center sm:justify-start">
-                  <motion.button
+                  <motion.div
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-6 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-semibold shadow-md transition duration-300"
                   >
-                    Explore Our Solutions
-                  </motion.button>
+                    <Link to="/products" className="px-6 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-semibold shadow-md transition duration-300 inline-block">
+                      Explore Our Solutions
+                    </Link>
+                  </motion.div>
                 </div>
               </motion.div>
             </div>
@@ -160,15 +167,15 @@ const Home = () => {
               </motion.h2>
 
               <motion.p variants={fadeInUp} className="text-gray-600 leading-relaxed text-justify">
-                KonguNadu Agro Products is a trusted name in the agricultural sector, offering high-quality agro-based products and solutions to farmers and agribusinesses. Established in Gobichettipalayam, the heart of Tamil Nadu's fertile Kongu region, we have grown into a reliable partner for farms across Erode, Coimbatore, and Salem seeking premium agricultural inputs and sustainable farming solutions.
+                KonguNadu Agro Products (KAPS) is a trusted name in the agricultural sector, offering high-quality agro-based products to farmers. Established in Gobichettipalayam, the heart of Tamil Nadu's fertile Kongu region, we are the proud manufacturers of the <strong>VISDHA</strong> brand. We serve farms across Erode, Coimbatore, and Salem seeking premium agricultural inputs.
               </motion.p>
 
               <motion.p variants={fadeInUp} className="text-gray-600 leading-relaxed text-justify">
-                Our range includes carefully sourced drip accessories, micro-irrigation systems, filters, and other agro-commodities that support farmer livelihoods. We ensure every farm from Karur to the Nilgiris gets the precise watering solutions needed to maximize crop yield while conserving water.
+                Our range includes carefully sourced drip accessories, inline micro-irrigation systems, and filters. We are an authorized supplier under the <strong>Tamil Nadu PMKSY subsidy scheme</strong>, ensuring every farm from Karur to the Nilgiris gets precise, subsidized watering solutions to maximize crop yield.
               </motion.p>
 
               <motion.div variants={fadeInUp} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="pt-4">
-                <Link to="/products" className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md transition duration-300">
+                <Link to="/products" className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md transition duration-300 inline-block">
                   Discover Our Products
                 </Link>
               </motion.div>
@@ -204,6 +211,9 @@ const Home = () => {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {products.map((product, index) => (
               <motion.div key={index} variants={fadeInScale} whileHover={{ y: -8, scale: 1.02 }} transition={{ duration: 0.3 }} className="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer">
+                {/* SEO CRAWLABILITY FIX: Adding an invisible link over the entire card so Googlebot can follow it */}
+                <Link to="/products" className="absolute inset-0 z-10" aria-label={`View ${product.name}`}></Link>
+                
                 <div className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
                   <img 
                     src={product.image} 
@@ -211,7 +221,7 @@ const Home = () => {
                     className="w-full h-50% object-contain group-hover:scale-110 transition-transform duration-500 ease-out"
                   />
                 </div>
-                <div className="p-5 text-center">
+                <div className="p-5 text-center relative z-0">
                   <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 line-clamp-1">{product.name}</h3>
                   <p className="text-gray-500 text-sm mb-3 line-clamp-2">Premium quality irrigation solution</p>
                 </div>
@@ -232,7 +242,7 @@ const Home = () => {
             <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
               <span className="text-[#173c36]">Smart Irrigation,</span>
               <span className="bg-gradient-to-r from-[#2f7d4b] via-[#3f9c68] to-[#2d6f68] bg-clip-text text-transparent">
-                Smarter Future
+                {" "}Smarter Future
               </span>
             </motion.h2>
             
@@ -247,7 +257,7 @@ const Home = () => {
               {[
                 { value: "15,000+", label: "Farms Served", icon: "🌱" },
                 { value: "98%", label: "Customer Satisfaction", icon: "⭐" },
-                { value: "500M+", label: "Gallons Saved", icon: "💧" },
+                { value: "100%", label: "Subsidy Guidance", icon: "📑" },
                 { value: "6+", label: "Districts Covered", icon: "📍" }
               ].map((stat, idx) => (
                 <div key={idx} className="px-6 py-8 text-center group hover:bg-white/5 transition-colors">
@@ -279,13 +289,13 @@ const Home = () => {
             </motion.h2>
 
             <motion.p variants={fadeInUp} className="text-white/80 text-lg max-w-3xl mx-auto mt-5 mb-14">
-              From expert consultation to after-installation assistance, our Gobichettipalayam team travels across the Kongu region to ensure your system performs flawlessly.
+              From PMKSY subsidy documentation to after-installation assistance, our Gobichettipalayam team travels across the Kongu region to ensure your system performs flawlessly.
             </motion.p>
 
             <motion.div variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
               {[
                 { icon: <FaUsers className="text-3xl text-[#2f7d4b]" />, title: "Expert Consultation", desc: "Get crop-specific irrigation advice and system recommendations tailored to Tamil Nadu soils.", iconBg: "bg-gradient-to-br from-[#e8f5e9] to-[#d4efe0]" },
-                { icon: <FaHeadset className="text-3xl text-[#2d6f68]" />, title: "Fast Response Support", desc: "Reliable help for troubleshooting and maintenance in Erode, Salem, and Coimbatore.", iconBg: "bg-gradient-to-br from-[#e0f2f1] to-[#c8e6e5]" },
+                { icon: <FaHeadset className="text-3xl text-[#2d6f68]" />, title: "Subsidy Assistance", desc: "Complete support navigating the MIMIS portal for 100% government drip subsidies.", iconBg: "bg-gradient-to-br from-[#e0f2f1] to-[#c8e6e5]" },
                 { icon: <FaTools className="text-3xl text-[#4d8c7c]" />, title: "Installation Guidance", desc: "Practical assistance for setup, spacing, filtration, and pressure management.", iconBg: "bg-gradient-to-br from-[#e6f3ef] to-[#d4e9e3]" },
                 { icon: <FaSeedling className="text-3xl text-[#5d9f5c]" />, title: "Seasonal Optimization", desc: "Adjust flow and watering schedules to match seasonal crop and climate needs.", iconBg: "bg-gradient-to-br from-[#f1f8e9] to-[#e4f3df]" },
               ].map((item, index) => (

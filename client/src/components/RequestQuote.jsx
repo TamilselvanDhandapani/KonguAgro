@@ -36,15 +36,21 @@ const RequestQuote = () => {
 
   const [submitted, setSubmitted] = useState(false);
 
-  // Localized WebPage Schema for the Quote Form
+  // SEO UPGRADE: Enhanced ContactPage Schema with PotentialAction for Lead Generation
   const quoteSchema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "ContactPage",
     "name": "Request a Drip Irrigation Quote - KonguNadu Agro Products",
-    "description": "Request a custom quotation for drip irrigation systems, agriculture pipes, and farm accessories in Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi.",
+    "description": "Request a custom quotation for VISDHA drip irrigation systems, agriculture pipes, and PMKSY subsidy guidance.",
+    "potentialAction": {
+      "@type": "QuoteAction",
+      "target": "https://www.kongunaduagroproduct.com/request-quote"
+    },
     "provider": {
       "@type": "LocalBusiness",
       "name": "KonguNadu Agro Products",
+      "alternateName": "KAPS",
+      "telephone": "+91-9962699988",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Gobichettipalayam",
@@ -127,11 +133,12 @@ ${form.notes}`;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f3fbf5] via-white to-[#eef7f1]">
-      {/* SEO Helmet */}
+      {/* SEO UPGRADE: Sharpened Meta Tags and Canonical Link */}
       <Helmet>
-        <title>Request a Drip Irrigation Quote | KonguNadu Agro Products</title>
-        <meta name="description" content="Get a custom quote for drip irrigation systems, pipes, and filters. KonguNadu Agro Products serves farms in Erode, Coimbatore, Salem, Karur, Nilgiris & Pollachi." />
-        <meta name="keywords" content="Drip irrigation quote Gobichettipalayam, agriculture pipes estimate Coimbatore, Erode farm irrigation cost, Salem micro irrigation setup, Karur drip accessories" />
+        <title>Request a VISDHA Drip Irrigation Quote | KonguNadu Agro</title>
+        <meta name="description" content="Get a custom quote for VISDHA drip irrigation systems and PMKSY subsidy guidance. KAPS serves farms in Erode, Coimbatore, Salem, Karur, Nilgiris & Pollachi." />
+        <meta name="keywords" content="Drip irrigation quote Gobichettipalayam, VISDHA agriculture pipes estimate Coimbatore, Erode farm irrigation cost, Salem micro irrigation setup, Karur drip accessories" />
+        <link rel="canonical" href="https://www.kongunaduagroproduct.com/request-quote" />
         <script type="application/ld+json">
           {JSON.stringify(quoteSchema)}
         </script>
@@ -153,7 +160,7 @@ ${form.notes}`;
           </h1>
 
           <p className="mt-5 max-w-2xl mx-auto text-[#5f6f68] text-base sm:text-lg leading-relaxed">
-            Share your farm's details and project requirements. Our Gobichettipalayam-based experts will prepare a tailored drip irrigation quotation for your farm in <strong>Erode, Coimbatore, Salem, Karur, Nilgiris, or Pollachi</strong>.
+            Share your farm's details and project requirements. Our Gobichettipalayam-based experts will prepare a tailored <strong>VISDHA drip irrigation</strong> quotation for your farm in <strong>Erode, Coimbatore, Salem, Karur, Nilgiris, or Pollachi</strong>.
           </p>
         </div>
       </section>
@@ -166,7 +173,7 @@ ${form.notes}`;
               Your Contact Details
             </h2>
             <p className="mt-2 text-[#63736c] text-center">
-              Fill out the form below and we’ll get back to you with a competitive local quote.
+              Fill out the form below and we’ll get back to you with a competitive local quote and PMKSY subsidy advice.
             </p>
           </div>
 
@@ -250,7 +257,8 @@ ${form.notes}`;
                   onChange={(e) =>
                     setForm((prev) => ({ ...prev, farmType: e.target.value }))
                   }
-                  placeholder="e.g. Drip irrigated sugarcane in Salem, 5 acres"
+                  /* SEO UPGRADE: Injected Brand/Location keywords into placeholder */
+                  placeholder="e.g. VISDHA Drip irrigated sugarcane in Salem, 5 acres"
                   className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-[#dce8de] bg-[#fcfffc] focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
               </Field>
@@ -265,7 +273,7 @@ ${form.notes}`;
                   onChange={(e) =>
                     setForm((prev) => ({ ...prev, notes: e.target.value }))
                   }
-                  placeholder="Any special requirements, pipe lengths, pressure specs, or specific terrain details..."
+                  placeholder="Any special requirements, PMKSY subsidy queries, pressure specs, or terrain details..."
                   className="w-full px-4 py-3.5 rounded-xl border border-[#dce8de] bg-[#fcfffc] focus:outline-none focus:ring-2 focus:ring-green-500 resize-none"
                 />
               </div>

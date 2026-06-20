@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { FaCogs } from "react-icons/fa";
 import { MdPrecisionManufacturing } from "react-icons/md";
 
-// --- Original image imports (replace with your actual paths) ---
+// --- Original image imports ---
 import onlinePipeImg from "../assets/OnlinePipe.png";
 import inlinePipeImg from "../assets/InlinePipe.png";
 import pvcPipeImg from "../assets/PVCpipe.png";
@@ -173,7 +173,7 @@ const ProductShowcaseCard = ({ product }) => {
         <div className="w-full lg:w-[280px] xl:w-[360px] 2xl:w-[400px] shrink-0 rounded-2xl sm:rounded-[2rem] border-2 border-[#9ac80f] overflow-hidden bg-white">
           <img
             src={product.image}
-            alt={`${product.title} - High quality drip irrigation components by KonguNadu Agro Products in Tamil Nadu`}
+            alt={`VISDHA ${product.title} - High quality drip irrigation components by KonguNadu Agro Products in Tamil Nadu`}
             className="w-full h-full object-cover aspect-[4/3] sm:aspect-[16/10] lg:aspect-square"
           />
         </div>
@@ -200,14 +200,41 @@ const ProductShowcaseCard = ({ product }) => {
 
 // --- Combined Products component ---
 const Products = () => {
-  // Localized SEO Schema for Products Page
+  // SEO UPGRADE: Enhanced ItemList Schema mapping to specific product types and the VISDHA brand
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Agriculture Inline & Online Pipes" },
-      { "@type": "ListItem", "position": 2, "name": "Drip Irrigation Accessories & Valves" },
-      { "@type": "ListItem", "position": 3, "name": "Micro Irrigation Screen & Disc Filters" }
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Product",
+          "name": "VISDHA Agriculture Inline & Online Pipes",
+          "brand": { "@type": "Brand", "name": "VISDHA" },
+          "description": "High strength irrigation grade PVC, inline, and online lateral pipes."
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Product",
+          "name": "VISDHA Drip Irrigation Accessories & Valves",
+          "brand": { "@type": "Brand", "name": "VISDHA" },
+          "description": "Precision flow control ball valves, air release valves, and online drippers."
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Product",
+          "name": "VISDHA Micro Irrigation Filters",
+          "brand": { "@type": "Brand", "name": "VISDHA" },
+          "description": "Semi-automatic screen filters, disc filters, and hydro cyclone sand separation systems."
+        }
+      }
     ],
     "mainEntityOfPage": {
       "@type": "LocalBusiness",
@@ -233,11 +260,12 @@ const Products = () => {
 
   return (
     <div className="w-full min-h-screen bg-white">
-      {/* SEO Helmet */}
+      {/* SEO UPGRADE: Sharpened Meta Tags and Canonical Link */}
       <Helmet>
-        <title>Drip Irrigation Pipes & Filters in Erode, Coimbatore | KonguNadu Agro</title>
-        <meta name="description" content="Explore KonguNadu Agro Products' complete range of drip irrigation pipes, filters, and accessories in Gobichettipalayam. Supplying farms in Salem, Karur, Nilgiris & Pollachi." />
-        <meta name="keywords" content="Agriculture pipes Coimbatore, Drip irrigation filters Erode, Micro irrigation accessories Salem, Farm pipes Karur, Drip tape Nilgiris, PVC pipes Pollachi, KonguNadu Agro Products Gobichettipalayam" />
+        <title>VISDHA Drip Irrigation Pipes & Filters | KonguNadu Agro Products</title>
+        <meta name="description" content="Explore KAPS's complete VISDHA range of drip irrigation pipes, filters, and accessories in Gobichettipalayam. 100% PMKSY subsidy approved for TN farms." />
+        <meta name="keywords" content="VISDHA Agriculture pipes Coimbatore, Drip irrigation filters Erode, Micro irrigation accessories Salem, Farm pipes Karur, Drip tape Nilgiris, PVC pipes Pollachi, KonguNadu Agro Products Gobichettipalayam" />
+        <link rel="canonical" href="https://www.kongunaduagroproduct.com/products" />
         <script type="application/ld+json">
           {JSON.stringify(productSchema)}
         </script>
@@ -265,19 +293,20 @@ const Products = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight"
           >
-            <span className="text-[#173c36]">Premium Drip </span>
+            <span className="text-[#173c36]">VISDHA Drip </span>
             <span className="bg-gradient-to-r from-[#2f7d4b] via-[#3f9c68] to-[#2d6f68] bg-clip-text text-transparent">
               Irrigation Products
             </span>
           </motion.h1>
 
+          {/* SEO UPGRADE: Injected Subsidy language naturally into the paragraph */}
           <motion.p
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-6 text-lg text-[#5f6f68] max-w-3xl mx-auto leading-relaxed"
           >
-            Explore our complete drip irrigation product ecosystem — from head units and pipelines to emitters, fittings, and specialty flow control components built for efficient and sustainable agriculture across <strong>Gobichettipalayam, Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi.</strong>
+            Explore our complete <strong>VISDHA</strong> drip irrigation product ecosystem — from head units and pipelines to emitters, fittings, and specialty flow control components. Built for efficient agriculture and approved for <strong>PMKSY government subsidies</strong> across <strong>Gobichettipalayam, Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi.</strong>
           </motion.p>
         </div>
       </section>
@@ -373,9 +402,13 @@ const Products = () => {
               >
                 Request a Quote
               </Link>
-              <button className="px-7 py-3 rounded-xl border border-white/25 text-white hover:bg-white/10 font-semibold transition">
+              {/* SEO UPGRADE: Replaced <button> with React Router <Link> */}
+              <Link 
+                to="/contact" 
+                className="px-7 py-3 rounded-xl border border-white/25 text-white hover:bg-white/10 font-semibold transition inline-block"
+              >
                 Contact Our Local Team
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>

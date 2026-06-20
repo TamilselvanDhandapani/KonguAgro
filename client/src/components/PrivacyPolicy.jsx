@@ -10,38 +10,28 @@ import {
   Users, 
   FileText, 
   Bell, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  ChevronDown,
-  ArrowUp,
-  Menu,
-  X,
   ExternalLink,
-  Download,
-  BookOpen,
-  Clock,
-  CheckCircle2,
   ArrowRight,
+  CheckCircle2,
   Star,
-  Sparkles
+  Sparkles,
+  BookOpen,
+  ChevronDown
 } from "lucide-react";
 
 const PrivacyPolicy = () => {
   const [activeSection, setActiveSection] = useState(null);
-  const [showScrollTop, setShowScrollTop] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [lastUpdated] = useState("January 15, 2025");
 
-  // SEO Schema for Legal Page
+  // SEO UPGRADE: Enhanced PolicyPage Schema to establish legal legitimacy
   const privacySchema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "PolicyPage",
     "name": "Privacy Policy - KonguNadu Agro Products",
     "description": "Privacy Policy for KonguNadu Agro Products. Learn how we protect customer information across the Kongu region.",
     "publisher": {
       "@type": "LocalBusiness",
       "name": "KonguNadu Agro Products",
+      "alternateName": "KAPS",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Gobichettipalayam",
@@ -126,46 +116,26 @@ const PrivacyPolicy = () => {
     }
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 400);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const fadeUpVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-green-50/50">
-      {/* SEO Helmet */}
+      {/* SEO UPGRADE: Sharpened Meta Tags and Canonical URL */}
       <Helmet>
         <title>Privacy Policy | KonguNadu Agro Products - Gobichettipalayam</title>
-        <meta name="description" content="Privacy Policy for KonguNadu Agro Products. Learn how we protect the data of our customers across Gobichettipalayam, Erode, Coimbatore, and the Kongu region." />
+        <meta name="description" content="Privacy Policy for KonguNadu Agro Products. We are committed to protecting the data of our farmers and customers across Gobichettipalayam, Erode, Coimbatore, and the Kongu region." />
+        <link rel="canonical" href="https://www.kongunaduagroproduct.com/privacy-policy" />
         <script type="application/ld+json">
           {JSON.stringify(privacySchema)}
         </script>
       </Helmet>
 
-      
-
-      {/* Hero Section - KEPT EXACTLY AS ORIGINAL */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-green-900 to-emerald-900">
-        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-34 md:py-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -184,19 +154,12 @@ const PrivacyPolicy = () => {
             </h1>
             
            <p className="mx-auto max-w-3xl text-lg md:text-xl leading-8 text-gray-300 font-serif">
-  Your privacy is important to us. This policy explains how KonguNadu Agro
-  Products collects, uses, and protects your information when you use our
-  website and services across the Kongu region.
-</p>
-
-            
+             Your privacy is important to us. This policy explains how KonguNadu Agro Products collects, uses, and protects your information when you use our website and services across the Kongu region.
+           </p>
           </motion.div>
         </div>
-
-        
       </section>
 
-      {/* MODERN REDESIGNED QUICK NAVIGATION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 relative z-10 mb-20">
         <div className="bg-white rounded-3xl shadow-2xl shadow-gray-200/50 p-8 md:p-10 border border-gray-100">
           <div className="flex items-center justify-between mb-8">
@@ -241,7 +204,6 @@ const PrivacyPolicy = () => {
         </div>
       </section>
 
-      {/* MODERN REDESIGNED MAIN CONTENT */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="grid md:grid-cols-2 gap-6">
           {sections.map((section, index) => (
@@ -257,11 +219,9 @@ const PrivacyPolicy = () => {
                 index === sections.length - 1 && sections.length % 2 !== 0 ? 'md:col-span-2' : ''
               }`}
             >
-              {/* Decorative gradient blob */}
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full opacity-0 group-hover:opacity-50 transition-opacity duration-500 blur-2xl" />
               
               <div className="relative p-8">
-                {/* Header */}
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center space-x-4">
                     <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${section.color} flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
@@ -298,7 +258,6 @@ const PrivacyPolicy = () => {
                   </motion.button>
                 </div>
                 
-                {/* Content Preview */}
                 <div className={`${activeSection === section.id ? 'hidden' : 'block'}`}>
                   <p className="text-gray-600 line-clamp-2 leading-relaxed">
                     {section.content}
@@ -312,7 +271,6 @@ const PrivacyPolicy = () => {
                   </button>
                 </div>
                 
-                {/* Expanded Content */}
                 <AnimatePresence>
                   {activeSection === section.id && (
                     <motion.div
@@ -328,7 +286,6 @@ const PrivacyPolicy = () => {
                             {section.content}
                           </p>
                           
-                          {/* Additional Info */}
                           <div className="mt-6 flex flex-wrap gap-3">
                             <div className="flex items-center space-x-2 text-xs text-gray-500 bg-white px-3 py-2 rounded-full border border-gray-200">
                               <CheckCircle2 className="w-3 h-3 text-green-500" />
@@ -349,7 +306,6 @@ const PrivacyPolicy = () => {
           ))}
         </div>
 
-        {/* Trust Indicators */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -384,10 +340,6 @@ const PrivacyPolicy = () => {
           </div>
         </motion.div>
       </section>
-
-    
-
-      
     </div>
   );
 };

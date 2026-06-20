@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom'; // SEO UPGRADE: Imported Link for internal routing
 import { Helmet } from 'react-helmet-async';
 import { CheckCircle, Shield, Award, Droplet } from 'lucide-react';
 
@@ -74,7 +74,7 @@ export default function DistrictPage() {
     "provider": {
       "@type": "LocalBusiness",
       "name": "KonguNadu Agro Products",
-      "telephone": "+91-XXXXXXXXXX",
+      "telephone": "+91-9962699988", // Updated with actual phone number
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Gobichettipalayam",
@@ -91,7 +91,7 @@ export default function DistrictPage() {
         <title>Top Irrigation Dealers in {districtTitle} | VISDHA Drip Subsidy | KAPS</title>
         <meta name="description" content={`Looking for the top irrigation dealers in ${districtTitle}? KAPS supplies certified VISDHA inline drip technology & accessories under the Tamil Nadu PMKSY subsidy scheme.`} />
         <meta name="keywords" content={`Irrigation Dealers in ${districtTitle}, Drip irrigation systems ${districtTitle}, VISDHA brand subsidy ${districtTitle}, Inline drip technology Tamil Nadu, Micro irrigation ${districtTitle}`} />
-        <link rel="canonical" href={`https://www.kongunaduagro.com/service-areas/${districtKey}`} />
+        <link rel="canonical" href={`https://www.kongunaduagroproduct.com/service-areas/${districtKey}`} />
         <script type="application/ld+json">
           {JSON.stringify(dynamicSchema)}
         </script>
@@ -110,9 +110,10 @@ export default function DistrictPage() {
             Providing engineered VISDHA micro irrigation systems and components designed specifically for local farming requirements.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <a href="/request-quote" className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-colors">
+            {/* SEO FIX: Replaced <a> with React Router <Link> */}
+            <Link to="/request-quote" className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-colors">
               Apply For Government Subsidy
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -230,9 +231,10 @@ export default function DistrictPage() {
                 <Shield className="w-4 h-4 text-emerald-400" /> Comprehensive documentation handling support
               </li>
             </ul>
-            <a href="/contact" className="block text-center w-full bg-white hover:bg-gray-100 text-emerald-950 font-bold py-3 rounded-lg shadow transition-colors">
+            {/* SEO FIX: Replaced <a> with React Router <Link> */}
+            <Link to="/contact" className="block text-center w-full bg-white hover:bg-gray-100 text-emerald-950 font-bold py-3 rounded-lg shadow transition-colors">
               Verify Subsidy Eligibility
-            </a>
+            </Link>
           </div>
 
           {/* Quick Support Card */}
@@ -242,7 +244,7 @@ export default function DistrictPage() {
               Get in touch to arrange an on-site evaluation for your farm property anywhere in {districtTitle}.
             </p>
             <div className="text-emerald-700 font-extrabold text-xl tracking-wide border-t border-gray-50 pt-4">
-              +91-XXXXXXXXXX
+              +91-9962699988 {/* Updated with actual phone number */}
             </div>
             <span className="text-xs text-gray-400 block mt-1">Support Available: Monday - Saturday (9:00 AM - 6:00 PM)</span>
           </div>

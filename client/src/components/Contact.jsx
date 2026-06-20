@@ -54,16 +54,21 @@ const contactItems = [
 ];
 
 export default function ContactPage() {
-  // Local Business SEO Schema tailored for Contact Page
+  // SEO UPGRADE: Enriched LocalBusiness Schema with Brand, Subsidy, and Alternate Name data
   const contactSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "mainEntity": {
       "@type": "LocalBusiness",
       "name": "KonguNadu Agro Products",
-      "description": "Get in touch with KonguNadu Agro Products for premium drip irrigation systems, agriculture pipes, and farm accessories.",
+      "alternateName": "KAPS",
+      "description": "Get in touch with KonguNadu Agro Products (KAPS) for premium VISDHA drip irrigation systems, agriculture pipes, and PMKSY subsidy guidance.",
       "telephone": "+91-9962699988",
       "email": "kongunaduagroproduct@gmail.com",
+      "brand": {
+        "@type": "Brand",
+        "name": "VISDHA"
+      },
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "No. 123, Irrigation Complex, Bhavani Main Road",
@@ -80,17 +85,19 @@ export default function ContactPage() {
         "Karur",
         "Nilgiris",
         "Pollachi"
-      ]
+      ],
+      "url": "https://www.kongunaduagroproduct.com/contact"
     }
   };
 
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-slate-900 overflow-hidden">
-      {/* SEO Helmet */}
+      {/* SEO UPGRADE: Sharpened Meta Tags and Canonical URL Integration */}
       <Helmet>
-        <title>Contact KonguNadu Agro Products | Drip Irrigation Gobichettipalayam</title>
-        <meta name="description" content="Contact KonguNadu Agro Products in Gobichettipalayam for premium drip irrigation systems. Proudly serving farms in Erode, Coimbatore, Salem, Karur, Nilgiris & Pollachi." />
-        <meta name="keywords" content="Contact KonguNadu Agro, Drip irrigation Gobichettipalayam contact, Agriculture pipes Erode, Irrigation dealers Coimbatore, Salem farm supplies, Karur micro irrigation, Pollachi drip tape" />
+        <title>Contact KonguNadu Agro | Drip Irrigation Dealers in Gobichettipalayam</title>
+        <meta name="description" content="Contact KonguNadu Agro Products (KAPS) in Gobichettipalayam for VISDHA drip irrigation systems and PMKSY subsidy support. Serving Erode, Salem & Coimbatore." />
+        <meta name="keywords" content="Contact KonguNadu Agro, Drip irrigation Gobichettipalayam contact, VISDHA drip dealers Erode, Irrigation dealers Coimbatore, Salem farm supplies, Karur micro irrigation, Pollachi drip tape" />
+        <link rel="canonical" href="https://www.kongunaduagroproduct.com/contact" />
         <script type="application/ld+json">
           {JSON.stringify(contactSchema)}
         </script>
@@ -130,9 +137,9 @@ export default function ContactPage() {
                   for the Kongu region.
                 </h1>
 
-                {/* Localized Body Copy */}
+                {/* SEO UPGRADE: Localized Body Copy with Subsidy Injection */}
                 <p className="mt-5 max-w-xl text-base sm:text-lg text-center sm:text-left leading-6 text-slate-600">
-                  Based in <strong>Gobichettipalayam</strong>, we provide expert product guidance, pricing, and installation support for farms across <strong>Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi</strong>. Reach out to choose a solution that fits your land and water needs.
+                  Based in <strong>Gobichettipalayam</strong>, we provide expert product guidance, <strong>PMKSY subsidy</strong> assistance, and installation support for farms across <strong>Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi</strong>. Reach out to choose a solution that fits your land and water needs.
                 </p>
 
                 <div className="mt-8 flex flex-wrap justify-center sm:justify-start gap-4">

@@ -12,18 +12,19 @@ import {
 import logo from "../assets/logo.png";
 
 const Footer = () => {
+  // SEO UPGRADE: Enriched link titles with target keywords
   const quickLinks = [
-    { name: "Home", link: "/", title: "KonguNadu Agro Home" },
-    { name: "Products", link: "/products", title: "Drip Irrigation Products" },
-    { name: "About Us", link: "/about", title: "About Our Manufacturing" },
-    { name: "Contact", link: "/contact", title: "Contact Our Team" },
+    { name: "Home", link: "/", title: "KonguNadu Agro Home - Drip Irrigation" },
+    { name: "Products", link: "/products", title: "VISDHA Drip Irrigation Products" },
+    { name: "About Us", link: "/about", title: "About KAPS Manufacturing" },
+    { name: "Contact", link: "/contact", title: "Contact Our Local Team" },
   ];
 
   const products = [
-    { name: "Agriculture Pipes", link: "/products", title: "Inline and Online Drip Pipes" },
-    { name: "Drip Accessories", link: "/products", title: "Drip Irrigation Fittings" },
-    { name: "Irrigation Filters", link: "/products", title: "Screen, Disc, and Sand Filters" },
-    { name: "Venturi Injectors", link: "/products", title: "Fertigation Venturi Systems" },
+    { name: "Agriculture Pipes", link: "/products", title: "VISDHA Inline and Online Drip Pipes" },
+    { name: "Drip Accessories", link: "/products", title: "Drip Irrigation Fittings & Valves" },
+    { name: "Irrigation Filters", link: "/products", title: "Screen, Disc, and Hydro Cyclone Filters" },
+    { name: "Venturi Injectors", link: "/products", title: "PMKSY Approved Venturi Systems" },
   ];
 
   return (
@@ -56,8 +57,9 @@ const Footer = () => {
               </div>
             </Link>
 
+            {/* SEO UPGRADE: Injected Brand & Subsidy keywords globally */}
             <p className="text-gray-600 leading-relaxed text-sm">
-              Premium drip irrigation manufacturing. Proudly based in <strong>Gobichettipalayam</strong> and dedicated to serving the agricultural needs of farms across <strong>Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi</strong>.
+              Manufacturing the <strong>VISDHA</strong> brand of premium drip irrigation systems. <strong>100% PMKSY Subsidy Approved</strong>. Proudly based in <strong>Gobichettipalayam</strong> and serving farms across Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi.
             </p>
 
             {/* Social */}
@@ -126,19 +128,18 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info (Crucial for Local SEO) */}
-          <div>
+          {/* Contact Info (SEO UPGRADE: Integrated Schema.org Microdata) */}
+          <div itemScope itemType="https://schema.org/LocalBusiness">
             <h3 className="text-lg font-bold mb-5 text-[#173c36]">
               Contact Us
             </h3>
-            <address className="space-y-4 text-sm text-gray-600 not-italic">
+            <address className="space-y-4 text-sm text-gray-600 not-italic" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
               <div className="flex items-start gap-3">
                 <FaMapMarkerAlt className="mt-1 text-green-600 shrink-0" />
                 <p>
-                  <strong>KonguNadu Agro Products</strong><br />
-                  No. 123, Irrigation Complex,<br />
-                  Bhavani Main Road,<br />
-                  Gobichettipalayam, Tamil Nadu 638452
+                  <strong itemProp="name">KonguNadu Agro Products (KAPS)</strong><br />
+                  <span itemProp="streetAddress">No. 123, Irrigation Complex, Bhavani Main Road</span>,<br />
+                  <span itemProp="addressLocality">Gobichettipalayam</span>, <span itemProp="addressRegion">Tamil Nadu</span> <span itemProp="postalCode">638452</span>
                 </p>
               </div>
 
@@ -146,6 +147,7 @@ const Footer = () => {
                 <FaPhoneAlt className="text-green-600 shrink-0" />
                 <a
                   href="tel:+919962699988"
+                  itemProp="telephone"
                   className="hover:text-green-600 transition"
                   title="Call KonguNadu Agro"
                 >
@@ -157,6 +159,7 @@ const Footer = () => {
                 <FaEnvelope className="text-green-600 shrink-0" />
                 <a
                   href="mailto:kongunaduagroproduct@gmail.com"
+                  itemProp="email"
                   className="hover:text-green-600 transition"
                   title="Email KonguNadu Agro"
                 >
