@@ -19,9 +19,12 @@ async function generateSitemap() {
   // 1. Define your core static pages
   const links = [
     { url: '/', changefreq: 'weekly', priority: 1.0 },
-    { url: '/about-us', changefreq: 'monthly', priority: 0.8 },
-    { url: '/products/visdha-inline-drip', changefreq: 'weekly', priority: 0.9 },
-    { url: '/pmksy-subsidy-guide', changefreq: 'monthly', priority: 0.9 }
+    { url: '/products', changefreq: 'weekly', priority: 0.9 },
+    { url: '/contact', changefreq: 'monthly', priority: 0.8 },
+    { url: '/request-quote', changefreq: 'monthly', priority: 0.9 },
+    { url: '/about', changefreq: 'monthly', priority: 0.8 },
+    { url: '/privacy-policy', changefreq: 'yearly', priority: 0.5 },
+    { url: '/terms-conditions', changefreq: 'yearly', priority: 0.5 }
   ];
 
   // 2. Dynamically push all 38 district pages to the array
