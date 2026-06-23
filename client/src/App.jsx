@@ -11,21 +11,9 @@ import About from "./components/About";
 import FloatingQuoteButton from "./components/FloatingQuoteButton";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsConditions from "./components/Terms";
-import DistrictPage from "./components/DistrictPage"; // The SEO page we created earlier
 
-// All 38 Tamil Nadu Districts
-const tnDistricts = [
-  'ariyalur', 'chengalpattu', 'chennai', 'coimbatore', 'cuddalore', 
-  'dharmapuri', 'dindigul', 'erode', 'kallakurichi', 'kanchipuram', 
-  'kanyakumari', 'karur', 'krishnagiri', 'madurai', 'mayiladuthurai', 
-  'nagapattinam', 'namakkal', 'nilgiris', 'perambalur', 'pudukkottai', 
-  'ramanathapuram', 'ranipet', 'salem', 'sivaganga', 'tenkasi', 
-  'thanjavur', 'theni', 'thoothukudi', 'tiruchirappalli', 'tirunelveli', 
-  'tirupattur', 'tiruppur', 'tiruvallur', 'tiruvannamalai', 'tiruvarur', 
-  'vellore', 'viluppuram', 'virudhunagar'
-];
 
-// 1. Create a Layout wrapper for persistent elements
+
 const Layout = () => {
   return (
     <>
@@ -51,12 +39,7 @@ export const routes = [
       { path: "about", element: <About /> },
       { path: "privacy-policy", element: <PrivacyPolicy /> },
       { path: "terms-conditions", element: <TermsConditions /> },
-      { 
-        path: "service-areas/:districtName", 
-        element: <DistrictPage />,
-        // 3. This tells the compiler exactly which URLs to pre-render into HTML
-        getStaticPaths: () => tnDistricts.map(district => `service-areas/${district}`)
-      }
+      
     ],
   },
 ];

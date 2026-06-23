@@ -1,9 +1,13 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { HashRouter } from "react-router-dom";
+import App from "./App";
+import "./index.css";
 
-import { ViteReactSSG } from "vite-react-ssg";
-import { routes } from "./App.jsx"; 
-import "./index.css"; 
-
-
-export const createRoot = ViteReactSSG({
-  routes,
-});
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </React.StrictMode>
+);
