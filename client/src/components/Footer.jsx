@@ -7,7 +7,6 @@ import {
   FaFacebookF,
   FaInstagram,
   FaYoutube,
-  FaLeaf,
 } from "react-icons/fa";
 import logo from "../assets/logo.png";
 
@@ -21,35 +20,47 @@ const Footer = () => {
   ];
 
   const products = [
-    { name: "Agriculture Pipes", link: "/products", title: "VISDHA Inline and Online Drip Pipes" },
-    { name: "Drip Accessories", link: "/products", title: "Drip Irrigation Fittings & Valves" },
-    { name: "Irrigation Filters", link: "/products", title: "Screen, Disc, and Hydro Cyclone Filters" },
-    { name: "Venturi Injectors", link: "/products", title: "PMKSY Approved Venturi Systems" },
+    {
+      name: "Agriculture Pipes",
+      link: "/products",
+      title: "VISDHA Inline and Online Drip Pipes",
+    },
+    {
+      name: "Drip Accessories",
+      link: "/products",
+      title: "Drip Irrigation Fittings & Valves",
+    },
+    {
+      name: "Irrigation Filters",
+      link: "/products",
+      title: "Screen, Disc, and Hydro Cyclone Filters",
+    },
+    {
+      name: "Venturi Injectors",
+      link: "/products",
+      title: "PMKSY Approved Venturi Systems",
+    },
   ];
 
   return (
-    <footer className="bg-white text-[#173c36] border-t border-gray-200">
+    <footer className="bg-white border-t border-gray-200 mt-16">
       {/* Top Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand & Bio */}
           <div>
-            <Link to="/" className="flex items-center mb-5" title="KonguNadu Agro Products">
-              <div className="flex items-center justify-center w-14 h-14 rounded-full mr-3 bg-green-50 border border-green-100 overflow-hidden">
-                {logo ? (
-                  <img
-                    src={logo}
-                    alt="KonguNadu Agro Products Logo"
-                    className="h-full w-full object-contain"
-                  />
-                ) : (
-                  <FaLeaf className="text-green-600 text-xl" />
-                )}
-              </div>
+            <Link to="/" className="flex items-center gap-3 mb-5">
+              {logo ? (
+                <img src={logo} alt="KonguNadu Agro Logo" className="h-12 w-auto" />
+              ) : (
+                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                  <span className="text-xl font-bold text-green-700">K</span>
+                </div>
+              )}
 
               <div className="flex flex-col">
                 <span className="text-xl font-extrabold tracking-wide text-[#14532d]">
-                  KonguNadu Agro 
+                  KonguNadu Agro
                 </span>
                 <span className="text-sm text-[#2f855a] font-medium">
                   Products
@@ -59,7 +70,10 @@ const Footer = () => {
 
             {/* SEO UPGRADE: Injected Brand & Subsidy keywords globally */}
             <p className="text-gray-600 leading-relaxed text-sm">
-              Manufacturing the <strong>VISDHA</strong> brand of premium drip irrigation systems. <strong>100% PMKSY Subsidy Approved</strong>. Proudly based in <strong>Gobichettipalayam</strong> and serving farms across Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi.
+              Manufacturing the <strong>VISDHA</strong> brand of premium drip irrigation systems.
+              <strong> 100% PMKSY Subsidy Approved</strong>. Proudly based in
+              <strong> Gobichettipalayam</strong> and serving farms across Erode,
+              Coimbatore, Salem, Karur, Nilgiris, and Pollachi.
             </p>
 
             {/* Social */}
@@ -90,9 +104,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-5 text-[#173c36]">
-              Quick Links
-            </h3>
+            <h3 className="text-lg font-bold mb-5 text-[#173c36]">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((item, index) => (
                 <li key={index}>
@@ -110,9 +122,7 @@ const Footer = () => {
 
           {/* Products */}
           <div>
-            <h3 className="text-lg font-bold mb-5 text-[#173c36]">
-              Our Products
-            </h3>
+            <h3 className="text-lg font-bold mb-5 text-[#173c36]">Our Products</h3>
             <ul className="space-y-3">
               {products.map((item, index) => (
                 <li key={index}>
@@ -128,18 +138,29 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info (SEO UPGRADE: Integrated Schema.org Microdata) */}
+          {/* Contact Info */}
           <div itemScope itemType="https://schema.org/LocalBusiness">
-            <h3 className="text-lg font-bold mb-5 text-[#173c36]">
-              Contact Us
-            </h3>
-            <address className="space-y-4 text-sm text-gray-600 not-italic" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+            <h3 className="text-lg font-bold mb-5 text-[#173c36]">Contact Us</h3>
+
+            <address
+              className="space-y-4 text-sm text-gray-600 not-italic"
+              itemProp="address"
+              itemScope
+              itemType="https://schema.org/PostalAddress"
+            >
               <div className="flex items-start gap-3">
                 <FaMapMarkerAlt className="mt-1 text-green-600 shrink-0" />
                 <p>
-                  <strong itemProp="name">KonguNadu Agro Products (KAPS)</strong><br />
-                  <span itemProp="streetAddress">No. 123, Irrigation Complex, Bhavani Main Road</span>,<br />
-                  <span itemProp="addressLocality">Gobichettipalayam</span>, <span itemProp="addressRegion">Tamil Nadu</span> <span itemProp="postalCode">638452</span>
+                  <strong itemProp="name">KonguNadu Agro Products (KAPS)</strong>
+                  <br />
+                  <span itemProp="streetAddress">
+                    No. 123, Irrigation Complex, Bhavani Main Road
+                  </span>
+                  ,
+                  <br />
+                  <span itemProp="addressLocality">Gobichettipalayam</span>,{" "}
+                  <span itemProp="addressRegion">Tamil Nadu</span>{" "}
+                  <span itemProp="postalCode">638452</span>
                 </p>
               </div>
 
@@ -182,9 +203,7 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-gray-500">
-          <p>
-            © {new Date().getFullYear()} KonguNadu Agro Products. All rights reserved.
-          </p>
+          <p>© {new Date().getFullYear()} KonguNadu Agro Products. All rights reserved.</p>
 
           <div className="flex items-center gap-4">
             <Link
@@ -193,7 +212,10 @@ const Footer = () => {
             >
               Privacy Policy
             </Link>
-            <Link to="/terms-conditions" className="hover:text-green-600 transition">
+            <Link
+              to="/terms-conditions"
+              className="hover:text-green-600 transition"
+            >
               Terms & Conditions
             </Link>
           </div>

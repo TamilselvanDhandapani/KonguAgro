@@ -53,51 +53,61 @@ const contactItems = [
   },
 ];
 
-export default function ContactPage() {
-  // SEO UPGRADE: Enriched LocalBusiness Schema with Brand, Subsidy, and Alternate Name data
+const ContactPage = () => {
   const contactSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "mainEntity": {
+    mainEntity: {
       "@type": "LocalBusiness",
-      "name": "KonguNadu Agro Products",
-      "alternateName": "KAPS",
-      "description": "Get in touch with KonguNadu Agro Products (KAPS) for premium VISDHA drip irrigation systems, agriculture pipes, and PMKSY subsidy guidance.",
-      "telephone": "+91-9962699988",
-      "email": "kongunaduagroproduct@gmail.com",
-      "brand": {
+      name: "KonguNadu Agro Products",
+      alternateName: "KAPS",
+      description:
+        "Get in touch with KonguNadu Agro Products (KAPS) for premium VISDHA drip irrigation systems, agriculture pipes, and PMKSY subsidy guidance.",
+      telephone: "+91-9962699988",
+      email: "kongunaduagroproduct@gmail.com",
+      brand: {
         "@type": "Brand",
-        "name": "VISDHA"
+        name: "VISDHA",
       },
-      "address": {
+      address: {
         "@type": "PostalAddress",
-        "streetAddress": "No. 123, Irrigation Complex, Bhavani Main Road",
-        "addressLocality": "Gobichettipalayam",
-        "addressRegion": "Tamil Nadu",
-        "postalCode": "638452",
-        "addressCountry": "IN"
+        streetAddress: "No. 123, Irrigation Complex, Bhavani Main Road",
+        addressLocality: "Gobichettipalayam",
+        addressRegion: "Tamil Nadu",
+        postalCode: "638452",
+        addressCountry: "IN",
       },
-      "areaServed": [
+      areaServed: [
         "Gobichettipalayam",
         "Erode",
         "Coimbatore",
         "Salem",
         "Karur",
         "Nilgiris",
-        "Pollachi"
+        "Pollachi",
       ],
-      "url": "https://www.kongunaduagroproduct.com/contact"
-    }
+      url: "https://www.kongunaduagroproduct.com/contact",
+    },
   };
 
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-slate-900 overflow-hidden">
-      {/* SEO UPGRADE: Sharpened Meta Tags and Canonical URL Integration */}
       <Helmet>
-        <title>Contact KonguNadu Agro | Drip Irrigation Dealers in Gobichettipalayam</title>
-        <meta name="description" content="Contact KonguNadu Agro Products (KAPS) in Gobichettipalayam for VISDHA drip irrigation systems and PMKSY subsidy support. Serving Erode, Salem & Coimbatore." />
-        <meta name="keywords" content="Contact KonguNadu Agro, Drip irrigation Gobichettipalayam contact, VISDHA drip dealers Erode, Irrigation dealers Coimbatore, Salem farm supplies, Karur micro irrigation, Pollachi drip tape" />
-        <link rel="canonical" href="https://www.kongunaduagroproduct.com/contact" />
+        <title>
+          Contact KonguNadu Agro | Drip Irrigation Dealers in Gobichettipalayam
+        </title>
+        <meta
+          name="description"
+          content="Contact KonguNadu Agro Products (KAPS) in Gobichettipalayam for VISDHA drip irrigation systems and PMKSY subsidy support. Serving Erode, Salem & Coimbatore."
+        />
+        <meta
+          name="keywords"
+          content="Contact KonguNadu Agro, Drip irrigation Gobichettipalayam contact, VISDHA drip dealers Erode, Irrigation dealers Coimbatore, Salem farm supplies, Karur micro irrigation, Pollachi drip tape"
+        />
+        <link
+          rel="canonical"
+          href="https://www.kongunaduagroproduct.com/contact"
+        />
         <script type="application/ld+json">
           {JSON.stringify(contactSchema)}
         </script>
@@ -109,6 +119,7 @@ export default function ContactPage() {
         <div className="absolute bottom-[-10rem] left-1/3 h-[24rem] w-[24rem] rounded-full bg-lime-100/40 blur-3xl" />
       </div>
 
+      {/* Hero + Form */}
       <section className="px-4 sm:px-6 lg:px-8 pt-20 pb-10">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -120,6 +131,7 @@ export default function ContactPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.10),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.08),transparent_26%)]" />
 
             <div className="relative grid lg:grid-cols-[1.1fr_0.9fr] gap-10 px-6 py-10 sm:px-10 sm:py-14 lg:px-14 lg:py-16">
+              {/* Left Content */}
               <motion.div variants={fadeUp} className="max-w-2xl">
                 <div className="text-center sm:text-left">
                   <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700">
@@ -128,18 +140,23 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* SEO Optimized H1 */}
                 <h1 className="mt-4 text-center sm:text-left text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] text-slate-900">
                   Build the right
-                  <span className="block bg-gradient-to-r from-emerald-600 via-green-600 to-teal-500 bg-clip-text text-transparent">
+                  <span className="block bg-gradient-to-r from-emerald-600 via-green-600 to-teal-500 bg-clip-text text-transparent ">
                     irrigation solution
                   </span>
                   for the Kongu region.
                 </h1>
 
-                {/* SEO UPGRADE: Localized Body Copy with Subsidy Injection */}
                 <p className="mt-5 max-w-xl text-base sm:text-lg text-center sm:text-left leading-6 text-slate-600">
-                  Based in <strong>Gobichettipalayam</strong>, we provide expert product guidance, <strong>PMKSY subsidy</strong> assistance, and installation support for farms across <strong>Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi</strong>. Reach out to choose a solution that fits your land and water needs.
+                  Based in <strong>Gobichettipalayam</strong>, we provide expert
+                  product guidance, <strong>PMKSY subsidy</strong> assistance,
+                  and installation support for farms across{" "}
+                  <strong>
+                    Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi
+                  </strong>
+                  . Reach out to choose a solution that fits your land and water
+                  needs.
                 </p>
 
                 <div className="mt-8 flex flex-wrap justify-center sm:justify-start gap-4">
@@ -150,6 +167,7 @@ export default function ContactPage() {
                     Email Us
                     <Send className="h-4 w-4" />
                   </a>
+
                   <a
                     href="tel:+919962699988"
                     className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-emerald-300 hover:text-emerald-700"
@@ -160,6 +178,7 @@ export default function ContactPage() {
                 </div>
               </motion.div>
 
+              {/* Contact Form */}
               <motion.div variants={fadeUp}>
                 <div className="rounded-[1.75rem] border border-white/70 bg-white/85 p-5 sm:p-6 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur">
                   <div className="mb-5">
@@ -167,22 +186,28 @@ export default function ContactPage() {
                       Send a Message
                     </h2>
                     <p className="mt-2 text-sm leading-6 text-slate-500">
-                      Fill in your details and our Gobichettipalayam team will get back to you promptly.
+                      Fill in your details and our Gobichettipalayam team will
+                      get back to you promptly.
                     </p>
                   </div>
 
                   <form className="space-y-4">
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="mb-2 block text-sm font-medium text-slate-700">First Name</label>
+                        <label className="mb-2 block text-sm font-medium text-slate-700">
+                          First Name
+                        </label>
                         <input
                           type="text"
                           placeholder="Enter first name"
                           className="w-full rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 outline-none transition focus:border-emerald-400 focus:bg-white"
                         />
                       </div>
+
                       <div>
-                        <label className="mb-2 block text-sm font-medium text-slate-700">Last Name</label>
+                        <label className="mb-2 block text-sm font-medium text-slate-700">
+                          Last Name
+                        </label>
                         <input
                           type="text"
                           placeholder="Enter last name"
@@ -193,15 +218,20 @@ export default function ContactPage() {
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="mb-2 block text-sm font-medium text-slate-700">Email Address</label>
+                        <label className="mb-2 block text-sm font-medium text-slate-700">
+                          Email Address
+                        </label>
                         <input
                           type="email"
                           placeholder="Enter email address"
                           className="w-full rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 outline-none transition focus:border-emerald-400 focus:bg-white"
                         />
                       </div>
+
                       <div>
-                        <label className="mb-2 block text-sm font-medium text-slate-700">Phone Number</label>
+                        <label className="mb-2 block text-sm font-medium text-slate-700">
+                          Phone Number
+                        </label>
                         <input
                           type="tel"
                           placeholder="Enter phone number"
@@ -211,7 +241,9 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-medium text-slate-700">Subject / Location</label>
+                      <label className="mb-2 block text-sm font-medium text-slate-700">
+                        Subject / Location
+                      </label>
                       <input
                         type="text"
                         placeholder="E.g., Drip Irrigation inquiry in Pollachi"
@@ -220,7 +252,9 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-medium text-slate-700">Message</label>
+                      <label className="mb-2 block text-sm font-medium text-slate-700">
+                        Message
+                      </label>
                       <textarea
                         rows={5}
                         placeholder="Tell us about your farm's requirement..."
@@ -243,6 +277,7 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Contact Cards */}
       <section className="px-4 sm:px-6 lg:px-8 py-6">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -297,6 +332,7 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Address + Map */}
       <section className="px-4 sm:px-6 lg:px-8 pt-6 pb-16">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -312,18 +348,19 @@ export default function ContactPage() {
                   <MapPin className="h-5 w-5" />
                 </div>
 
-                {/* SEO Optimized H2 */}
                 <h2 className="mt-6 text-3xl font-bold text-slate-900">
                   Visit Our Gobichettipalayam Office
                 </h2>
                 <p className="mt-3 max-w-md text-sm leading-7 text-slate-600">
-                  Meet us at our headquarters for product discussions, bulk orders, and direct consultation before we deploy to your farm.
+                  Meet us at our headquarters for product discussions, bulk
+                  orders, and direct consultation before we deploy to your farm.
                 </p>
 
                 <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-white p-5">
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
                     Address
                   </p>
+
                   <address className="mt-3 not-italic text-slate-700 leading-7">
                     <strong>KonguNadu Agro Products</strong>
                     <br />
@@ -367,4 +404,6 @@ export default function ContactPage() {
       </section>
     </div>
   );
-}
+};
+
+export default ContactPage;

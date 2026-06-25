@@ -10,19 +10,21 @@ import {
   FaClipboardList,
 } from "react-icons/fa";
 
-const Field = ({ label, icon, children, required }) => (
-  <div>
-    <label className="block text-sm font-semibold text-[#173c36] mb-2">
-      {label} {required && <span className="text-red-500">*</span>}
-    </label>
-    <div className="relative">
-      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-green-600">
-        {icon}
-      </span>
-      {children}
+const Field = ({ label, icon, children, required }) => {
+  return (
+    <div>
+      <label className="block text-sm font-semibold text-[#173c36] mb-2">
+        {label} {required && <span className="text-red-500">*</span>}
+      </label>
+      <div className="relative">
+        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-green-600">
+          {icon}
+        </span>
+        {children}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const RequestQuote = () => {
   const [form, setForm] = useState({
@@ -36,37 +38,37 @@ const RequestQuote = () => {
 
   const [submitted, setSubmitted] = useState(false);
 
-  // SEO UPGRADE: Enhanced ContactPage Schema with PotentialAction for Lead Generation
   const quoteSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Request a Drip Irrigation Quote - KonguNadu Agro Products",
-    "description": "Request a custom quotation for VISDHA drip irrigation systems, agriculture pipes, and PMKSY subsidy guidance.",
-    "potentialAction": {
+    name: "Request a Drip Irrigation Quote - KonguNadu Agro Products",
+    description:
+      "Request a custom quotation for VISDHA drip irrigation systems, agriculture pipes, and PMKSY subsidy guidance.",
+    potentialAction: {
       "@type": "QuoteAction",
-      "target": "https://www.kongunaduagroproduct.com/request-quote"
+      target: "https://www.kongunaduagroproduct.com/request-quote",
     },
-    "provider": {
+    provider: {
       "@type": "LocalBusiness",
-      "name": "KonguNadu Agro Products",
-      "alternateName": "KAPS",
-      "telephone": "+91-9962699988",
-      "address": {
+      name: "KonguNadu Agro Products",
+      alternateName: "KAPS",
+      telephone: "+91-9962699988",
+      address: {
         "@type": "PostalAddress",
-        "addressLocality": "Gobichettipalayam",
-        "addressRegion": "Tamil Nadu",
-        "addressCountry": "IN"
+        addressLocality: "Gobichettipalayam",
+        addressRegion: "Tamil Nadu",
+        addressCountry: "IN",
       },
-      "areaServed": [
+      areaServed: [
         "Gobichettipalayam",
         "Erode",
         "Coimbatore",
         "Salem",
         "Karur",
         "Nilgiris",
-        "Pollachi"
-      ]
-    }
+        "Pollachi",
+      ],
+    },
   };
 
   const handleSubmit = (e) => {
@@ -104,12 +106,11 @@ ${form.notes}`;
   if (submitted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#f3fbf5] via-white to-[#eef7f1] flex items-center justify-center px-4">
-        {/* SEO Helmet for Success State */}
         <Helmet>
           <title>Quote Request Sent | KonguNadu Agro Products</title>
           <meta name="robots" content="noindex" />
         </Helmet>
-        
+
         <div className="max-w-xl w-full bg-white rounded-[2rem] border border-[#e7efe9] shadow-[0_20px_60px_rgba(0,0,0,0.06)] p-10 text-center">
           <div className="w-20 h-20 mx-auto rounded-full bg-green-100 flex items-center justify-center text-3xl mb-6">
             🌿
@@ -118,7 +119,9 @@ ${form.notes}`;
             Request Sent to KonguNadu Agro
           </h2>
           <p className="mt-4 text-[#5f6f68] leading-relaxed">
-            WhatsApp should have opened with your details pre-filled. Our Gobichettipalayam team will review your requirements and reply shortly.
+            WhatsApp should have opened with your details pre-filled. Our
+            Gobichettipalayam team will review your requirements and reply
+            shortly.
           </p>
           <button
             onClick={resetForm}
@@ -133,12 +136,20 @@ ${form.notes}`;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f3fbf5] via-white to-[#eef7f1]">
-      {/* SEO UPGRADE: Sharpened Meta Tags and Canonical Link */}
       <Helmet>
         <title>Request a VISDHA Drip Irrigation Quote | KonguNadu Agro</title>
-        <meta name="description" content="Get a custom quote for VISDHA drip irrigation systems and PMKSY subsidy guidance. KAPS serves farms in Erode, Coimbatore, Salem, Karur, Nilgiris & Pollachi." />
-        <meta name="keywords" content="Drip irrigation quote Gobichettipalayam, VISDHA agriculture pipes estimate Coimbatore, Erode farm irrigation cost, Salem micro irrigation setup, Karur drip accessories" />
-        <link rel="canonical" href="https://www.kongunaduagroproduct.com/request-quote" />
+        <meta
+          name="description"
+          content="Get a custom quote for VISDHA drip irrigation systems and PMKSY subsidy guidance. KAPS serves farms in Erode, Coimbatore, Salem, Karur, Nilgiris & Pollachi."
+        />
+        <meta
+          name="keywords"
+          content="Drip irrigation quote Gobichettipalayam, VISDHA agriculture pipes estimate Coimbatore, Erode farm irrigation cost, Salem micro irrigation setup, Karur drip accessories"
+        />
+        <link
+          rel="canonical"
+          href="https://www.kongunaduagroproduct.com/request-quote"
+        />
         <script type="application/ld+json">
           {JSON.stringify(quoteSchema)}
         </script>
@@ -160,7 +171,13 @@ ${form.notes}`;
           </h1>
 
           <p className="mt-5 max-w-2xl mx-auto text-[#5f6f68] text-base sm:text-lg leading-relaxed">
-            Share your farm's details and project requirements. Our Gobichettipalayam-based experts will prepare a tailored <strong>VISDHA drip irrigation</strong> quotation for your farm in <strong>Erode, Coimbatore, Salem, Karur, Nilgiris, or Pollachi</strong>.
+            Share your farm&apos;s details and project requirements. Our
+            Gobichettipalayam-based experts will prepare a tailored{" "}
+            <strong>VISDHA drip irrigation</strong> quotation for your farm in{" "}
+            <strong>
+              Erode, Coimbatore, Salem, Karur, Nilgiris, or Pollachi
+            </strong>
+            .
           </p>
         </div>
       </section>
@@ -173,7 +190,8 @@ ${form.notes}`;
               Your Contact Details
             </h2>
             <p className="mt-2 text-[#63736c] text-center">
-              Fill out the form below and we’ll get back to you with a competitive local quote and PMKSY subsidy advice.
+              Fill out the form below and we’ll get back to you with a
+              competitive local quote and PMKSY subsidy advice.
             </p>
           </div>
 
@@ -257,7 +275,6 @@ ${form.notes}`;
                   onChange={(e) =>
                     setForm((prev) => ({ ...prev, farmType: e.target.value }))
                   }
-                  /* SEO UPGRADE: Injected Brand/Location keywords into placeholder */
                   placeholder="e.g. VISDHA Drip irrigated sugarcane in Salem, 5 acres"
                   className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-[#dce8de] bg-[#fcfffc] focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
@@ -287,7 +304,8 @@ ${form.notes}`;
               </button>
 
               <p className="text-center text-xs text-[#88a08f]">
-                This will open WhatsApp with your details pre-filled for our KonguNadu Agro support team.
+                This will open WhatsApp with your details pre-filled for our
+                KonguNadu Agro support team.
               </p>
             </form>
           </div>

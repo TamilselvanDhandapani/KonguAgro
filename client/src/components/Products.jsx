@@ -1,11 +1,11 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaCogs } from "react-icons/fa";
 import { MdPrecisionManufacturing } from "react-icons/md";
 
-// --- Original image imports ---
+// --- Image imports ---
 import onlinePipeImg from "../assets/OnlinePipe.png";
 import inlinePipeImg from "../assets/InlinePipe.png";
 import pvcPipeImg from "../assets/PVCpipe.png";
@@ -28,8 +28,20 @@ const productSections = [
         subtitle: "IS 2345 : 1000",
         image: inlinePipeImg,
         rows: [
-          { productName: "12mm Inline Lateral", nominalId: "12 mm", wallThickness: "0.9 - 1.1 mm", type: "Class II", pressureRating: "2.5 Kg/cm²" },
-          { productName: "16mm Inline Lateral", nominalId: "16 mm", wallThickness: "1.1 - 1.3 mm", type: "Class II", pressureRating: "2.5 Kg/cm²" },
+          {
+            productName: "12mm Inline Lateral",
+            nominalId: "12 mm",
+            wallThickness: "0.9 - 1.1 mm",
+            type: "Class II",
+            pressureRating: "2.5 Kg/cm²",
+          },
+          {
+            productName: "16mm Inline Lateral",
+            nominalId: "16 mm",
+            wallThickness: "1.1 - 1.3 mm",
+            type: "Class II",
+            pressureRating: "2.5 Kg/cm²",
+          },
         ],
       },
       {
@@ -37,8 +49,20 @@ const productSections = [
         subtitle: "IS 2345 : 1000",
         image: onlinePipeImg,
         rows: [
-          { productName: "12mm Plain Lateral", nominalId: "12 mm", wallThickness: "0.9 - 1.1 mm", type: "Class II", pressureRating: "2.5 Kg/cm²" },
-          { productName: "16mm Plain Lateral", nominalId: "16 mm", wallThickness: "1.1 - 1.3 mm", type: "Class II", pressureRating: "2.5 Kg/cm²" },
+          {
+            productName: "12mm Plain Lateral",
+            nominalId: "12 mm",
+            wallThickness: "0.9 - 1.1 mm",
+            type: "Class II",
+            pressureRating: "2.5 Kg/cm²",
+          },
+          {
+            productName: "16mm Plain Lateral",
+            nominalId: "16 mm",
+            wallThickness: "1.1 - 1.3 mm",
+            type: "Class II",
+            pressureRating: "2.5 Kg/cm²",
+          },
         ],
       },
       {
@@ -46,8 +70,20 @@ const productSections = [
         subtitle: "High Strength Irrigation Grade",
         image: pvcPipeImg,
         rows: [
-          { productName: "PVC Pipe 50mm", nominalId: "50 mm", wallThickness: "Standard", type: "Rigid", pressureRating: "6 Kg/cm²" },
-          { productName: "PVC Pipe 75mm", nominalId: "75 mm", wallThickness: "Standard", type: "Rigid", pressureRating: "6 Kg/cm²" },
+          {
+            productName: "PVC Pipe 50mm",
+            nominalId: "50 mm",
+            wallThickness: "Standard",
+            type: "Rigid",
+            pressureRating: "6 Kg/cm²",
+          },
+          {
+            productName: "PVC Pipe 75mm",
+            nominalId: "75 mm",
+            wallThickness: "Standard",
+            type: "Rigid",
+            pressureRating: "6 Kg/cm²",
+          },
         ],
       },
     ],
@@ -60,8 +96,20 @@ const productSections = [
         subtitle: "Reliable Flow Control",
         image: ballValveImg,
         rows: [
-          { productName: "Ball Valve 40mm", nominalId: "40 mm", wallThickness: "-", type: "Valve", pressureRating: "Standard" },
-          { productName: "Ball Valve 50mm", nominalId: "50 mm", wallThickness: "-", type: "Valve", pressureRating: "Standard" },
+          {
+            productName: "Ball Valve 40mm",
+            nominalId: "40 mm",
+            wallThickness: "-",
+            type: "Valve",
+            pressureRating: "Standard",
+          },
+          {
+            productName: "Ball Valve 50mm",
+            nominalId: "50 mm",
+            wallThickness: "-",
+            type: "Valve",
+            pressureRating: "Standard",
+          },
         ],
       },
       {
@@ -69,7 +117,13 @@ const productSections = [
         subtitle: "Pressure Protection Components",
         image: airReleaseValveImg,
         rows: [
-          { productName: "Single Air Release Valve", nominalId: "-", wallThickness: "-", type: "Valve", pressureRating: "Standard" },
+          {
+            productName: "Single Air Release Valve",
+            nominalId: "-",
+            wallThickness: "-",
+            type: "Valve",
+            pressureRating: "Standard",
+          },
         ],
       },
       {
@@ -77,10 +131,34 @@ const productSections = [
         subtitle: "Connectors & Fittings",
         image: dripAccessoriesImg,
         rows: [
-          { productName: "Take Off / Grommet", nominalId: "-", wallThickness: "-", type: "Accessory", pressureRating: "-" },
-          { productName: "Connector / Tee / Elbow", nominalId: "-", wallThickness: "-", type: "Accessory", pressureRating: "-" },
-          { productName: "Ring Start / Ring Connector", nominalId: "-", wallThickness: "-", type: "Accessory", pressureRating: "-" },
-          { productName: "Reducing Tee / DB Connector", nominalId: "-", wallThickness: "-", type: "Accessory", pressureRating: "-" },
+          {
+            productName: "Take Off / Grommet",
+            nominalId: "-",
+            wallThickness: "-",
+            type: "Accessory",
+            pressureRating: "-",
+          },
+          {
+            productName: "Connector / Tee / Elbow",
+            nominalId: "-",
+            wallThickness: "-",
+            type: "Accessory",
+            pressureRating: "-",
+          },
+          {
+            productName: "Ring Start / Ring Connector",
+            nominalId: "-",
+            wallThickness: "-",
+            type: "Accessory",
+            pressureRating: "-",
+          },
+          {
+            productName: "Reducing Tee / DB Connector",
+            nominalId: "-",
+            wallThickness: "-",
+            type: "Accessory",
+            pressureRating: "-",
+          },
         ],
       },
       {
@@ -88,9 +166,27 @@ const productSections = [
         subtitle: "Precision Water Delivery",
         image: onlineDripperImg,
         rows: [
-          { productName: "2 LPH Dripper", nominalId: "-", wallThickness: "-", type: "Dripper", pressureRating: "Standard" },
-          { productName: "4 LPH Dripper", nominalId: "-", wallThickness: "-", type: "Dripper", pressureRating: "Standard" },
-          { productName: "8 LPH Dripper", nominalId: "-", wallThickness: "-", type: "Dripper", pressureRating: "Standard" },
+          {
+            productName: "2 LPH Dripper",
+            nominalId: "-",
+            wallThickness: "-",
+            type: "Dripper",
+            pressureRating: "Standard",
+          },
+          {
+            productName: "4 LPH Dripper",
+            nominalId: "-",
+            wallThickness: "-",
+            type: "Dripper",
+            pressureRating: "Standard",
+          },
+          {
+            productName: "8 LPH Dripper",
+            nominalId: "-",
+            wallThickness: "-",
+            type: "Dripper",
+            pressureRating: "Standard",
+          },
         ],
       },
     ],
@@ -103,7 +199,13 @@ const productSections = [
         subtitle: "Efficient Primary Filtration",
         image: semiAutoScreenFilterImg,
         rows: [
-          { productName: "Semi Automatic Screen Filter", nominalId: "2 inch", wallThickness: "-", type: "Filter", pressureRating: "Standard" },
+          {
+            productName: "Semi Automatic Screen Filter",
+            nominalId: "2 inch",
+            wallThickness: "-",
+            type: "Filter",
+            pressureRating: "Standard",
+          },
         ],
       },
       {
@@ -111,7 +213,13 @@ const productSections = [
         subtitle: "Fine Particle Filtration",
         image: discFilterImg,
         rows: [
-          { productName: "Disc Filter", nominalId: "2 inch", wallThickness: "-", type: "Filter", pressureRating: "Standard" },
+          {
+            productName: "Disc Filter",
+            nominalId: "2 inch",
+            wallThickness: "-",
+            type: "Filter",
+            pressureRating: "Standard",
+          },
         ],
       },
       {
@@ -119,7 +227,13 @@ const productSections = [
         subtitle: "Sand Separation System",
         image: hydroCycloneFilterImg,
         rows: [
-          { productName: "Hydro Cyclone Filter", nominalId: "2 inch", wallThickness: "-", type: "Filter", pressureRating: "Standard" },
+          {
+            productName: "Hydro Cyclone Filter",
+            nominalId: "2 inch",
+            wallThickness: "-",
+            type: "Filter",
+            pressureRating: "Standard",
+          },
         ],
       },
       {
@@ -127,7 +241,13 @@ const productSections = [
         subtitle: "Clean Flow Protection",
         image: screenFilterImg,
         rows: [
-          { productName: "Screen Filter", nominalId: "2 inch", wallThickness: "-", type: "Filter", pressureRating: "Standard" },
+          {
+            productName: "Screen Filter",
+            nominalId: "2 inch",
+            wallThickness: "-",
+            type: "Filter",
+            pressureRating: "Standard",
+          },
         ],
       },
     ],
@@ -135,137 +255,231 @@ const productSections = [
 ];
 
 // --- ProductTable component ---
-const ProductTable = ({ rows }) => {
-  return (
-    <div className="overflow-x-auto -mx-2 sm:mx-0">
-      <table className="w-full min-w-[600px] md:min-w-full border border-[#2e2e2e]/20 text-sm md:text-base">
-        <thead>
-          <tr className="bg-[#9ac80f] text-white">
-            <th className="px-3 md:px-5 py-3 md:py-4 text-left text-xs md:text-base font-semibold border border-black/20">Product Name</th>
-            <th className="px-3 md:px-5 py-3 md:py-4 text-left text-xs md:text-base font-semibold border border-black/20">Nominal ID</th>
-            <th className="px-3 md:px-5 py-3 md:py-4 text-left text-xs md:text-base font-semibold border border-black/20">Wall Thickness</th>
-            <th className="px-3 md:px-5 py-3 md:py-4 text-left text-xs md:text-base font-semibold border border-black/20">Type</th>
-            <th className="px-3 md:px-5 py-3 md:py-4 text-left text-xs md:text-base font-semibold border border-black/20">Pressure Rating</th>
+const ProductTable = ({ rows }) => (
+  <div className="overflow-x-auto -mx-2 sm:mx-0">
+    <table className="w-full min-w-[600px] md:min-w-full border border-[#2e2e2e]/20 text-sm md:text-base">
+      <thead>
+        <tr className="bg-[#9ac80f] text-white">
+          <th className="px-3 md:px-5 py-3 md:py-4 text-left text-xs md:text-base font-semibold border border-black/20">
+            Product Name
+          </th>
+          <th className="px-3 md:px-5 py-3 md:py-4 text-left text-xs md:text-base font-semibold border border-black/20">
+            Nominal ID
+          </th>
+          <th className="px-3 md:px-5 py-3 md:py-4 text-left text-xs md:text-base font-semibold border border-black/20">
+            Wall Thickness
+          </th>
+          <th className="px-3 md:px-5 py-3 md:py-4 text-left text-xs md:text-base font-semibold border border-black/20">
+            Type
+          </th>
+          <th className="px-3 md:px-5 py-3 md:py-4 text-left text-xs md:text-base font-semibold border border-black/20">
+            Pressure Rating
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row, index) => (
+          <tr key={index} className="bg-white hover:bg-[#f8fbf1] transition">
+            <td className="px-3 md:px-4 py-3 md:py-4 border border-black/20 text-[#111827] text-xs md:text-sm">
+              {row.productName}
+            </td>
+            <td className="px-3 md:px-5 py-3 md:py-4 border border-black/20 text-[#111827] text-xs md:text-sm">
+              {row.nominalId}
+            </td>
+            <td className="px-3 md:px-5 py-3 md:py-4 border border-black/20 text-[#111827] text-xs md:text-sm">
+              {row.wallThickness}
+            </td>
+            <td className="px-3 md:px-5 py-3 md:py-4 border border-black/20 text-[#111827] text-xs md:text-sm">
+              {row.type}
+            </td>
+            <td className="px-3 md:px-5 py-3 md:py-4 border border-black/20 text-[#111827] text-xs md:text-sm">
+              {row.pressureRating}
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, index) => (
-            <tr key={index} className="bg-white hover:bg-[#f8fbf1] transition">
-              <td className="px-3 md:px-4 py-3 md:py-4 border border-black/20 text-[#111827] text-xs md:text-sm">{row.productName}</td>
-              <td className="px-3 md:px-5 py-3 md:py-4 border border-black/20 text-[#111827] text-xs md:text-sm">{row.nominalId}</td>
-              <td className="px-3 md:px-5 py-3 md:py-4 border border-black/20 text-[#111827] text-xs md:text-sm">{row.wallThickness}</td>
-              <td className="px-3 md:px-5 py-3 md:py-4 border border-black/20 text-[#111827] text-xs md:text-sm">{row.type}</td>
-              <td className="px-3 md:px-5 py-3 md:py-4 border border-black/20 text-[#111827] text-xs md:text-sm">{row.pressureRating}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
 
 // --- ProductShowcaseCard component ---
-const ProductShowcaseCard = ({ product }) => {
-  return (
-    <div className="rounded-2xl sm:rounded-[2rem] bg-[#f6f7f5] border border-[#dce7c4] p-2 sm:p-4 md:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
-      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
-        {/* Image section with SEO-optimized Alt Text */}
-        <div className="w-full lg:w-[280px] xl:w-[360px] 2xl:w-[400px] shrink-0 rounded-2xl sm:rounded-[2rem] border-2 border-[#9ac80f] overflow-hidden bg-white">
-          <img
-            src={product.image}
-            alt={`VISDHA ${product.title} - High quality drip irrigation components by KonguNadu Agro Products in Tamil Nadu`}
-            className="w-full h-full object-cover aspect-[4/3] sm:aspect-[16/10] lg:aspect-square"
-          />
-        </div>
+const ProductShowcaseCard = ({ product }) => (
+  <div className="rounded-2xl sm:rounded-[2rem] bg-[#f6f7f5] border border-[#dce7c4] p-2 sm:p-4 md:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
+    <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+      {/* Image section */}
+      <div className="w-full lg:w-[280px] xl:w-[360px] 2xl:w-[400px] shrink-0 rounded-2xl sm:rounded-[2rem] border-2 border-[#9ac80f] overflow-hidden bg-white">
+        <img
+          src={product.image}
+          alt={`${product.title} by VISDHA - drip irrigation product from KonguNadu Agro Products`}
+          className="w-full h-full object-cover aspect-[4/3] sm:aspect-[16/10] lg:aspect-square"
+          loading="lazy"
+        />
+      </div>
 
-        {/* Content section */}
-        <div className="flex-1 w-full min-w-0">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-wide text-[#9ac80f] break-words">
-            <span>{product.title.split(" ")[0]}</span>{" "}
-            <span className="text-[#1f2937]">
-              {product.title.split(" ").slice(1).join(" ")}
-            </span>
-          </h3>
-          <p className="mt-2 text-[#0094ff] text-lg sm:text-xl font-medium">
-            {product.subtitle}
-          </p>
-          <div className="mt-2">
-            <ProductTable rows={product.rows} />
-          </div>
+      {/* Content section */}
+      <div className="flex-1 w-full min-w-0">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-wide text-[#9ac80f] break-words">
+          <span>{product.title.split(" ")[0]}</span>{" "}
+          <span className="text-[#1f2937]">
+            {product.title.split(" ").slice(1).join(" ")}
+          </span>
+        </h3>
+
+        <p className="mt-2 text-[#0094ff] text-lg sm:text-xl font-medium">
+          {product.subtitle}
+        </p>
+
+        <div className="mt-4">
+          <ProductTable rows={product.rows} />
         </div>
       </div>
     </div>
-  );
-};
+  </div>
+);
 
-// --- Combined Products component ---
+// --- Products page component ---
 const Products = () => {
-  // SEO UPGRADE: Enhanced ItemList Schema mapping to specific product types and the VISDHA brand
   const productSchema = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@type": "Product",
-          "name": "VISDHA Agriculture Inline & Online Pipes",
-          "brand": { "@type": "Brand", "name": "VISDHA" },
-          "description": "High strength irrigation grade PVC, inline, and online lateral pipes."
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "item": {
-          "@type": "Product",
-          "name": "VISDHA Drip Irrigation Accessories & Valves",
-          "brand": { "@type": "Brand", "name": "VISDHA" },
-          "description": "Precision flow control ball valves, air release valves, and online drippers."
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@type": "Product",
-          "name": "VISDHA Micro Irrigation Filters",
-          "brand": { "@type": "Brand", "name": "VISDHA" },
-          "description": "Semi-automatic screen filters, disc filters, and hydro cyclone sand separation systems."
-        }
-      }
-    ],
-    "mainEntityOfPage": {
+    "@type": "CollectionPage",
+    name: "VISDHA Drip Irrigation Products",
+    url: "https://www.kongunaduagroproduct.com/products",
+    description:
+      "Explore VISDHA drip irrigation pipes, online and inline laterals, PVC pipes, drip accessories, valves, drippers, and irrigation filters from KonguNadu Agro Products in Gobichettipalayam, Tamil Nadu.",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          item: {
+            "@type": "Product",
+            name: "VISDHA Agriculture Inline & Online Pipes",
+            brand: {
+              "@type": "Brand",
+              name: "VISDHA",
+            },
+            description:
+              "High strength inline lateral pipes, online lateral pipes, and irrigation-grade PVC pipes for agricultural drip irrigation systems.",
+          },
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          item: {
+            "@type": "Product",
+            name: "VISDHA Drip Irrigation Accessories & Valves",
+            brand: {
+              "@type": "Brand",
+              name: "VISDHA",
+            },
+            description:
+              "Ball valves, air release valves, drip accessories, connectors, tees, elbows, and online drippers for precision irrigation systems.",
+          },
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          item: {
+            "@type": "Product",
+            name: "VISDHA Irrigation Filters",
+            brand: {
+              "@type": "Brand",
+              name: "VISDHA",
+            },
+            description:
+              "Semi automatic screen filters, disc filters, hydro cyclone filters, and screen filters for drip irrigation filtration systems.",
+          },
+        },
+      ],
+    },
+    about: {
       "@type": "LocalBusiness",
-      "name": "KonguNadu Agro Products",
-      "address": {
+      name: "KonguNadu Agro Products",
+      url: "https://www.kongunaduagroproduct.com/",
+      address: {
         "@type": "PostalAddress",
-        "addressLocality": "Gobichettipalayam",
-        "addressRegion": "Tamil Nadu"
+        addressLocality: "Gobichettipalayam",
+        addressRegion: "Tamil Nadu",
+        addressCountry: "IN",
       },
-      "areaServed": ["Gobichettipalayam", "Erode", "Coimbatore", "Salem", "Karur", "Nilgiris", "Pollachi"]
-    }
+      areaServed: [
+        "Gobichettipalayam",
+        "Erode",
+        "Coimbatore",
+        "Salem",
+        "Karur",
+        "Nilgiris",
+        "Pollachi",
+      ],
+    },
   };
 
   const stats = [
-    { value: "7+", label: "System Sections" },
-    { value: "25+", label: "Essential Products" },
-    { value: "3", label: "Advanced Specialty Tools" },
-    { value: "100%", label: "Kongu Region Focused Solutions" },
+    { value: "3+", label: "Major Product Categories" },
+    { value: "25+", label: "Irrigation Products" },
+    { value: "100%", label: "Farm-Focused Solutions" },
+    { value: "Kongu Region", label: "Service Coverage" },
   ];
 
-  const fadeInUp = { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } } };
-  const staggerContainer = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.14 } } };
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.55, ease: "easeOut" },
+    },
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.14 },
+    },
+  };
 
   return (
     <div className="w-full min-h-screen bg-white">
-      {/* SEO UPGRADE: Sharpened Meta Tags and Canonical Link */}
       <Helmet>
-        <title>VISDHA Drip Irrigation Pipes & Filters | KonguNadu Agro Products</title>
-        <meta name="description" content="Explore KAPS's complete VISDHA range of drip irrigation pipes, filters, and accessories in Gobichettipalayam. 100% PMKSY subsidy approved for TN farms." />
-        <meta name="keywords" content="VISDHA Agriculture pipes Coimbatore, Drip irrigation filters Erode, Micro irrigation accessories Salem, Farm pipes Karur, Drip tape Nilgiris, PVC pipes Pollachi, KonguNadu Agro Products Gobichettipalayam" />
-        <link rel="canonical" href="https://www.kongunaduagroproduct.com/products" />
+        <title>
+          Drip Irrigation Pipes, Filters & Accessories | KonguNadu Agro Products
+        </title>
+
+        <meta
+          name="description"
+          content="Explore VISDHA drip irrigation pipes, inline and online laterals, PVC pipes, drippers, valves, accessories, and irrigation filters from KonguNadu Agro Products in Gobichettipalayam, Tamil Nadu."
+        />
+
+        <meta
+          name="keywords"
+          content="drip irrigation products Gobichettipalayam, drip irrigation pipes Erode, irrigation filters Coimbatore, online drippers Tamil Nadu, micro irrigation accessories Salem, VISDHA drip irrigation products"
+        />
+
+        <meta
+          name="robots"
+          content="index,follow,max-image-preview:large"
+        />
+
+        <link
+          rel="canonical"
+          href="https://www.kongunaduagroproduct.com/products"
+        />
+
+        <meta
+          property="og:title"
+          content="Drip Irrigation Pipes, Filters & Accessories | KonguNadu Agro Products"
+        />
+        <meta
+          property="og:description"
+          content="Explore VISDHA drip irrigation pipes, filters, drippers, valves, and accessories from KonguNadu Agro Products in Gobichettipalayam."
+        />
+        <meta
+          property="og:url"
+          content="https://www.kongunaduagroproduct.com/products"
+        />
+        <meta property="og:type" content="website" />
+
         <script type="application/ld+json">
           {JSON.stringify(productSchema)}
         </script>
@@ -299,14 +513,36 @@ const Products = () => {
             </span>
           </motion.h1>
 
-          {/* SEO UPGRADE: Injected Subsidy language naturally into the paragraph */}
           <motion.p
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-6 text-lg text-[#5f6f68] max-w-3xl mx-auto leading-relaxed"
           >
-            Explore our complete <strong>VISDHA</strong> drip irrigation product ecosystem — from head units and pipelines to emitters, fittings, and specialty flow control components. Built for efficient agriculture and approved for <strong>PMKSY government subsidies</strong> across <strong>Gobichettipalayam, Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi.</strong>
+            Explore our complete <strong>VISDHA</strong> drip irrigation product
+            ecosystem — from head units and pipelines to emitters, fittings, and
+            specialty flow control components. Built for efficient agriculture and
+            designed for farms across{" "}
+            <strong>
+              Gobichettipalayam, Erode, Coimbatore, Salem, Karur, Nilgiris, and
+              Pollachi.
+            </strong>
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mt-5 text-base sm:text-lg text-[#63736c] max-w-4xl mx-auto leading-relaxed"
+          >
+            KonguNadu Agro Products supplies a complete range of irrigation
+            components including inline and online lateral pipes, PVC irrigation
+            pipes, ball valves, air release valves, online drippers, drip
+            accessories, disc filters, hydro cyclone filters, and screen filters.
+            Our products are designed to support efficient water distribution,
+            reduce wastage, and improve irrigation performance for coconut,
+            sugarcane, banana, turmeric, vegetable, and horticulture farms across
+            Tamil Nadu.
           </motion.p>
         </div>
       </section>
@@ -349,7 +585,10 @@ const Products = () => {
                 <div className="mt-2 sm:mt-3 h-1 w-20 sm:w-24 rounded-full bg-[#9ac80f]" />
               </motion.div>
 
-              <motion.div variants={staggerContainer} className="space-y-8 sm:space-y-10">
+              <motion.div
+                variants={staggerContainer}
+                className="space-y-8 sm:space-y-10"
+              >
                 {section.products.map((product, productIndex) => (
                   <motion.div key={productIndex} variants={fadeInUp}>
                     <ProductShowcaseCard product={product} />
@@ -361,7 +600,7 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Call to Action Section */}
+      {/* CTA Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -372,7 +611,7 @@ const Products = () => {
             className="text-center mb-8"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#173c36]">
-              Get Expert Guidance in Your District
+              Get Expert Guidance for Your Farm Irrigation Setup
             </h2>
             <div className="mt-2 h-1 w-20 sm:w-24 rounded-full bg-[#9ac80f] mx-auto" />
           </motion.div>
@@ -391,8 +630,11 @@ const Products = () => {
             <h2 className="text-3xl sm:text-4xl font-bold text-white">
               Need Help Choosing the Right Products?
             </h2>
+
             <p className="mt-4 text-white/80 max-w-2xl mx-auto leading-relaxed">
-              Based in Gobichettipalayam, our local experts will help you select the exact combination of pipes, emitters, filters, and fittings suited for the specific soil and water conditions of your farm.
+              Based in Gobichettipalayam, our team can help you choose the right
+              combination of pipes, drippers, filters, valves, and accessories
+              for your crop type, water source, and farm layout.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -402,12 +644,12 @@ const Products = () => {
               >
                 Request a Quote
               </Link>
-              {/* SEO UPGRADE: Replaced <button> with React Router <Link> */}
-              <Link 
-                to="/contact" 
+
+              <Link
+                to="/contact"
                 className="px-7 py-3 rounded-xl border border-white/25 text-white hover:bg-white/10 font-semibold transition inline-block"
               >
-                Contact Our Local Team
+                Contact Our Team
               </Link>
             </div>
           </motion.div>

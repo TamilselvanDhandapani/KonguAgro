@@ -1,6 +1,5 @@
-
 import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import {
   FaTint,
@@ -10,7 +9,7 @@ import {
   FaHeadset,
   FaTools,
   FaSeedling,
-  FaUsers
+  FaUsers,
 } from "react-icons/fa";
 import heroImg from "../assets/home2.png";
 import aboutImg from "../assets/About.png";
@@ -35,8 +34,8 @@ const Home = () => {
         logo: "https://www.kongunaduagroproduct.com/assets/logo.png",
         brand: {
           "@type": "Brand",
-          name: "VISDHA"
-        }
+          name: "VISDHA",
+        },
       },
       {
         "@type": "LocalBusiness",
@@ -52,7 +51,7 @@ const Home = () => {
           "@type": "PostalAddress",
           addressLocality: "Gobichettipalayam",
           addressRegion: "Tamil Nadu",
-          addressCountry: "IN"
+          addressCountry: "IN",
         },
         areaServed: [
           "Gobichettipalayam",
@@ -61,16 +60,16 @@ const Home = () => {
           "Salem",
           "Karur",
           "Nilgiris",
-          "Pollachi"
-        ]
+          "Pollachi",
+        ],
       },
       {
         "@type": "WebSite",
         "@id": "https://www.kongunaduagroproduct.com/#website",
         url: "https://www.kongunaduagroproduct.com/",
-        name: "KonguNadu Agro Products"
-      }
-    ]
+        name: "KonguNadu Agro Products",
+      },
+    ],
   };
 
   const faqSchema = {
@@ -82,64 +81,68 @@ const Home = () => {
         name: "What products does KonguNadu Agro Products supply?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "KonguNadu Agro Products supplies agriculture pipes, drip accessories, irrigation filters, venturi injectors and micro-irrigation products under the VISDHA brand."
-        }
+          text: "KonguNadu Agro Products supplies agriculture pipes, drip accessories, irrigation filters, venturi injectors and micro-irrigation products under the VISDHA brand.",
+        },
       },
       {
         "@type": "Question",
         name: "Does KonguNadu Agro Products support PMKSY subsidy guidance?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. KonguNadu Agro Products assists eligible farmers with guidance related to PMKSY drip irrigation subsidy processes in Tamil Nadu."
-        }
+          text: "Yes. KonguNadu Agro Products assists eligible farmers with guidance related to PMKSY drip irrigation subsidy processes in Tamil Nadu.",
+        },
       },
       {
         "@type": "Question",
         name: "Which areas does KonguNadu Agro Products serve?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "KonguNadu Agro Products serves Gobichettipalayam, Erode, Coimbatore, Salem, Karur, Nilgiris, Pollachi and nearby agricultural areas in Tamil Nadu."
-        }
+          text: "KonguNadu Agro Products serves Gobichettipalayam, Erode, Coimbatore, Salem, Karur, Nilgiris, Pollachi and nearby agricultural areas in Tamil Nadu.",
+        },
       },
       {
         "@type": "Question",
         name: "Why are irrigation filters and venturi injectors important in drip irrigation?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Irrigation filters help protect drip systems by reducing clogging, while venturi injectors are commonly used to apply fertilizers through irrigation systems in a controlled way."
-        }
-      }
-    ]
+          text: "Irrigation filters help protect drip systems by reducing clogging, while venturi injectors are commonly used to apply fertilizers through irrigation systems in a controlled way.",
+        },
+      },
+    ],
   };
 
   const features = [
     {
       icon: <FaTint className="text-3xl text-green-600" />,
       title: "Save Water",
-      desc: "Drip irrigation helps deliver water closer to the root zone with less runoff and evaporation."
+      desc: "Drip irrigation helps deliver water closer to the root zone with less runoff and evaporation.",
     },
     {
       icon: <FaChartLine className="text-3xl text-green-600" />,
       title: "Boost Yield",
-      desc: "Consistent moisture delivery supports healthier crop growth and better productivity."
+      desc: "Consistent moisture delivery supports healthier crop growth and better productivity.",
     },
     {
       icon: <FaLeaf className="text-3xl text-green-600" />,
       title: "Better Field Efficiency",
-      desc: "Targeted irrigation supports cleaner field management and efficient water use."
+      desc: "Targeted irrigation supports cleaner field management and efficient water use.",
     },
     {
       icon: <FaMoneyBillWave className="text-3xl text-green-600" />,
       title: "Cost Effective",
-      desc: "Efficient irrigation can help reduce water loss, labour strain and unnecessary input wastage."
-    }
+      desc: "Efficient irrigation can help reduce water loss, labour strain and unnecessary input wastage.",
+    },
   ];
 
   const products = [
     { image: pipeImg, name: "Agriculture Pipes", color: "bg-blue-100" },
-    { image: dripAccessoriesImg, name: "Drip Accessories", color: "bg-green-100" },
+    {
+      image: dripAccessoriesImg,
+      name: "Drip Accessories",
+      color: "bg-green-100",
+    },
     { image: filtersImg, name: "Irrigation Filters", color: "bg-orange-100" },
-    { image: venturiImg, name: "Venturi Injectors", color: "bg-purple-100" }
+    { image: venturiImg, name: "Venturi Injectors", color: "bg-purple-100" },
   ];
 
   // Animation variants
@@ -148,8 +151,8 @@ const Home = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const fadeInLeft = {
@@ -157,8 +160,8 @@ const Home = () => {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.7, ease: "easeOut" }
-    }
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
   };
 
   const fadeInRight = {
@@ -166,8 +169,8 @@ const Home = () => {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.7, ease: "easeOut" }
-    }
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
   };
 
   const fadeInScale = {
@@ -175,44 +178,53 @@ const Home = () => {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.5, ease: "easeOut" }
-    }
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   const staggerContainer = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.3 }
-    }
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+    },
   };
 
   return (
     <div className="w-full min-h-screen bg-white">
       <Helmet>
         <title>
-          KonguNadu Agro Products | Drip Irrigation Systems in
-          Gobichettipalayam
+          Drip Irrigation Systems in Gobichettipalayam | KonguNadu Agro Products
         </title>
+
         <meta
           name="description"
           content="KonguNadu Agro Products (KAPS) manufactures VISDHA drip irrigation and micro-irrigation products in Gobichettipalayam. We supply agriculture pipes, drip accessories, irrigation filters and venturi injectors across Erode, Coimbatore, Salem, Karur, Nilgiris and Pollachi, with PMKSY subsidy guidance for eligible farmers."
         />
-        <meta
-          name="robots"
-          content="index, follow, max-image-preview:large"
-        />
+
+        <meta name="robots" content="index,follow,max-image-preview:large" />
         <link rel="canonical" href="https://www.kongunaduagroproduct.com/" />
+
+        <meta
+          property="og:title"
+          content="Drip Irrigation Systems in Gobichettipalayam | KonguNadu Agro Products"
+        />
+        <meta
+          property="og:description"
+          content="VISDHA drip irrigation products, agriculture pipes, irrigation filters and subsidy guidance for farmers across Gobichettipalayam and the Kongu region."
+        />
+        <meta
+          property="og:url"
+          content="https://www.kongunaduagroproduct.com/"
+        />
+        <meta property="og:type" content="website" />
 
         <script type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
         </script>
 
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
-
       {/* Hero Section */}
       <section className="relative w-full">
         <div className="relative h-[520px] sm:h-[580px] lg:h-[640px] overflow-hidden">
@@ -242,8 +254,8 @@ const Home = () => {
                   <strong>VISDHA</strong> drip irrigation and micro-irrigation
                   products for farmers in{" "}
                   <strong>
-                    Gobichettipalayam, Erode, Coimbatore, Salem, Karur,
-                    Nilgiris and Pollachi
+                    Gobichettipalayam, Erode, Coimbatore, Salem, Karur, Nilgiris
+                    and Pollachi
                   </strong>
                   . We supply agriculture pipes, drip accessories, irrigation
                   filters and venturi injectors, with guidance for eligible{" "}
@@ -530,7 +542,7 @@ const Home = () => {
                 { value: "15,000+", label: "Farms Served", icon: "🌱" },
                 { value: "98%", label: "Customer Satisfaction", icon: "⭐" },
                 { value: "100%", label: "Subsidy Guidance", icon: "📑" },
-                { value: "6+", label: "Districts Covered", icon: "📍" }
+                { value: "6+", label: "Districts Covered", icon: "📍" },
               ].map((stat, idx) => (
                 <div
                   key={idx}
@@ -564,14 +576,14 @@ const Home = () => {
             <div className="space-y-5 text-gray-700 leading-8 text-justify">
               <p>
                 KonguNadu Agro Products (KAPS) is a trusted name in drip
-                irrigation and agricultural product supply in
-                Gobichettipalayam, Tamil Nadu. We work with farmers across the
-                Kongu region by supplying practical micro-irrigation products
-                that help improve water efficiency, reduce wastage and support
-                healthier crop growth. Our focus is on delivering dependable
-                irrigation components that can be used in farms of different
-                sizes and crop types, while also guiding customers in selecting
-                suitable systems for their land and water conditions.
+                irrigation and agricultural product supply in Gobichettipalayam,
+                Tamil Nadu. We work with farmers across the Kongu region by
+                supplying practical micro-irrigation products that help improve
+                water efficiency, reduce wastage and support healthier crop
+                growth. Our focus is on delivering dependable irrigation
+                components that can be used in farms of different sizes and crop
+                types, while also guiding customers in selecting suitable
+                systems for their land and water conditions.
               </p>
 
               <p>
@@ -701,7 +713,7 @@ const Home = () => {
             backgroundImage: `url(${supportBg})`,
             backgroundAttachment: "fixed",
             backgroundPosition: "center",
-            backgroundSize: "cover"
+            backgroundSize: "cover",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#143a34]/95 via-[#1d4f48]/90 to-[#2d6f68]/90" />
@@ -742,30 +754,26 @@ const Home = () => {
                   icon: <FaUsers className="text-3xl text-[#2f7d4b]" />,
                   title: "Expert Consultation",
                   desc: "Get practical irrigation guidance and product recommendations suited to your crop and farm conditions.",
-                  iconBg:
-                    "bg-gradient-to-br from-[#e8f5e9] to-[#d4efe0]"
+                  iconBg: "bg-gradient-to-br from-[#e8f5e9] to-[#d4efe0]",
                 },
                 {
                   icon: <FaHeadset className="text-3xl text-[#2d6f68]" />,
                   title: "Subsidy Guidance",
                   desc: "Support for eligible farmers who need help understanding PMKSY drip irrigation subsidy-related processes.",
-                  iconBg:
-                    "bg-gradient-to-br from-[#e0f2f1] to-[#c8e6e5]"
+                  iconBg: "bg-gradient-to-br from-[#e0f2f1] to-[#c8e6e5]",
                 },
                 {
                   icon: <FaTools className="text-3xl text-[#4d8c7c]" />,
                   title: "Installation Support",
                   desc: "Practical help with system setup, filtration planning, spacing and basic irrigation component guidance.",
-                  iconBg:
-                    "bg-gradient-to-br from-[#e6f3ef] to-[#d4e9e3]"
+                  iconBg: "bg-gradient-to-br from-[#e6f3ef] to-[#d4e9e3]",
                 },
                 {
                   icon: <FaSeedling className="text-3xl text-[#5d9f5c]" />,
                   title: "Seasonal Optimization",
                   desc: "Guidance to help farmers adjust irrigation practices based on crop type, season and field requirements.",
-                  iconBg:
-                    "bg-gradient-to-br from-[#f1f8e9] to-[#e4f3df]"
-                }
+                  iconBg: "bg-gradient-to-br from-[#f1f8e9] to-[#e4f3df]",
+                },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -806,4 +814,3 @@ const Home = () => {
 };
 
 export default Home;
-
