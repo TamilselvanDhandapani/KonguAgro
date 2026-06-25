@@ -20,7 +20,7 @@ async function generateSitemap() {
   
   try {
     // 3. Create a stream pointing to your live domain
-    const stream = new SitemapStream({ hostname: 'https://www.kongunaduagro.com' });
+    const stream = new SitemapStream({ hostname: 'https://www.kongunaduagroproduct.com' });
     
     // 4. Generate the XML string
     const sitemapData = await streamToPromise(Readable.from(links).pipe(stream));
