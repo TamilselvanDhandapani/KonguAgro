@@ -38,12 +38,32 @@ const Navbar = () => {
   const navigationSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "itemListElement": [
-      { "@type": "SiteNavigationElement", "position": 1, "name": "Home", "url": "https://www.kongunaduagroproduct.com/" },
-      { "@type": "SiteNavigationElement", "position": 2, "name": "VISDHA Products", "url": "https://www.kongunaduagroproduct.com/products" },
-      { "@type": "SiteNavigationElement", "position": 3, "name": "About KAPS", "url": "https://www.kongunaduagroproduct.com/about" },
-      { "@type": "SiteNavigationElement", "position": 4, "name": "Contact & Subsidy", "url": "https://www.kongunaduagroproduct.com/contact" }
-    ]
+    itemListElement: [
+      {
+        "@type": "SiteNavigationElement",
+        position: 1,
+        name: "Home",
+        url: "https://www.kongunaduagroproduct.com/",
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 2,
+        name: "VISDHA Products",
+        url: "https://www.kongunaduagroproduct.com/products",
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 3,
+        name: "About KAPS",
+        url: "https://www.kongunaduagroproduct.com/about",
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 4,
+        name: "Contact & Subsidy",
+        url: "https://www.kongunaduagroproduct.com/contact",
+      },
+    ],
   };
 
   useEffect(() => {
@@ -88,9 +108,7 @@ const Navbar = () => {
           className={`w-full bg-[#14532d] text-white transition-all duration-300 overflow-hidden ${
             isScrolled ? "h-0 opacity-0" : "h-auto opacity-100"
           }`}
-        >
-         
-        </div>
+        ></div>
 
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-10">
           <nav className="flex justify-between items-center h-20">
@@ -202,7 +220,11 @@ const Navbar = () => {
                 className="fixed top-0 right-0 w-[300px] sm:w-[340px] h-full bg-white z-50 shadow-xl flex flex-col"
               >
                 <div className="p-4 border-b border-gray-100 flex justify-between items-center">
-                  <Link to="/" className="flex items-center" onClick={toggleMenu}>
+                  <Link
+                    to="/"
+                    className="flex items-center"
+                    onClick={toggleMenu}
+                  >
                     <div className="flex items-center justify-center w-12 h-12 rounded-full mr-3 bg-green-50 border border-green-100 overflow-hidden">
                       {logo ? (
                         <img
