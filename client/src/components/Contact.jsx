@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -10,6 +10,18 @@ import {
   Send,
   MessageSquare,
 } from "lucide-react";
+
+
+const SITE_URL = "https://kongunaduagroproduct.com";
+const CONTACT_URL = `${SITE_URL}/contact`;
+const MAP_QUERY =
+  "KonguNadu Agro Products, 345/2, Near Modachur Weekly Market, Vadugapalayam to Tirupur Main Road, Modachur, Gobichettipalayam, Tamil Nadu 638476, India";
+const MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  MAP_QUERY
+)}`;
+const MAP_EMBED_URL = `https://maps.google.com/maps?q=${encodeURIComponent(
+  MAP_QUERY
+)}&z=16&output=embed`;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -56,58 +68,142 @@ const contactItems = [
 const ContactPage = () => {
   const contactSchema = {
     "@context": "https://schema.org",
-    "@type": "ContactPage",
-    mainEntity: {
-      "@type": "LocalBusiness",
-      name: "KonguNadu Agro Products",
-      alternateName: "KAPS",
-      description:
-        "Get in touch with KonguNadu Agro Products (KAPS) for premium VISDHA drip irrigation systems, agriculture pipes, and PMKSY subsidy guidance.",
-      telephone: "+91-9962699988",
-      email: "kongunaduagroproduct@gmail.com",
-      brand: {
-        "@type": "Brand",
-        name: "VISDHA",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": `${CONTACT_URL}#contactpage`,
+        url: CONTACT_URL,
+        name: "Contact KonguNadu Agro Products",
+        description:
+          "Contact KonguNadu Agro Products in Gobichettipalayam for VISDHA drip irrigation products, agriculture pipes, irrigation guidance and PMKSY subsidy assistance.",
+        inLanguage: "en-IN",
+        isPartOf: {
+          "@id": `${SITE_URL}/#website`,
+        },
+        mainEntity: {
+          "@id": `${SITE_URL}/#localbusiness`,
+        },
       },
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "No. 123, Irrigation Complex, Bhavani Main Road",
-        addressLocality: "Gobichettipalayam",
-        addressRegion: "Tamil Nadu",
-        postalCode: "638452",
-        addressCountry: "IN",
+      {
+        "@type": "LocalBusiness",
+        "@id": `${SITE_URL}/#localbusiness`,
+        name: "KonguNadu Agro Products",
+        alternateName: "KAPS",
+        url: `${SITE_URL}/`,
+        image: `${SITE_URL}/home2.png`,
+        logo: `${SITE_URL}/logo.png`,
+        description:
+          "KonguNadu Agro Products manufactures and supplies VISDHA drip irrigation and micro-irrigation products from Gobichettipalayam, Tamil Nadu.",
+        telephone: "+91-9962699988",
+        email: "kongunaduagroproduct@gmail.com",
+        priceRange: "₹₹",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress:
+            "345/2, Near Modachur Weekly Market, Vadugapalayam to Tirupur Main Road, Modachur",
+          addressLocality: "Gobichettipalayam",
+          addressRegion: "Tamil Nadu",
+          postalCode: "638476",
+          addressCountry: "IN",
+        },
+        hasMap: MAP_URL,
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+            ],
+            opens: "09:00",
+            closes: "18:00",
+          },
+        ],
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+91-9962699988",
+          email: "kongunaduagroproduct@gmail.com",
+          contactType: "customer service",
+          areaServed: "IN",
+          availableLanguage: ["English", "Tamil"],
+        },
+        brand: {
+          "@type": "Brand",
+          name: "VISDHA",
+        },
+        areaServed: [
+          "Gobichettipalayam",
+          "Erode",
+          "Coimbatore",
+          "Salem",
+          "Karur",
+          "Nilgiris",
+          "Pollachi",
+        ],
       },
-      areaServed: [
-        "Gobichettipalayam",
-        "Erode",
-        "Coimbatore",
-        "Salem",
-        "Karur",
-        "Nilgiris",
-        "Pollachi",
-      ],
-      url: "https://www.kongunaduagroproduct.com/contact",
-    },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
+        name: "KonguNadu Agro Products",
+        publisher: {
+          "@id": `${SITE_URL}/#localbusiness`,
+        },
+      },
+    ],
   };
 
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-slate-900 overflow-hidden">
       <Helmet>
         <title>
-          Contact KonguNadu Agro | Drip Irrigation Dealers in Gobichettipalayam
+          Contact KonguNadu Agro Products | Drip Irrigation Gobichettipalayam
         </title>
+
         <meta
           name="description"
-          content="Contact KonguNadu Agro Products (KAPS) in Gobichettipalayam for VISDHA drip irrigation systems and PMKSY subsidy support. Serving Erode, Salem & Coimbatore."
+          content="Contact KonguNadu Agro Products in Gobichettipalayam for VISDHA drip irrigation products, agriculture pipes, irrigation support and PMKSY subsidy guidance."
+        />
+
+        <meta
+          name="robots"
+          content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+        />
+
+        <link rel="canonical" href={CONTACT_URL} />
+
+        <meta
+          property="og:title"
+          content="Contact KonguNadu Agro Products | Gobichettipalayam"
         />
         <meta
-          name="keywords"
-          content="Contact KonguNadu Agro, Drip irrigation Gobichettipalayam contact, VISDHA drip dealers Erode, Irrigation dealers Coimbatore, Salem farm supplies, Karur micro irrigation, Pollachi drip tape"
+          property="og:description"
+          content="Contact our Gobichettipalayam team for VISDHA drip irrigation products, agriculture pipes, product guidance and PMKSY subsidy assistance."
         />
-        <link
-          rel="canonical"
-          href="https://www.kongunaduagroproduct.com/contact"
+        <meta property="og:url" content={CONTACT_URL} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="KonguNadu Agro Products" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:image" content={`${SITE_URL}/home2.png`} />
+        <meta
+          property="og:image:alt"
+          content="KonguNadu Agro Products drip irrigation solutions"
         />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Contact KonguNadu Agro Products | Gobichettipalayam"
+        />
+        <meta
+          name="twitter:description"
+          content="Contact our team for VISDHA drip irrigation products, agriculture pipes and irrigation guidance across the Kongu region."
+        />
+        <meta name="twitter:image" content={`${SITE_URL}/home2.png`} />
+
         <script type="application/ld+json">
           {JSON.stringify(contactSchema)}
         </script>
@@ -364,17 +460,17 @@ const ContactPage = () => {
                   <address className="mt-3 not-italic text-slate-700 leading-7">
                     <strong>KonguNadu Agro Products</strong>
                     <br />
-                    No. 123, Irrigation Complex,
+                    345/2, Near Modachur Weekly Market,
                     <br />
-                    Bhavani Main Road,
+                    Vadugapalayam to Tirupur Main Road,
                     <br />
-                    Gobichettipalayam,
+                    Modachur, Gobichettipalayam - 638476,
                     <br />
-                    Tamil Nadu 638452, India
+                    Tamil Nadu, India
                   </address>
 
                   <a
-                    href="https://maps.google.com/?q=Gobichettipalayam,+Tamil+Nadu+638452,+India"
+                    href={MAP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-5 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white"
@@ -388,7 +484,7 @@ const ContactPage = () => {
               <div className="p-4 sm:p-5 lg:p-6">
                 <iframe
                   title="KonguNadu Agro Products Location in Gobichettipalayam"
-                  src="https://maps.google.com/maps?q=Gobichettipalayam%2C%20Tamil%20Nadu%20638452%2C%20India&z=15&output=embed"
+                  src={MAP_EMBED_URL}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

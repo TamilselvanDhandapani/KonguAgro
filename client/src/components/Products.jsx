@@ -18,10 +18,24 @@ import discFilterImg from "../assets/DISCfilter.png";
 import hydroCycloneFilterImg from "../assets/HCfilter.png";
 import screenFilterImg from "../assets/Screenfilter.png";
 
+
+const SITE_URL = "https://kongunaduagroproduct.com";
+const PAGE_URL = `${SITE_URL}/products`;
+
+const BUSINESS_ADDRESS = {
+  streetAddress:
+    "345/2, Near Modachur Weekly Market, Vadugapalayam to Tirupur Main Road, Modachur",
+  addressLocality: "Gobichettipalayam",
+  addressRegion: "Tamil Nadu",
+  postalCode: "638476",
+  addressCountry: "IN",
+};
+
 // --- Product data ---
 const productSections = [
   {
     sectionTitle: "Agriculture Pipes",
+    slug: "agriculture-pipes",
     products: [
       {
         title: "INLINE PIPES",
@@ -90,6 +104,7 @@ const productSections = [
   },
   {
     sectionTitle: "Drip Accessories & Emitters",
+    slug: "drip-accessories-emitters",
     products: [
       {
         title: "BALL VALVES",
@@ -193,6 +208,7 @@ const productSections = [
   },
   {
     sectionTitle: "Irrigation Filters",
+    slug: "irrigation-filters",
     products: [
       {
         title: "SEMI AUTOMATIC SCREEN FILTER",
@@ -341,78 +357,161 @@ const ProductShowcaseCard = ({ product }) => (
 const Products = () => {
   const productSchema = {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "VISDHA Drip Irrigation Products",
-    url: "https://www.kongunaduagroproduct.com/products",
-    description:
-      "Explore VISDHA drip irrigation pipes, online and inline laterals, PVC pipes, drip accessories, valves, drippers, and irrigation filters from KonguNadu Agro Products in Gobichettipalayam, Tamil Nadu.",
-    mainEntity: {
-      "@type": "ItemList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          item: {
-            "@type": "Product",
-            name: "VISDHA Agriculture Inline & Online Pipes",
-            brand: {
-              "@type": "Brand",
-              name: "VISDHA",
-            },
-            description:
-              "High strength inline lateral pipes, online lateral pipes, and irrigation-grade PVC pipes for agricultural drip irrigation systems.",
-          },
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${PAGE_URL}#collection`,
+        url: PAGE_URL,
+        name: "VISDHA Drip Irrigation Products",
+        description:
+          "Explore VISDHA inline and online lateral pipes, PVC pipes, drip accessories, valves, online drippers, and irrigation filters from KonguNadu Agro Products in Gobichettipalayam, Tamil Nadu.",
+        isPartOf: {
+          "@id": `${SITE_URL}/#website`,
         },
-        {
-          "@type": "ListItem",
-          position: 2,
-          item: {
-            "@type": "Product",
-            name: "VISDHA Drip Irrigation Accessories & Valves",
-            brand: {
-              "@type": "Brand",
-              name: "VISDHA",
-            },
-            description:
-              "Ball valves, air release valves, drip accessories, connectors, tees, elbows, and online drippers for precision irrigation systems.",
-          },
+        about: {
+          "@id": `${SITE_URL}/#localbusiness`,
         },
-        {
-          "@type": "ListItem",
-          position: 3,
-          item: {
-            "@type": "Product",
-            name: "VISDHA Irrigation Filters",
-            brand: {
-              "@type": "Brand",
-              name: "VISDHA",
-            },
-            description:
-              "Semi automatic screen filters, disc filters, hydro cyclone filters, and screen filters for drip irrigation filtration systems.",
-          },
+        breadcrumb: {
+          "@id": `${PAGE_URL}#breadcrumb`,
         },
-      ],
-    },
-    about: {
-      "@type": "LocalBusiness",
-      name: "KonguNadu Agro Products",
-      url: "https://www.kongunaduagroproduct.com/",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Gobichettipalayam",
-        addressRegion: "Tamil Nadu",
-        addressCountry: "IN",
+        mainEntity: {
+          "@id": `${PAGE_URL}#product-list`,
+        },
       },
-      areaServed: [
-        "Gobichettipalayam",
-        "Erode",
-        "Coimbatore",
-        "Salem",
-        "Karur",
-        "Nilgiris",
-        "Pollachi",
-      ],
-    },
+      {
+        "@type": "ItemList",
+        "@id": `${PAGE_URL}#product-list`,
+        name: "VISDHA Irrigation Product Categories",
+        numberOfItems: 3,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            url: `${PAGE_URL}#agriculture-pipes`,
+            item: {
+              "@type": "Product",
+              name: "VISDHA Agriculture Pipes",
+              category: "Drip irrigation pipes",
+              brand: {
+                "@type": "Brand",
+                name: "VISDHA",
+              },
+              manufacturer: {
+                "@id": `${SITE_URL}/#organization`,
+              },
+              description:
+                "Inline lateral pipes, online lateral pipes, and irrigation-grade PVC pipes for agricultural water distribution.",
+            },
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            url: `${PAGE_URL}#drip-accessories-emitters`,
+            item: {
+              "@type": "Product",
+              name: "VISDHA Drip Accessories, Valves and Emitters",
+              category: "Drip irrigation accessories",
+              brand: {
+                "@type": "Brand",
+                name: "VISDHA",
+              },
+              manufacturer: {
+                "@id": `${SITE_URL}/#organization`,
+              },
+              description:
+                "Ball valves, air release valves, connectors, fittings, and online drippers for agricultural drip irrigation systems.",
+            },
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            url: `${PAGE_URL}#irrigation-filters`,
+            item: {
+              "@type": "Product",
+              name: "VISDHA Irrigation Filters",
+              category: "Drip irrigation filters",
+              brand: {
+                "@type": "Brand",
+                name: "VISDHA",
+              },
+              manufacturer: {
+                "@id": `${SITE_URL}/#organization`,
+              },
+              description:
+                "Semi-automatic screen filters, disc filters, hydro cyclone filters, and screen filters for irrigation system protection.",
+            },
+          },
+        ],
+      },
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: "KonguNadu Agro Products",
+        alternateName: "KAPS",
+        url: `${SITE_URL}/`,
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/logo.png`,
+        },
+        brand: {
+          "@type": "Brand",
+          name: "VISDHA",
+        },
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": `${SITE_URL}/#localbusiness`,
+        name: "KonguNadu Agro Products",
+        alternateName: "KAPS",
+        url: `${SITE_URL}/`,
+        telephone: "+91-9962699988",
+        email: "kongunaduagroproduct@gmail.com",
+        image: `${SITE_URL}/home2.png`,
+        address: {
+          "@type": "PostalAddress",
+          ...BUSINESS_ADDRESS,
+        },
+        areaServed: [
+          "Gobichettipalayam",
+          "Erode",
+          "Coimbatore",
+          "Salem",
+          "Karur",
+          "Nilgiris",
+          "Pollachi",
+        ],
+        parentOrganization: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
+        name: "KonguNadu Agro Products",
+        publisher: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${PAGE_URL}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: `${SITE_URL}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Products",
+            item: PAGE_URL,
+          },
+        ],
+      },
+    ],
   };
 
   const stats = [
@@ -443,42 +542,49 @@ const Products = () => {
     <div className="w-full min-h-screen bg-white">
       <Helmet>
         <title>
-          Drip Irrigation Pipes, Filters & Accessories | KonguNadu Agro Products
+          VISDHA Drip Irrigation Products | KonguNadu Agro Products
         </title>
 
         <meta
           name="description"
-          content="Explore VISDHA drip irrigation pipes, inline and online laterals, PVC pipes, drippers, valves, accessories, and irrigation filters from KonguNadu Agro Products in Gobichettipalayam, Tamil Nadu."
-        />
-
-        <meta
-          name="keywords"
-          content="drip irrigation products Gobichettipalayam, drip irrigation pipes Erode, irrigation filters Coimbatore, online drippers Tamil Nadu, micro irrigation accessories Salem, VISDHA drip irrigation products"
+          content="Explore VISDHA drip irrigation pipes, inline and online laterals, PVC pipes, drippers, valves, accessories and irrigation filters from KonguNadu Agro Products in Gobichettipalayam."
         />
 
         <meta
           name="robots"
-          content="index,follow,max-image-preview:large"
+          content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
         />
 
-        <link
-          rel="canonical"
-          href="https://www.kongunaduagroproduct.com/products"
-        />
+        <link rel="canonical" href={PAGE_URL} />
 
         <meta
           property="og:title"
-          content="Drip Irrigation Pipes, Filters & Accessories | KonguNadu Agro Products"
+          content="VISDHA Drip Irrigation Products | KonguNadu Agro Products"
         />
         <meta
           property="og:description"
-          content="Explore VISDHA drip irrigation pipes, filters, drippers, valves, and accessories from KonguNadu Agro Products in Gobichettipalayam."
+          content="Explore VISDHA irrigation pipes, valves, drippers, accessories and filters manufactured and supplied by KonguNadu Agro Products in Gobichettipalayam."
+        />
+        <meta property="og:url" content={PAGE_URL} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="KonguNadu Agro Products" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:image" content={`${SITE_URL}/home2.png`} />
+        <meta
+          property="og:image:alt"
+          content="VISDHA drip irrigation products from KonguNadu Agro Products"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="VISDHA Drip Irrigation Products | KonguNadu Agro Products"
         />
         <meta
-          property="og:url"
-          content="https://www.kongunaduagroproduct.com/products"
+          name="twitter:description"
+          content="Explore VISDHA irrigation pipes, valves, drippers, accessories and filters for agricultural drip irrigation systems."
         />
-        <meta property="og:type" content="website" />
+        <meta name="twitter:image" content={`${SITE_URL}/home2.png`} />
 
         <script type="application/ld+json">
           {JSON.stringify(productSchema)}
@@ -572,7 +678,8 @@ const Products = () => {
         <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
           {productSections.map((section, sectionIndex) => (
             <motion.div
-              key={sectionIndex}
+              key={section.slug}
+              id={section.slug}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
@@ -590,7 +697,7 @@ const Products = () => {
                 className="space-y-8 sm:space-y-10"
               >
                 {section.products.map((product, productIndex) => (
-                  <motion.div key={productIndex} variants={fadeInUp}>
+                  <motion.div key={product.title} variants={fadeInUp}>
                     <ProductShowcaseCard product={product} />
                   </motion.div>
                 ))}

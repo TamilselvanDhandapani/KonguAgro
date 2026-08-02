@@ -4,114 +4,112 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaMapMarkerAlt,
-  FaFacebookF,
-  FaInstagram,
-  FaYoutube,
 } from "react-icons/fa";
 import logo from "../assets/logo.png";
 
+const SITE_URL = "https://kongunaduagroproduct.com";
+
 const Footer = () => {
-  // SEO UPGRADE: Enriched link titles with target keywords
   const quickLinks = [
-    { name: "Home", link: "/", title: "KonguNadu Agro Home - Drip Irrigation" },
-    { name: "Products", link: "/products", title: "VISDHA Drip Irrigation Products" },
-    { name: "About Us", link: "/about", title: "About KAPS Manufacturing" },
-    { name: "Contact", link: "/contact", title: "Contact Our Local Team" },
+    {
+      name: "Home",
+      link: "/",
+      title: "KonguNadu Agro Products home",
+    },
+    {
+      name: "Products",
+      link: "/products",
+      title: "Explore VISDHA drip irrigation products",
+    },
+    {
+      name: "About Us",
+      link: "/about",
+      title: "About KonguNadu Agro Products",
+    },
+    {
+      name: "Contact",
+      link: "/contact",
+      title: "Contact KonguNadu Agro Products",
+    },
   ];
 
   const products = [
     {
       name: "Agriculture Pipes",
-      link: "/products",
-      title: "VISDHA Inline and Online Drip Pipes",
+      link: "/products#agriculture-pipes",
+      title: "VISDHA inline, online and PVC irrigation pipes",
     },
     {
       name: "Drip Accessories",
-      link: "/products",
-      title: "Drip Irrigation Fittings & Valves",
+      link: "/products#drip-accessories-emitters",
+      title: "Drip irrigation fittings, valves and emitters",
     },
     {
       name: "Irrigation Filters",
-      link: "/products",
-      title: "Screen, Disc, and Hydro Cyclone Filters",
+      link: "/products#irrigation-filters",
+      title: "Screen, disc and hydro cyclone irrigation filters",
     },
     {
       name: "Venturi Injectors",
       link: "/products",
-      title: "PMKSY Approved Venturi Systems",
+      title: "Venturi injectors for agricultural irrigation systems",
     },
   ];
 
   return (
-    <footer className="bg-white border-t border-gray-200 mt-16">
-      {/* Top Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Brand & Bio */}
-          <div>
-            <Link to="/" className="flex items-center gap-3 mb-5">
-              {logo ? (
-                <img src={logo} alt="KonguNadu Agro Logo" className="h-12 w-auto" />
-              ) : (
-                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                  <span className="text-xl font-bold text-green-700">K</span>
-                </div>
-              )}
+    <footer className="mt-16 border-t border-gray-200 bg-white">
+      {/* Main footer */}
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
+        <div className="grid grid-cols-1 gap-10 sm:gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+          {/* Brand */}
+          <div className="text-center md:text-left">
+            <Link
+              to="/"
+              className="inline-flex items-center justify-center gap-3 md:justify-start"
+              title="KonguNadu Agro Products"
+              aria-label="Go to KonguNadu Agro Products home page"
+            >
+              <img
+                src={logo}
+                alt="KonguNadu Agro Products logo"
+                className="h-12 w-auto object-contain sm:h-14"
+                itemProp="logo"
+              />
 
-              <div className="flex flex-col">
-                <span className="text-xl font-extrabold tracking-wide text-[#14532d]">
+              <div className="flex flex-col text-left">
+                <span className="text-lg font-extrabold leading-tight tracking-wide text-[#14532d] sm:text-xl lg:text-[22px]">
                   KonguNadu Agro
                 </span>
-                <span className="text-sm text-[#2f855a] font-medium">
+                <span className="text-xs font-medium text-[#2f855a] sm:text-sm">
                   Products
                 </span>
               </div>
             </Link>
 
-            {/* SEO UPGRADE: Injected Brand & Subsidy keywords globally */}
-            <p className="text-gray-600 leading-relaxed text-sm">
-              Manufacturing the <strong>VISDHA</strong> brand of premium drip irrigation systems.
-              <strong> 100% PMKSY Subsidy Approved</strong>. Proudly based in
-              <strong> Gobichettipalayam</strong> and serving farms across Erode,
-              Coimbatore, Salem, Karur, Nilgiris, and Pollachi.
+            <p className="mx-auto mt-5 max-w-md text-sm leading-7 text-gray-600 sm:text-[15px] md:mx-0">
+              KonguNadu Agro Products manufactures the{" "}
+              <strong>VISDHA</strong> range of drip irrigation and
+              micro-irrigation products. Based in{" "}
+              <strong>Gobichettipalayam</strong>, we serve farmers across
+              Erode, Coimbatore, Salem, Karur, Nilgiris and Pollachi, with
+              product guidance and PMKSY subsidy assistance for eligible
+              farmers.
             </p>
-
-            {/* Social */}
-            <div className="flex items-center gap-3 mt-6">
-              <a
-                href="#"
-                className="w-9 h-9 rounded-full bg-green-50 hover:bg-green-600 hover:text-white transition flex items-center justify-center text-[#14532d]"
-                aria-label="Facebook KonguNadu Agro"
-              >
-                <FaFacebookF className="text-sm" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-full bg-green-50 hover:bg-green-600 hover:text-white transition flex items-center justify-center text-[#14532d]"
-                aria-label="Instagram KonguNadu Agro"
-              >
-                <FaInstagram className="text-sm" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-full bg-green-50 hover:bg-green-600 hover:text-white transition flex items-center justify-center text-[#14532d]"
-                aria-label="YouTube KonguNadu Agro"
-              >
-                <FaYoutube className="text-sm" />
-              </a>
-            </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-bold mb-5 text-[#173c36]">Quick Links</h3>
+          {/* Quick links */}
+          <div className="text-center md:text-left">
+            <h2 className="mb-5 text-base font-bold text-[#173c36] sm:text-lg">
+              Quick Links
+            </h2>
+
             <ul className="space-y-3">
-              {quickLinks.map((item, index) => (
-                <li key={index}>
+              {quickLinks.map((item) => (
+                <li key={item.link}>
                   <Link
                     to={item.link}
                     title={item.title}
-                    className="text-gray-600 hover:text-green-600 transition text-sm"
+                    className="inline-block text-sm text-gray-600 transition hover:text-green-600 sm:text-[15px]"
                   >
                     {item.name}
                   </Link>
@@ -121,15 +119,18 @@ const Footer = () => {
           </div>
 
           {/* Products */}
-          <div>
-            <h3 className="text-lg font-bold mb-5 text-[#173c36]">Our Products</h3>
+          <div className="text-center md:text-left">
+            <h2 className="mb-5 text-base font-bold text-[#173c36] sm:text-lg">
+              Our Products
+            </h2>
+
             <ul className="space-y-3">
-              {products.map((item, index) => (
-                <li key={index}>
+              {products.map((item) => (
+                <li key={item.name}>
                   <Link
                     to={item.link}
                     title={item.title}
-                    className="text-gray-600 hover:text-green-600 transition text-sm"
+                    className="inline-block text-sm text-gray-600 transition hover:text-green-600 sm:text-[15px]"
                   >
                     {item.name}
                   </Link>
@@ -138,85 +139,118 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div itemScope itemType="https://schema.org/LocalBusiness">
-            <h3 className="text-lg font-bold mb-5 text-[#173c36]">Contact Us</h3>
+          {/* Contact */}
+          <div
+            className="text-center md:text-left"
+            itemScope
+            itemType="https://schema.org/LocalBusiness"
+          >
+            <meta
+              itemProp="name"
+              content="KonguNadu Agro Products"
+            />
+            <meta itemProp="alternateName" content="KAPS" />
+            <link itemProp="url" href={SITE_URL} />
+
+            <h2 className="mb-5 text-base font-bold text-[#173c36] sm:text-lg">
+              Contact Us
+            </h2>
 
             <address
-              className="space-y-4 text-sm text-gray-600 not-italic"
+              className="space-y-4 text-sm not-italic text-gray-600 sm:text-[15px]"
               itemProp="address"
               itemScope
               itemType="https://schema.org/PostalAddress"
             >
-              <div className="flex items-start gap-3">
-                <FaMapMarkerAlt className="mt-1 text-green-600 shrink-0" />
-                <p>
-                  <strong itemProp="name">KonguNadu Agro Products (KAPS)</strong>
+              <div className="flex items-start justify-center gap-3 text-left md:justify-start">
+                <FaMapMarkerAlt
+                  className="mt-1 shrink-0 text-green-600"
+                  aria-hidden="true"
+                />
+
+                <p className="max-w-sm leading-7">
+                  <strong>KonguNadu Agro Products (KAPS)</strong>
                   <br />
                   <span itemProp="streetAddress">
-                    No. 123, Irrigation Complex, Bhavani Main Road
+                    345/2, Near Modachur Weekly Market, Vadugapalayam to
+                    Tirupur Main Road, Modachur
                   </span>
                   ,
                   <br />
                   <span itemProp="addressLocality">Gobichettipalayam</span>,{" "}
                   <span itemProp="addressRegion">Tamil Nadu</span>{" "}
-                  <span itemProp="postalCode">638452</span>
+                  <span itemProp="postalCode">638476</span>,{" "}
+                  <span itemProp="addressCountry">India</span>
                 </p>
               </div>
 
-              <div className="flex items-center gap-3">
-                <FaPhoneAlt className="text-green-600 shrink-0" />
+              <div className="flex items-center justify-center gap-3 md:justify-start">
+                <FaPhoneAlt
+                  className="shrink-0 text-green-600"
+                  aria-hidden="true"
+                />
+
                 <a
                   href="tel:+919962699988"
                   itemProp="telephone"
-                  className="hover:text-green-600 transition"
-                  title="Call KonguNadu Agro"
+                  className="break-all transition hover:text-green-600"
+                  title="Call KonguNadu Agro Products"
                 >
                   +91 99626 99988
                 </a>
               </div>
 
-              <div className="flex items-center gap-3">
-                <FaEnvelope className="text-green-600 shrink-0" />
+              <div className="flex items-start justify-center gap-3 md:justify-start">
+                <FaEnvelope
+                  className="mt-1 shrink-0 text-green-600"
+                  aria-hidden="true"
+                />
+
                 <a
                   href="mailto:kongunaduagroproduct@gmail.com"
                   itemProp="email"
-                  className="hover:text-green-600 transition"
-                  title="Email KonguNadu Agro"
+                  className="break-all text-left transition hover:text-green-600"
+                  title="Email KonguNadu Agro Products"
                 >
                   kongunaduagroproduct@gmail.com
                 </a>
               </div>
             </address>
 
-            <Link
-              to="/request-quote"
-              title="Request Drip Irrigation Quote"
-              className="inline-block mt-6 px-5 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white text-sm font-semibold shadow-md transition"
-            >
-              Request a Quote
-            </Link>
+            <div className="mt-6 flex justify-center md:justify-start">
+              <Link
+                to="/request-quote"
+                title="Request a drip irrigation quotation"
+                className="inline-flex w-full max-w-xs items-center justify-center rounded-lg bg-green-600 px-5 py-3 text-center text-sm font-semibold text-white shadow-md transition hover:bg-green-700 sm:w-auto sm:text-[15px]"
+              >
+                Request a Quote
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      {/* Bottom bar */}
       <div className="border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} KonguNadu Agro Products. All rights reserved.</p>
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-5 text-center text-xs text-gray-500 sm:px-6 sm:text-sm md:flex-row md:text-left lg:px-8">
+          <p>
+            © {new Date().getFullYear()} KonguNadu Agro Products. All rights
+            reserved.
+          </p>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 md:justify-end">
             <Link
               to="/privacy-policy"
-              className="text-gray-500 hover:text-green-600 transition"
+              className="transition hover:text-green-600"
             >
               Privacy Policy
             </Link>
+
             <Link
               to="/terms-conditions"
-              className="hover:text-green-600 transition"
+              className="transition hover:text-green-600"
             >
-              Terms & Conditions
+              Terms &amp; Conditions
             </Link>
           </div>
         </div>

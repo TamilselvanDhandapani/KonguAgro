@@ -1,3 +1,7 @@
+ 
+
+
+
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
@@ -11,15 +15,20 @@ import {
   FaSeedling,
   FaUsers,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 import heroImg from "../assets/home2.png";
 import aboutImg from "../assets/About.png";
 import supportBg from "../assets/img1.png";
-
 import pipeImg from "../assets/home3.png";
 import dripAccessoriesImg from "../assets/home4.png";
 import filtersImg from "../assets/home5.png";
 import venturiImg from "../assets/Venturi.png";
-import { Link } from "react-router-dom";
+
+const SITE_URL = "https://kongunaduagroproduct.com";
+
+const BUSINESS_ADDRESS =
+  "345/2, Near Modachur Weekly Market, Vadugapalayam to Tirupur Main Road, Modachur, Gobichettipalayam - 638476, Tamil Nadu";
 
 const Home = () => {
   const localBusinessSchema = {
@@ -27,11 +36,14 @@ const Home = () => {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://www.kongunaduagroproduct.com/#organization",
+        "@id": `${SITE_URL}/#organization`,
         name: "KonguNadu Agro Products",
         alternateName: "KAPS",
-        url: "https://www.kongunaduagroproduct.com/",
-        logo: "https://www.kongunaduagroproduct.com/assets/logo.png",
+        url: `${SITE_URL}/`,
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/logo.png`,
+        },
         brand: {
           "@type": "Brand",
           name: "VISDHA",
@@ -39,18 +51,22 @@ const Home = () => {
       },
       {
         "@type": "LocalBusiness",
-        "@id": "https://www.kongunaduagroproduct.com/#localbusiness",
+        "@id": `${SITE_URL}/#localbusiness`,
         name: "KonguNadu Agro Products",
         alternateName: "KAPS",
-        image: "https://www.kongunaduagroproduct.com/assets/home2.png",
+        url: `${SITE_URL}/`,
+        image: `${SITE_URL}/home2.png`,
         description:
-          "KonguNadu Agro Products manufactures VISDHA drip irrigation and micro-irrigation products and supports farmers with irrigation solutions and PMKSY subsidy guidance in Tamil Nadu.",
+          "KonguNadu Agro Products manufactures VISDHA drip irrigation and micro-irrigation products and provides irrigation product support and PMKSY subsidy guidance for eligible farmers in Tamil Nadu.",
         telephone: "+91-9962699988",
-        url: "https://www.kongunaduagroproduct.com/",
+        priceRange: "₹₹",
         address: {
           "@type": "PostalAddress",
+          streetAddress:
+            "345/2, Near Modachur Weekly Market, Vadugapalayam to Tirupur Main Road, Modachur",
           addressLocality: "Gobichettipalayam",
           addressRegion: "Tamil Nadu",
+          postalCode: "638476",
           addressCountry: "IN",
         },
         areaServed: [
@@ -62,50 +78,17 @@ const Home = () => {
           "Nilgiris",
           "Pollachi",
         ],
+        parentOrganization: {
+          "@id": `${SITE_URL}/#organization`,
+        },
       },
       {
         "@type": "WebSite",
-        "@id": "https://www.kongunaduagroproduct.com/#website",
-        url: "https://www.kongunaduagroproduct.com/",
+        "@id": `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
         name: "KonguNadu Agro Products",
-      },
-    ],
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What products does KonguNadu Agro Products supply?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "KonguNadu Agro Products supplies agriculture pipes, drip accessories, irrigation filters, venturi injectors and micro-irrigation products under the VISDHA brand.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does KonguNadu Agro Products support PMKSY subsidy guidance?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. KonguNadu Agro Products assists eligible farmers with guidance related to PMKSY drip irrigation subsidy processes in Tamil Nadu.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Which areas does KonguNadu Agro Products serve?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "KonguNadu Agro Products serves Gobichettipalayam, Erode, Coimbatore, Salem, Karur, Nilgiris, Pollachi and nearby agricultural areas in Tamil Nadu.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Why are irrigation filters and venturi injectors important in drip irrigation?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Irrigation filters help protect drip systems by reducing clogging, while venturi injectors are commonly used to apply fertilizers through irrigation systems in a controlled way.",
+        publisher: {
+          "@id": `${SITE_URL}/#organization`,
         },
       },
     ],
@@ -135,141 +118,267 @@ const Home = () => {
   ];
 
   const products = [
-    { image: pipeImg, name: "Agriculture Pipes", color: "bg-blue-100" },
+    {
+      image: pipeImg,
+      name: "Agriculture Pipes",
+    },
     {
       image: dripAccessoriesImg,
       name: "Drip Accessories",
-      color: "bg-green-100",
     },
-    { image: filtersImg, name: "Irrigation Filters", color: "bg-orange-100" },
-    { image: venturiImg, name: "Venturi Injectors", color: "bg-purple-100" },
+    {
+      image: filtersImg,
+      name: "Irrigation Filters",
+    },
+    {
+      image: venturiImg,
+      name: "Venturi Injectors",
+    },
   ];
 
-  // Animation variants
+  const supportServices = [
+    {
+      icon: <FaUsers className="text-3xl text-[#2f7d4b]" />,
+      title: "Expert Consultation",
+      desc: "Get practical irrigation guidance and product recommendations suited to your crop and farm conditions.",
+      iconBg: "bg-gradient-to-br from-[#e8f5e9] to-[#d4efe0]",
+    },
+    {
+      icon: <FaHeadset className="text-3xl text-[#2d6f68]" />,
+      title: "Subsidy Guidance",
+      desc: "Support for eligible farmers who need help understanding PMKSY drip irrigation subsidy-related processes.",
+      iconBg: "bg-gradient-to-br from-[#e0f2f1] to-[#c8e6e5]",
+    },
+    {
+      icon: <FaTools className="text-3xl text-[#4d8c7c]" />,
+      title: "Installation Support",
+      desc: "Practical help with system setup, filtration planning, spacing and basic irrigation component guidance.",
+      iconBg: "bg-gradient-to-br from-[#e6f3ef] to-[#d4e9e3]",
+    },
+    {
+      icon: <FaSeedling className="text-3xl text-[#5d9f5c]" />,
+      title: "Seasonal Optimization",
+      desc: "Guidance to help farmers adjust irrigation practices based on crop type, season and field requirements.",
+      iconBg: "bg-gradient-to-br from-[#f1f8e9] to-[#e4f3df]",
+    },
+  ];
+
+  const statistics = [
+    {
+      value: "15,000+",
+      label: "Farms Served",
+      icon: "🌱",
+    },
+    {
+      value: "98%",
+      label: "Customer Satisfaction",
+      icon: "⭐",
+    },
+    {
+      value: "100%",
+      label: "Subsidy Guidance",
+      icon: "📑",
+    },
+    {
+      value: "6+",
+      label: "Districts Covered",
+      icon: "📍",
+    },
+  ];
+
   const fadeInUp = {
-    hidden: { opacity: 0, y: 60 },
+    hidden: {
+      opacity: 0,
+      y: 60,
+    },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
     },
   };
 
   const fadeInLeft = {
-    hidden: { opacity: 0, x: -80 },
+    hidden: {
+      opacity: 0,
+      x: -80,
+    },
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.7, ease: "easeOut" },
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
     },
   };
 
   const fadeInRight = {
-    hidden: { opacity: 0, x: 80 },
+    hidden: {
+      opacity: 0,
+      x: 80,
+    },
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.7, ease: "easeOut" },
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
     },
   };
 
   const fadeInScale = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+    },
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
     },
   };
 
   const staggerContainer = {
-    hidden: { opacity: 0 },
+    hidden: {
+      opacity: 0,
+    },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
     },
   };
 
   return (
-    <div className="w-full min-h-screen bg-white">
+    <div className="w-full min-h-screen overflow-x-hidden bg-white">
       <Helmet>
         <title>
-          Drip Irrigation Systems in Gobichettipalayam | KonguNadu Agro Products
+          Drip Irrigation Company in Gobichettipalayam | KonguNadu Agro Products
         </title>
 
         <meta
           name="description"
-          content="KonguNadu Agro Products (KAPS) manufactures VISDHA drip irrigation and micro-irrigation products in Gobichettipalayam. We supply agriculture pipes, drip accessories, irrigation filters and venturi injectors across Erode, Coimbatore, Salem, Karur, Nilgiris and Pollachi, with PMKSY subsidy guidance for eligible farmers."
+          content="KonguNadu Agro Products manufactures VISDHA drip irrigation and micro-irrigation products in Gobichettipalayam and supplies agriculture pipes, drip accessories, filters and venturi injectors across Tamil Nadu."
         />
 
-        <meta name="robots" content="index,follow,max-image-preview:large" />
-        <link rel="canonical" href="https://www.kongunaduagroproduct.com/" />
+        <meta
+          name="robots"
+          content="index,follow,max-image-preview:large"
+        />
+
+        <link rel="canonical" href={`${SITE_URL}/`} />
 
         <meta
           property="og:title"
-          content="Drip Irrigation Systems in Gobichettipalayam | KonguNadu Agro Products"
+          content="Drip Irrigation Company in Gobichettipalayam | KonguNadu Agro Products"
         />
+
         <meta
           property="og:description"
-          content="VISDHA drip irrigation products, agriculture pipes, irrigation filters and subsidy guidance for farmers across Gobichettipalayam and the Kongu region."
+          content="VISDHA drip irrigation products, agriculture pipes, irrigation filters and irrigation support for farmers across Gobichettipalayam and the Kongu region."
         />
+
+        <meta property="og:url" content={`${SITE_URL}/`} />
+        <meta property="og:image" content={`${SITE_URL}/home2.png`} />
+
         <meta
-          property="og:url"
-          content="https://www.kongunaduagroproduct.com/"
+          property="og:image:alt"
+          content="VISDHA drip irrigation products by KonguNadu Agro Products"
         />
+
         <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_IN" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta
+          name="twitter:title"
+          content="Drip Irrigation Company in Gobichettipalayam | KonguNadu Agro Products"
+        />
+
+        <meta
+          name="twitter:description"
+          content="VISDHA drip irrigation and micro-irrigation products for farmers across the Kongu region."
+        />
+
+        <meta
+          name="twitter:image"
+          content={`${SITE_URL}/home2.png`}
+        />
 
         <script type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
         </script>
-
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
-      {/* Hero Section */}
+
+      {/* Hero section */}
       <section className="relative w-full">
-        <div className="relative h-[520px] sm:h-[580px] lg:h-[640px] overflow-hidden">
+        <div className="relative h-[560px] overflow-hidden sm:h-[600px] lg:h-[680px]">
           <img
             src={heroImg}
             alt="Drip irrigation systems and agricultural irrigation support by KonguNadu Agro Products in Gobichettipalayam"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0b2b2d]/85 via-[#123b3a]/55 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0b2b2d]/90 via-[#123b3a]/70 to-transparent" />
 
           <div className="absolute inset-0 flex items-center">
-            <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="max-w-3xl text-white"
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.8,
+                  ease: "easeOut",
+                }}
+                className="mx-auto flex max-w-3xl flex-col items-center text-white lg:mx-0 lg:items-start"
               >
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight uppercase text-center sm:text-left">
-                  Drip Irrigation Systems in Gobichettipalayam for Farms Across
-                  the Kongu Region
+                <h1 className="text-center text-3xl font-extrabold uppercase leading-tight sm:text-4xl lg:text-left lg:text-5xl xl:text-6xl">
+                  Drip Irrigation Company in Gobichettipalayam
                 </h1>
 
-                <p className="mt-4 text-base sm:text-md lg:text-lg text-white/90 max-w-xl leading-relaxed text-center sm:text-left mx-auto sm:mx-0">
+                <p className="mt-4 max-w-2xl text-center text-base leading-relaxed text-white/95 sm:text-lg lg:text-left lg:text-xl">
                   KonguNadu Agro Products (KAPS) manufactures{" "}
                   <strong>VISDHA</strong> drip irrigation and micro-irrigation
-                  products for farmers in{" "}
+                  products for farmers across{" "}
                   <strong>
-                    Gobichettipalayam, Erode, Coimbatore, Salem, Karur, Nilgiris
-                    and Pollachi
+                    Gobichettipalayam, Erode, Coimbatore, Salem, Karur,
+                    Nilgiris and Pollachi
                   </strong>
-                  . We supply agriculture pipes, drip accessories, irrigation
-                  filters and venturi injectors, with guidance for eligible{" "}
+                  . We supply agriculture pipes and offer guidance for eligible{" "}
                   <strong>PMKSY subsidy applications</strong>.
                 </p>
 
-                <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 justify-center sm:justify-start">
+                {/* Centered below 1024px; left aligned on large screens */}
+                <div className="mt-8 flex w-full justify-center lg:justify-start">
                   <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{
+                      scale: 1.05,
+                    }}
+                    whileTap={{
+                      scale: 0.95,
+                    }}
+                    className="flex w-full justify-center sm:w-auto lg:justify-start"
                   >
                     <Link
                       to="/products"
-                      className="px-6 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-semibold shadow-md transition duration-300 inline-block"
+                      className="inline-flex w-full max-w-sm items-center justify-center rounded-lg bg-green-600 px-8 py-3.5 text-center font-semibold text-white shadow-md transition duration-300 hover:bg-green-700 sm:w-auto"
                     >
                       Explore Our Products
                     </Link>
@@ -280,27 +389,39 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Feature Cards */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 z-20">
+        {/* Feature cards */}
+        <div className="relative z-20 mx-auto -mt-12 max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
             variants={staggerContainer}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {features.map((item, index) => (
+            {features.map((item) => (
               <motion.div
-                key={index}
+                key={item.title}
                 variants={fadeInUp}
-                whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-6 text-center flex flex-col h-full"
+                whileHover={{
+                  y: -8,
+                  transition: {
+                    duration: 0.2,
+                  },
+                }}
+                className="flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-lg transition duration-300 hover:shadow-2xl"
               >
-                <div className="flex justify-center mb-4">{item.icon}</div>
-                <h2 className="text-xl font-bold text-gray-900 mb-3">
+                <div className="mb-4 flex justify-center">
+                  {item.icon}
+                </div>
+
+                <h2 className="mb-3 text-xl font-bold text-gray-900">
                   {item.title}
                 </h2>
-                <p className="text-gray-600 text-sm leading-relaxed flex-grow">
+
+                <p className="flex-grow text-sm leading-relaxed text-gray-600">
                   {item.desc}
                 </p>
               </motion.div>
@@ -309,50 +430,63 @@ const Home = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
+      {/* About section */}
+      <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{
+                once: true,
+                amount: 0.3,
+              }}
               variants={fadeInLeft}
-              className="space-y-6"
+              className="flex flex-col items-center space-y-6 text-center lg:items-start lg:text-left"
             >
               <motion.h2
                 variants={fadeInUp}
-                className="text-3xl sm:text-4xl font-bold text-gray-900 relative inline-block pb-2"
+                className="relative inline-block pb-2 text-3xl font-bold text-gray-900 sm:text-4xl"
               >
                 Welcome to KonguNadu Agro Products
-                <span className="block text-xl sm:text-2xl text-green-700 mt-2 font-semibold">
-                  Drip Irrigation and Agro Products in Gobichettipalayam
+
+                <span className="mt-2 block text-xl font-semibold text-green-700 sm:text-2xl">
+                  Drip Irrigation Products and Support in Gobichettipalayam
                 </span>
+
                 <motion.span
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "100%" }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="absolute bottom-[-4px] left-0 h-1 bg-green-600 rounded-full"
+                  initial={{
+                    width: 0,
+                  }}
+                  whileInView={{
+                    width: "100%",
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.3,
+                  }}
+                  className="absolute bottom-[-4px] left-1/2 h-1 -translate-x-1/2 rounded-full bg-green-600 lg:left-0 lg:translate-x-0"
                 />
               </motion.h2>
 
               <motion.p
                 variants={fadeInUp}
-                className="text-gray-600 leading-relaxed text-justify"
+                className="leading-relaxed text-gray-600 sm:text-justify lg:text-left"
               >
                 <strong>KonguNadu Agro Products (KAPS)</strong> is a
-                Gobichettipalayam-based agro products and irrigation company
-                serving farmers across the Kongu region of Tamil Nadu. We
-                manufacture the <strong>VISDHA</strong> brand and supply
-                practical drip irrigation solutions designed to improve water
-                efficiency, crop health and farm productivity for a wide range
-                of crops and field conditions.
+                Gobichettipalayam-based irrigation products company serving
+                farmers across the Kongu region of Tamil Nadu. We manufacture
+                the <strong>VISDHA</strong> brand and supply practical drip
+                irrigation solutions designed to improve water efficiency,
+                crop health and farm productivity.
               </motion.p>
 
               <motion.p
                 variants={fadeInUp}
-                className="text-gray-600 leading-relaxed text-justify"
+                className="leading-relaxed text-gray-600 sm:text-justify lg:text-left"
               >
                 Our product range includes{" "}
                 <strong>
@@ -362,48 +496,71 @@ const Home = () => {
                 . We also assist eligible farmers with guidance related to the{" "}
                 <strong>PMKSY drip irrigation subsidy scheme</strong>, helping
                 customers in Erode, Coimbatore, Salem, Karur, Nilgiris and
-                nearby areas choose suitable irrigation systems for their land,
-                crop type and water requirements.
+                nearby areas choose suitable irrigation systems for their land.
               </motion.p>
 
+              {/* Centered below 1024px; left aligned on large screens */}
               <motion.div
                 variants={fadeInUp}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="pt-4"
+                whileHover={{
+                  scale: 1.05,
+                }}
+                whileTap={{
+                  scale: 0.95,
+                }}
+                className="flex w-full justify-center pt-4 lg:justify-start"
               >
                 <Link
                   to="/products"
-                  className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md transition duration-300 inline-block"
+                  className="inline-flex w-full max-w-sm items-center justify-center rounded-lg bg-green-600 px-8 py-3.5 text-center font-semibold text-white shadow-md transition duration-300 hover:bg-green-700 sm:w-auto"
                 >
                   Discover Our Products
                 </Link>
               </motion.div>
             </motion.div>
 
-            {/* Right Image */}
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{
+                once: true,
+                amount: 0.3,
+              }}
               variants={fadeInRight}
-              className="relative"
+              className="relative mx-auto w-full max-w-md lg:max-w-full"
             >
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-                className="relative rounded-2xl overflow-hidden shadow-2xl"
+                whileHover={{
+                  scale: 1.02,
+                }}
+                transition={{
+                  duration: 0.3,
+                }}
+                className="relative overflow-hidden rounded-2xl shadow-2xl"
               >
                 <img
                   src={aboutImg}
+                  loading="lazy"
+                  decoding="async"
                   alt="Drip irrigation and sustainable agricultural products from KonguNadu Agro Products"
-                  className="w-full h-auto object-cover rounded-2xl"
+                  className="h-auto w-full rounded-2xl object-cover"
                 />
+
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent rounded-2xl"
+                  initial={{
+                    opacity: 0,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.5,
+                  }}
+                  className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/30 via-transparent to-transparent"
                 />
               </motion.div>
             </motion.div>
@@ -411,7 +568,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Products Section */}
+      {/* Products section */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#fafdfb]">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -490,26 +647,45 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="relative py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#fafdfb] overflow-hidden">
-        <div className="relative max-w-7xl mx-auto">
-          <div className="text-center mb-16 lg:mb-20">
+      {/* Why choose us section */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-white to-[#fafdfb] px-4 py-16 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl">
+          <div className="mb-16 text-center lg:mb-20">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e7f4ea] text-[#2f7d4b] text-lg font-semibold mb-6"
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              className="relative mb-6 inline-flex items-center gap-2 rounded-full bg-[#e7f4ea] px-4 py-2 text-lg font-semibold text-[#2f7d4b]"
             >
               <span>Why Kongu Farmers Choose Us</span>
             </motion.div>
 
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight"
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
             >
-              <span className="text-[#173c36]">Smart Irrigation,</span>
+              <span className="text-[#173c36]">
+                Smart Irrigation,
+              </span>
+
               <span className="bg-gradient-to-r from-[#2f7d4b] via-[#3f9c68] to-[#2d6f68] bg-clip-text text-transparent">
                 {" "}
                 Smarter Future
@@ -517,11 +693,21 @@ const Home = () => {
             </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="mt-6 text-lg text-[#5f6f68] max-w-2xl mx-auto"
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                delay: 0.1,
+              }}
+              className="mx-auto mt-6 max-w-2xl text-lg text-[#5f6f68]"
             >
               Supporting agriculture in Tamil Nadu with drip irrigation systems
               that improve water management, crop care and long-term field
@@ -529,32 +715,38 @@ const Home = () => {
             </motion.p>
           </div>
 
-          {/* Stats bar */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="mt-16 lg:mt-20 bg-gradient-to-r from-[#173c36] to-[#205148] rounded-3xl shadow-2xl overflow-hidden"
+            initial={{
+              opacity: 0,
+              y: 30,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              delay: 0.3,
+            }}
+            className="mt-16 overflow-hidden rounded-3xl bg-gradient-to-r from-[#173c36] to-[#205148] shadow-2xl lg:mt-20"
           >
-            <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-[#2d6f68] lg:divide-x">
-              {[
-                { value: "15,000+", label: "Farms Served", icon: "🌱" },
-                { value: "98%", label: "Customer Satisfaction", icon: "⭐" },
-                { value: "100%", label: "Subsidy Guidance", icon: "📑" },
-                { value: "6+", label: "Districts Covered", icon: "📍" },
-              ].map((stat, idx) => (
+            <div className="grid grid-cols-2 divide-x divide-y divide-[#2d6f68] lg:grid-cols-4 lg:divide-y-0">
+              {statistics.map((stat) => (
                 <div
-                  key={idx}
-                  className="px-6 py-8 text-center group hover:bg-white/5 transition-colors"
+                  key={stat.label}
+                  className="group px-4 py-8 text-center transition-colors hover:bg-white/5 sm:px-6"
                 >
-                  <div className="text-3xl mb-2 opacity-80 group-hover:scale-110 transition-transform">
+                  <div className="mb-2 text-3xl opacity-80 transition-transform group-hover:scale-110">
                     {stat.icon}
                   </div>
-                  <div className="text-2xl lg:text-3xl font-bold text-white mb-2">
+
+                  <div className="mb-2 text-2xl font-bold text-white lg:text-3xl">
                     {stat.value}
                   </div>
-                  <div className="text-[#b8d9cf] text-sm font-medium">
+
+                  <div className="text-sm font-medium text-[#b8d9cf]">
                     {stat.label}
                   </div>
                 </div>
@@ -564,42 +756,37 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SEO Content Section */}
-      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 text-center">
-              Drip Irrigation Products and Agricultural Support in
-              Gobichettipalayam
+      {/* SEO content section */}
+      <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="mb-6 text-center text-3xl font-bold text-gray-900 sm:text-4xl">
+              Drip Irrigation Products in Gobichettipalayam
             </h2>
 
-            <div className="space-y-5 text-gray-700 leading-8 text-justify">
+            <div className="space-y-6 leading-8 text-gray-700 sm:text-justify lg:text-left">
               <p>
-                KonguNadu Agro Products (KAPS) is a trusted name in drip
-                irrigation and agricultural product supply in Gobichettipalayam,
+                <strong>KonguNadu Agro Products (KAPS)</strong> supplies drip
+                irrigation and agricultural products from Gobichettipalayam,
                 Tamil Nadu. We work with farmers across the Kongu region by
                 supplying practical micro-irrigation products that help improve
                 water efficiency, reduce wastage and support healthier crop
                 growth. Our focus is on delivering dependable irrigation
-                components that can be used in farms of different sizes and crop
-                types, while also guiding customers in selecting suitable
-                systems for their land and water conditions.
+                components that can be used on farms of different sizes and crop
+                types.
               </p>
 
               <p>
                 We manufacture and supply the <strong>VISDHA</strong> brand and
-                offer a range of irrigation products including{" "}
+                offer a comprehensive range of irrigation products, including{" "}
                 <strong>
                   agriculture pipes, drip accessories, irrigation filters,
                   venturi injectors and micro-irrigation components
                 </strong>
-                . These products are used in farming applications where
-                controlled water delivery is important for crop productivity and
-                resource management. Drip irrigation systems are widely
-                preferred by farmers because they help deliver water closer to
-                the root zone, reduce evaporation loss and support better
-                fertilizer efficiency compared with conventional irrigation
-                methods.
+                . Drip irrigation systems are widely preferred by farmers
+                because they help deliver water closer to the root zone, reduce
+                evaporation loss and support better fertilizer efficiency
+                compared with conventional irrigation methods.
               </p>
 
               <p>
@@ -608,37 +795,43 @@ const Home = () => {
                   Gobichettipalayam, Erode, Coimbatore, Salem, Karur, Nilgiris
                   and Pollachi
                 </strong>
-                , along with nearby agricultural areas in Tamil Nadu. Farmers
-                looking for drip irrigation products often need more than just
-                components — they also need guidance on selecting the right
-                accessories, filter systems, venturi injectors and pipe
-                configurations for the crops they grow. We help customers
-                understand the role of each component in a micro-irrigation
-                setup so they can choose a practical and efficient system for
-                long-term use.
+                . Farmers looking for drip irrigation products often need more
+                than just components. They also need guidance on selecting the
+                right accessories, filter systems, venturi injectors and pipe
+                configurations. We help customers understand the role of each
+                component in a micro-irrigation setup so they can choose a
+                practical and efficient system for long-term use.
               </p>
 
               <p>
                 In addition to supplying irrigation products, KonguNadu Agro
-                Products also supports eligible farmers who want to understand
-                the <strong>PMKSY drip irrigation subsidy process</strong>.
-                Subsidy assistance and product guidance are especially important
-                for growers who are adopting drip irrigation for the first time
-                or upgrading existing systems. By combining local agricultural
-                understanding with a practical product range, we aim to make
-                irrigation planning easier for farmers who want reliable water
-                management solutions in the Kongu region.
+                Products supports eligible farmers who want to understand the{" "}
+                <strong>PMKSY drip irrigation subsidy process</strong>.
+                Subsidy assistance and product guidance are especially
+                important for growers adopting drip irrigation for the first
+                time or upgrading existing systems.
+              </p>
+
+              <p>
+                Visit us at <strong>{BUSINESS_ADDRESS}</strong>. You can also
+                contact our team at{" "}
+                <a
+                  href="tel:+919962699988"
+                  className="font-semibold text-green-700 hover:underline"
+                >
+                  +91 99626 99988
+                </a>{" "}
+                for product information and irrigation guidance.
               </p>
 
               <p>
                 Whether you are looking for drip irrigation accessories,
                 agriculture pipes, irrigation filters or venturi injectors in
                 Gobichettipalayam and nearby districts, our goal is to provide
-                products and support that match real farming needs. If you want
-                to explore our complete range of irrigation products, visit our{" "}
+                products and support that match real farming needs. Explore our{" "}
                 <Link
                   to="/products"
-                  className="text-green-700 font-semibold hover:underline"
+                  className="font-semibold text-green-700 hover:underline"
                 >
                   Products page
                 </Link>{" "}
@@ -650,52 +843,56 @@ const Home = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-[#fafdfb]">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-10 text-center">
+      {/* FAQ section */}
+      <section className="bg-[#fafdfb] px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 sm:text-4xl">
             Frequently Asked Questions
           </h2>
 
           <div className="space-y-6">
-            <div className="bg-white rounded-2xl shadow-sm p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                What products does KonguNadu Agro Products supply?
+            <div className="rounded-2xl bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+              <h3 className="mb-2 text-xl font-bold text-gray-900">
+                What irrigation products does KonguNadu Agro Products supply?
               </h3>
-              <p className="text-gray-700 leading-7">
-                We supply agriculture pipes, drip accessories, irrigation
-                filters, venturi injectors and micro-irrigation products under
-                the VISDHA brand for agricultural use.
+
+              <p className="leading-7 text-gray-700">
+                KonguNadu Agro Products supplies agriculture pipes, drip
+                accessories, irrigation filters, venturi injectors and other
+                micro-irrigation products under the VISDHA brand.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-sm p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
+            <div className="rounded-2xl bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+              <h3 className="mb-2 text-xl font-bold text-gray-900">
                 Do you help farmers with PMKSY subsidy guidance?
               </h3>
-              <p className="text-gray-700 leading-7">
+
+              <p className="leading-7 text-gray-700">
                 Yes. We provide guidance for eligible farmers who want to
                 understand the PMKSY drip irrigation subsidy process and choose
                 suitable irrigation products for their farms.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-sm p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
+            <div className="rounded-2xl bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+              <h3 className="mb-2 text-xl font-bold text-gray-900">
                 Which areas do you serve?
               </h3>
-              <p className="text-gray-700 leading-7">
+
+              <p className="leading-7 text-gray-700">
                 We serve Gobichettipalayam, Erode, Coimbatore, Salem, Karur,
                 Nilgiris, Pollachi and nearby agricultural areas in Tamil Nadu.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-sm p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
+            <div className="rounded-2xl bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+              <h3 className="mb-2 text-xl font-bold text-gray-900">
                 Why are irrigation filters and venturi injectors used in drip
                 irrigation systems?
               </h3>
-              <p className="text-gray-700 leading-7">
+
+              <p className="leading-7 text-gray-700">
                 Irrigation filters help protect drip systems by reducing
                 clogging, while venturi injectors help deliver fertilizers
                 through irrigation systems in a controlled manner.
@@ -705,40 +902,44 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Support Section */}
-      <section className="relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Support section */}
+      <section className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          className="absolute inset-0 bg-cover bg-center lg:bg-fixed"
           style={{
             backgroundImage: `url(${supportBg})`,
-            backgroundAttachment: "fixed",
             backgroundPosition: "center",
             backgroundSize: "cover",
           }}
         />
+
         <div className="absolute inset-0 bg-gradient-to-br from-[#143a34]/95 via-[#1d4f48]/90 to-[#2d6f68]/90" />
 
-        <div className="relative max-w-7xl mx-auto z-10">
+        <div className="relative z-10 mx-auto max-w-7xl">
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
             variants={staggerContainer}
-            className="text-center"
+            className="flex flex-col items-center text-center"
           >
             <motion.h2
               variants={fadeInUp}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white"
+              className="text-4xl font-bold text-white sm:text-5xl lg:text-6xl"
             >
               Local Agricultural
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#9dd88d] via-[#cceaa9] to-[#8fd0c7]">
+
+              <span className="block bg-gradient-to-r from-[#9dd88d] via-[#cceaa9] to-[#8fd0c7] bg-clip-text text-transparent">
                 Support Services
               </span>
             </motion.h2>
 
             <motion.p
               variants={fadeInUp}
-              className="text-white/80 text-lg max-w-3xl mx-auto mt-5 mb-14"
+              className="mx-auto mb-14 mt-5 max-w-3xl px-4 text-lg text-white/80"
             >
               From PMKSY subsidy guidance to after-installation support, our
               Gobichettipalayam team helps farmers across the Kongu region
@@ -747,50 +948,30 @@ const Home = () => {
 
             <motion.div
               variants={staggerContainer}
-              className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"
+              className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4"
             >
-              {[
-                {
-                  icon: <FaUsers className="text-3xl text-[#2f7d4b]" />,
-                  title: "Expert Consultation",
-                  desc: "Get practical irrigation guidance and product recommendations suited to your crop and farm conditions.",
-                  iconBg: "bg-gradient-to-br from-[#e8f5e9] to-[#d4efe0]",
-                },
-                {
-                  icon: <FaHeadset className="text-3xl text-[#2d6f68]" />,
-                  title: "Subsidy Guidance",
-                  desc: "Support for eligible farmers who need help understanding PMKSY drip irrigation subsidy-related processes.",
-                  iconBg: "bg-gradient-to-br from-[#e0f2f1] to-[#c8e6e5]",
-                },
-                {
-                  icon: <FaTools className="text-3xl text-[#4d8c7c]" />,
-                  title: "Installation Support",
-                  desc: "Practical help with system setup, filtration planning, spacing and basic irrigation component guidance.",
-                  iconBg: "bg-gradient-to-br from-[#e6f3ef] to-[#d4e9e3]",
-                },
-                {
-                  icon: <FaSeedling className="text-3xl text-[#5d9f5c]" />,
-                  title: "Seasonal Optimization",
-                  desc: "Guidance to help farmers adjust irrigation practices based on crop type, season and field requirements.",
-                  iconBg: "bg-gradient-to-br from-[#f1f8e9] to-[#e4f3df]",
-                },
-              ].map((item, index) => (
+              {supportServices.map((item) => (
                 <motion.div
-                  key={index}
+                  key={item.title}
                   variants={fadeInScale}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  className="group relative"
+                  whileHover={{
+                    y: -8,
+                    scale: 1.02,
+                  }}
+                  className="group relative h-full"
                 >
-                  <div className="h-full rounded-[1.75rem] bg-white p-8 text-center shadow-[0_20px_40px_rgba(0,0,0,0.08)] flex flex-col items-center">
+                  <div className="flex h-full flex-col items-center rounded-[1.75rem] bg-white p-6 text-center shadow-[0_20px_40px_rgba(0,0,0,0.08)] sm:p-8">
                     <div
-                      className={`w-20 h-20 rounded-2xl ${item.iconBg} flex items-center justify-center shadow-md mb-6`}
+                      className={`mb-6 flex h-16 w-16 items-center justify-center rounded-2xl shadow-md sm:h-20 sm:w-20 ${item.iconBg}`}
                     >
                       {item.icon}
                     </div>
-                    <h3 className="text-2xl font-bold text-[#173c36] mb-4">
+
+                    <h3 className="mb-4 text-xl font-bold text-[#173c36] sm:text-2xl">
                       {item.title}
                     </h3>
-                    <p className="text-[#63736c] leading-relaxed text-base mb-8">
+
+                    <p className="flex-grow text-sm leading-relaxed text-[#63736c] sm:text-base">
                       {item.desc}
                     </p>
                   </div>
@@ -798,10 +979,10 @@ const Home = () => {
               ))}
             </motion.div>
 
-            <div className="mt-12">
+            <div className="mt-12 flex w-full justify-center">
               <Link
                 to="/products"
-                className="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md transition duration-300"
+                className="inline-flex w-full max-w-sm items-center justify-center rounded-lg bg-green-600 px-8 py-3.5 text-center font-semibold text-white shadow-md transition duration-300 hover:bg-green-700 sm:w-auto"
               >
                 Explore Products & Irrigation Solutions
               </Link>

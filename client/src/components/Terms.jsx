@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Scale, 
@@ -13,39 +13,130 @@ import {
   MapPin, 
   ChevronDown,
   ArrowUp,
-  ExternalLink,
   BookOpen,
-  CheckCircle2,
   ArrowRight,
-  Star,
   Sparkles,
-  Shield,
   Box,
   Receipt,
   Award
 } from "lucide-react";
 
+
+const SITE_URL = "https://kongunaduagroproduct.com";
+const TERMS_URL = `${SITE_URL}/terms-conditions`;
+const BUSINESS_NAME = "KonguNadu Agro Products";
+
 const TermsConditions = () => {
   const [activeSection, setActiveSection] = useState(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  // SEO UPGRADE: Enhanced TermsPage Schema to establish legal legitimacy
   const termsSchema = {
     "@context": "https://schema.org",
-    "@type": "TermsPage",
-    "name": "Terms and Conditions - KonguNadu Agro Products",
-    "description": "Terms and conditions of sale, delivery, and warranties for KonguNadu Agro Products' drip irrigation systems.",
-    "publisher": {
-      "@type": "LocalBusiness",
-      "name": "KonguNadu Agro Products",
-      "alternateName": "KAPS",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Gobichettipalayam",
-        "addressRegion": "Tamil Nadu",
-        "addressCountry": "IN"
-      }
-    }
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${TERMS_URL}/#webpage`,
+        url: TERMS_URL,
+        name: "Terms and Conditions | KonguNadu Agro Products",
+        description:
+          "Read the terms governing quotations, orders, payments, delivery, returns, warranties and use of VISDHA irrigation products from KonguNadu Agro Products.",
+        inLanguage: "en-IN",
+        isPartOf: {
+          "@id": `${SITE_URL}/#website`,
+        },
+        about: {
+          "@id": `${SITE_URL}/#localbusiness`,
+        },
+        publisher: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+        breadcrumb: {
+          "@id": `${TERMS_URL}/#breadcrumb`,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${TERMS_URL}/#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: `${SITE_URL}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Terms and Conditions",
+            item: TERMS_URL,
+          },
+        ],
+      },
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: BUSINESS_NAME,
+        alternateName: "KAPS",
+        url: `${SITE_URL}/`,
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/logo.png`,
+        },
+        brand: {
+          "@type": "Brand",
+          name: "VISDHA",
+        },
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+91-9962699988",
+          contactType: "customer service",
+          email: "kongunaduagroproduct@gmail.com",
+          areaServed: "IN",
+          availableLanguage: ["English", "Tamil"],
+        },
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": `${SITE_URL}/#localbusiness`,
+        name: BUSINESS_NAME,
+        alternateName: "KAPS",
+        url: `${SITE_URL}/`,
+        image: `${SITE_URL}/home2.png`,
+        telephone: "+91-9962699988",
+        email: "kongunaduagroproduct@gmail.com",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress:
+            "345/2, Near Modachur Weekly Market, Vadugapalayam to Tirupur Main Road, Modachur",
+          addressLocality: "Gobichettipalayam",
+          addressRegion: "Tamil Nadu",
+          postalCode: "638476",
+          addressCountry: "IN",
+        },
+        areaServed: [
+          "Gobichettipalayam",
+          "Erode",
+          "Coimbatore",
+          "Salem",
+          "Karur",
+          "Nilgiris",
+          "Pollachi",
+        ],
+        parentOrganization: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
+        name: BUSINESS_NAME,
+        publisher: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+        inLanguage: "en-IN",
+      },
+    ],
   };
 
   const sections = [
@@ -147,11 +238,50 @@ const TermsConditions = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-amber-50/50">
-      {/* SEO UPGRADE: Sharpened Meta Tags and Canonical URL */}
       <Helmet>
-        <title>Terms & Conditions | KonguNadu Agro Products - Gobichettipalayam</title>
-        <meta name="description" content="Review the Terms and Conditions for KonguNadu Agro Products. Learn about our sales, delivery, and warranty policies for VISDHA drip irrigation systems in the Kongu region." />
-        <link rel="canonical" href="https://www.kongunaduagroproduct.com/terms-conditions" />
+        <title>Terms and Conditions | KonguNadu Agro Products</title>
+
+        <meta
+          name="description"
+          content="Read the terms governing quotations, orders, payments, delivery, returns, warranties and use of VISDHA irrigation products from KonguNadu Agro Products."
+        />
+
+        <meta
+          name="robots"
+          content="index,follow,max-image-preview:large"
+        />
+
+        <link rel="canonical" href={TERMS_URL} />
+
+        <meta
+          property="og:title"
+          content="Terms and Conditions | KonguNadu Agro Products"
+        />
+        <meta
+          property="og:description"
+          content="Review the terms for quotations, product orders, payments, delivery, returns and warranties from KonguNadu Agro Products."
+        />
+        <meta property="og:url" content={TERMS_URL} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={BUSINESS_NAME} />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:image" content={`${SITE_URL}/home2.png`} />
+        <meta
+          property="og:image:alt"
+          content="KonguNadu Agro Products irrigation products"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Terms and Conditions | KonguNadu Agro Products"
+        />
+        <meta
+          name="twitter:description"
+          content="Review the terms for quotations, product orders, payments, delivery, returns and warranties from KonguNadu Agro Products."
+        />
+        <meta name="twitter:image" content={`${SITE_URL}/home2.png`} />
+
         <script type="application/ld+json">
           {JSON.stringify(termsSchema)}
         </script>
@@ -164,7 +294,7 @@ const TermsConditions = () => {
           }} />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-34 md:py-32">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -210,6 +340,8 @@ const TermsConditions = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
+                type="button"
+                aria-label={`Go to ${section.title}`}
                 onClick={() => {
                   document.getElementById(`section-${section.id}`)?.scrollIntoView({ behavior: "smooth" });
                 }}
@@ -271,6 +403,10 @@ const TermsConditions = () => {
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    type="button"
+                    aria-expanded={activeSection === section.id}
+                    aria-controls={`section-content-${section.id}`}
+                    aria-label={`${activeSection === section.id ? "Collapse" : "Expand"} ${section.title}`}
                     onClick={() => setActiveSection(activeSection === section.id ? null : section.id)}
                     className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
                       activeSection === section.id 
@@ -292,6 +428,8 @@ const TermsConditions = () => {
                     {section.content}
                   </p>
                   <button
+                    type="button"
+                    aria-controls={`section-content-${section.id}`}
                     onClick={() => setActiveSection(section.id)}
                     className="mt-4 flex items-center space-x-2 text-sm font-medium text-amber-600 hover:text-amber-700 group"
                   >
@@ -307,6 +445,7 @@ const TermsConditions = () => {
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
+                      id={`section-content-${section.id}`}
                       className="overflow-hidden"
                     >
                       <div className="pt-4 border-t border-gray-100">
@@ -324,7 +463,7 @@ const TermsConditions = () => {
                                   </div>
                                   <div>
                                     <p className="text-xs text-gray-500">Address</p>
-                                    <p className="text-sm font-medium text-gray-900">No. 123, Irrigation Complex<br />Bhavani Main Road, Gobichettipalayam<br />Tamil Nadu 638452</p>
+                                    <p className="text-sm font-medium text-gray-900">345/2, Near Modachur Weekly Market<br />Vadugapalayam to Tirupur Main Road, Modachur<br />Gobichettipalayam, Tamil Nadu 638476</p>
                                   </div>
                                 </div>
                                 <div className="flex items-center space-x-3">
@@ -370,6 +509,7 @@ const TermsConditions = () => {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.5 }}
+            type="button"
             onClick={scrollToTop}
             className="fixed bottom-8 right-8 w-12 h-12 bg-amber-500 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-amber-600 transition-colors z-50"
             aria-label="Scroll to top"

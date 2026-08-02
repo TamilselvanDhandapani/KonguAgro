@@ -28,42 +28,78 @@ import {
 
 import aboutImg from "../assets/story.png";
 
+const SITE_URL = "https://kongunaduagroproduct.com";
+const ABOUT_URL = `${SITE_URL}/about`;
+
+const BUSINESS_ADDRESS =
+  "345/2, Near Modachur Weekly Market, Vadugapalayam to Tirupur Main Road, Modachur, Gobichettipalayam - 638476, Tamil Nadu";
+
 const About = () => {
   const aboutSchema = {
     "@context": "https://schema.org",
-    "@type": "AboutPage",
-    name: "About KonguNadu Agro Products",
-    url: "https://www.kongunaduagroproduct.com/about",
-    description:
-      "Learn about KonguNadu Agro Products, a drip irrigation manufacturer in Gobichettipalayam with over 40 years of experience serving farmers across the Kongu region of Tamil Nadu.",
-    mainEntity: {
-      "@type": "LocalBusiness",
-      name: "KonguNadu Agro Products",
-      alternateName: "KAPS",
-      foundingDate: "1984",
-      description:
-        "Trusted drip irrigation manufacturer and agricultural supplier based in Gobichettipalayam, with over 40 years of experience.",
-      brand: {
-        "@type": "Brand",
-        name: "VISDHA",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": `${ABOUT_URL}#webpage`,
+        url: ABOUT_URL,
+        name: "About KonguNadu Agro Products",
+        description:
+          "Learn about KonguNadu Agro Products, a Gobichettipalayam-based drip irrigation manufacturer serving farmers across the Kongu region of Tamil Nadu.",
+        isPartOf: {
+          "@id": `${SITE_URL}/#website`,
+        },
+        about: {
+          "@id": `${SITE_URL}/#localbusiness`,
+        },
+        mainEntity: {
+          "@id": `${SITE_URL}/#localbusiness`,
+        },
       },
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Gobichettipalayam",
-        addressRegion: "Tamil Nadu",
-        addressCountry: "IN",
+      {
+        "@type": "LocalBusiness",
+        "@id": `${SITE_URL}/#localbusiness`,
+        name: "KonguNadu Agro Products",
+        alternateName: "KAPS",
+        url: `${SITE_URL}/`,
+        image: `${SITE_URL}/story.png`,
+        logo: `${SITE_URL}/logo.png`,
+        telephone: "+91-9962699988",
+        foundingDate: "1984",
+        description:
+          "KonguNadu Agro Products manufactures VISDHA drip irrigation and micro-irrigation products in Gobichettipalayam and serves farmers across Tamil Nadu.",
+        brand: {
+          "@type": "Brand",
+          name: "VISDHA",
+        },
+        address: {
+          "@type": "PostalAddress",
+          streetAddress:
+            "345/2, Near Modachur Weekly Market, Vadugapalayam to Tirupur Main Road, Modachur",
+          addressLocality: "Gobichettipalayam",
+          addressRegion: "Tamil Nadu",
+          postalCode: "638476",
+          addressCountry: "IN",
+        },
+        areaServed: [
+          "Gobichettipalayam",
+          "Erode",
+          "Coimbatore",
+          "Salem",
+          "Karur",
+          "Nilgiris",
+          "Pollachi",
+        ],
       },
-      areaServed: [
-        "Gobichettipalayam",
-        "Erode",
-        "Coimbatore",
-        "Salem",
-        "Karur",
-        "Nilgiris",
-        "Pollachi",
-      ],
-      url: "https://www.kongunaduagroproduct.com/",
-    },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
+        name: "KonguNadu Agro Products",
+        publisher: {
+          "@id": `${SITE_URL}/#localbusiness`,
+        },
+      },
+    ],
   };
 
   const stats = [
@@ -172,17 +208,12 @@ const About = () => {
     <div className="w-full min-h-screen bg-white overflow-hidden">
       <Helmet>
         <title>
-          About KonguNadu Agro Products | Drip Irrigation Manufacturer in Gobichettipalayam
+          About KonguNadu Agro Products | Drip Irrigation Manufacturer
         </title>
 
         <meta
           name="description"
-          content="Learn about KonguNadu Agro Products, a trusted drip irrigation manufacturer in Gobichettipalayam with 40+ years of experience serving farmers across Erode, Coimbatore, Salem, Karur, Nilgiris, and Pollachi."
-        />
-
-        <meta
-          name="keywords"
-          content="KonguNadu Agro Products history, drip irrigation manufacturer Gobichettipalayam, agricultural irrigation supplier Tamil Nadu, VISDHA irrigation products, Erode irrigation company, Coimbatore drip irrigation"
+          content="Learn about KonguNadu Agro Products, a Gobichettipalayam drip irrigation manufacturer with 40+ years of experience serving farmers across Tamil Nadu."
         />
 
         <meta
@@ -190,24 +221,36 @@ const About = () => {
           content="index,follow,max-image-preview:large"
         />
 
-        <link
-          rel="canonical"
-          href="https://www.kongunaduagroproduct.com/about"
-        />
+        <link rel="canonical" href={ABOUT_URL} />
 
         <meta
           property="og:title"
-          content="About KonguNadu Agro Products | Drip Irrigation Manufacturer in Gobichettipalayam"
+          content="About KonguNadu Agro Products | Drip Irrigation Manufacturer"
         />
         <meta
           property="og:description"
-          content="Discover the story of KonguNadu Agro Products, a Gobichettipalayam-based drip irrigation manufacturer serving farmers across the Kongu region."
+          content="Discover the history, manufacturing journey and farmer-focused irrigation work of KonguNadu Agro Products in Gobichettipalayam."
+        />
+        <meta property="og:url" content={ABOUT_URL} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="KonguNadu Agro Products" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:image" content={`${SITE_URL}/story.png`} />
+        <meta
+          property="og:image:alt"
+          content="KonguNadu Agro Products irrigation manufacturing facility in Gobichettipalayam"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="About KonguNadu Agro Products | Drip Irrigation Manufacturer"
         />
         <meta
-          property="og:url"
-          content="https://www.kongunaduagroproduct.com/about"
+          name="twitter:description"
+          content="Learn about KonguNadu Agro Products, VISDHA irrigation products and more than 40 years of agricultural manufacturing experience."
         />
-        <meta property="og:type" content="website" />
+        <meta name="twitter:image" content={`${SITE_URL}/story.png`} />
 
         <script type="application/ld+json">
           {JSON.stringify(aboutSchema)}
@@ -215,7 +258,7 @@ const About = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-24 bg-gradient-to-br from-[#f8fcf8] via-white to-[#eef7f1]">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#f8fcf8] via-white to-[#eef7f1] pt-24 pb-20 sm:pt-28 sm:pb-24 lg:pt-32">
         <div className="absolute top-0 left-0 w-72 h-72 bg-[#9ac80f]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#2d6f68]/10 rounded-full blur-3xl" />
 
@@ -231,7 +274,7 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#e8f5e9] text-[#2f7d4b] font-semibold shadow-md"
+            className="inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-[#e8f5e9] px-4 py-2 text-center text-sm font-semibold text-[#2f7d4b] shadow-md sm:px-5 sm:text-base"
           >
             <MdPrecisionManufacturing />
             KonguNadu Agro Products
@@ -241,11 +284,11 @@ const About = () => {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mt-8 text-5xl md:text-7xl font-black tracking-tight"
+            className="mt-8 text-center text-4xl font-black leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
           >
             <span className="text-[#173c36]">About </span>
             <span className="bg-gradient-to-r from-[#2f7d4b] to-[#9ac80f] bg-clip-text text-transparent">
-              KonguNadu Agro
+              KonguNadu Agro Products
             </span>
           </motion.h1>
 
@@ -253,7 +296,7 @@ const About = () => {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-6 max-w-3xl mx-auto text-lg leading-relaxed text-[#5f6f68]"
+            className="mx-auto mt-6 max-w-3xl text-center text-base leading-relaxed text-[#5f6f68] sm:text-lg"
           >
             Driven by the vision of
             <span className="font-semibold text-[#2f7d4b]">
@@ -273,17 +316,17 @@ const About = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4">
             {stats.map((stat, idx) => (
               <motion.div
-                key={idx}
+                key={stat.label}
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="p-8 text-center border-b lg:border-b-0 lg:border-r border-[#edf2ee] last:border-r-0 group hover:bg-[#f8fcf8] transition"
+                className="group border-b border-[#edf2ee] p-5 text-center transition hover:bg-[#f8fcf8] sm:p-8 lg:border-r lg:border-b-0 last:lg:border-r-0"
               >
                 <div className="flex justify-center text-[#9ac80f] mb-4 group-hover:scale-110 transition">
                   {stat.icon}
                 </div>
-                <div className="text-4xl font-black text-[#173c36]">
+                <div className="text-3xl font-black text-[#173c36] sm:text-4xl">
                   {stat.value}
                 </div>
                 <div className="mt-2 text-sm text-[#5f6f68] font-medium">
@@ -320,27 +363,28 @@ const About = () => {
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              className="text-center lg:text-left"
             >
-              <h2 className="text-4xl font-bold text-[#173c36]">
+              <h2 className="text-3xl font-bold leading-tight text-[#173c36] sm:text-4xl">
                 Our Story in Gobichettipalayam
               </h2>
-              <div className="mt-4 w-24 h-1 rounded-full bg-gradient-to-r from-[#9ac80f] to-[#2f7d4b]" />
+              <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-gradient-to-r from-[#9ac80f] to-[#2f7d4b] lg:mx-0" />
 
-              <p className="mt-6 text-[#5f6f68] leading-relaxed">
+              <p className="mt-6 text-left leading-relaxed text-[#5f6f68]">
                 KonguNadu Agro Products (KAPS) began its journey in 1984 as SN
                 Engineering Works in the heart of Gobichettipalayam. Over four
                 decades, we evolved from Gobar Gas systems into one of the trusted
                 irrigation manufacturing brands in Tamil Nadu.
               </p>
 
-              <p className="mt-5 text-[#5f6f68] leading-relaxed">
+              <p className="mt-5 text-left leading-relaxed text-[#5f6f68]">
                 Our expertise spans plastics manufacturing, drip irrigation
                 systems, inline drip technology, micro irrigation components, and
                 precision agriculture products designed for the soil, water, and
                 climate conditions of the wider Kongu belt.
               </p>
 
-              <p className="mt-5 text-[#5f6f68] leading-relaxed">
+              <p className="mt-5 text-left leading-relaxed text-[#5f6f68]">
                 Today, our <strong>VISDHA</strong> brand is recognized under the
                 <strong> Tamil Nadu PMKSY government subsidy scheme</strong>,
                 serving farmers across Erode, Coimbatore, Salem, Karur,
@@ -348,7 +392,12 @@ const About = () => {
                 solutions.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <p className="mt-5 text-left leading-relaxed text-[#5f6f68]">
+                Our manufacturing and customer-support operations are based at
+                <strong> {BUSINESS_ADDRESS}</strong>.
+              </p>
+
+              <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
                 <div className="px-4 py-2 rounded-full bg-[#e8f5e9] text-[#173c36] flex items-center gap-2">
                   <FaAward className="text-[#9ac80f]" />
                   ISO Certified
@@ -375,7 +424,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-black text-[#173c36]">
+            <h2 className="text-3xl font-black leading-tight text-[#173c36] sm:text-4xl md:text-5xl">
               Our Journey in the Kongu Region
             </h2>
             <p className="mt-4 text-[#5f6f68] max-w-2xl mx-auto">
@@ -391,7 +440,7 @@ const About = () => {
             <div className="space-y-20">
               {timeline.map((item, index) => (
                 <motion.div
-                  key={index}
+                  key={item.year}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
@@ -446,7 +495,7 @@ const About = () => {
             <div className="space-y-12">
               {timeline.map((item, index) => (
                 <motion.div
-                  key={index}
+                  key={item.year}
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -497,7 +546,7 @@ const About = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((item, i) => (
               <motion.div
-                key={i}
+                key={item.title}
                 whileHover={{ y: -10 }}
                 className="group rounded-[2rem] bg-white border border-[#dce7c4] p-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all"
               >
@@ -528,13 +577,13 @@ const About = () => {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-[2rem] bg-gradient-to-br from-[#173c36] via-[#1d4b42] to-[#2d6f68] p-12 text-center shadow-[0_20px_50px_rgba(23,60,54,0.35)] relative overflow-hidden"
+            className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#173c36] via-[#1d4b42] to-[#2d6f68] px-5 py-10 text-center shadow-[0_20px_50px_rgba(23,60,54,0.35)] sm:px-8 sm:py-12 lg:p-12"
           >
             <div className="w-20 h-20 mx-auto rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6">
               <FaUsers className="text-4xl text-white" />
             </div>
 
-            <h2 className="text-4xl font-bold text-white">
+            <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl">
               Join Our Growing Network
             </h2>
 
@@ -544,22 +593,22 @@ const About = () => {
               Salem, and beyond.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mx-auto mt-8 flex w-full max-w-xl flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 to="/contact"
-                className="px-8 py-3 rounded-xl bg-gradient-to-r from-[#2f7d4b] to-[#3f9c68] text-white font-semibold shadow-lg hover:scale-105 transition text-center inline-block"
+                className="inline-flex w-full max-w-sm items-center justify-center rounded-xl bg-gradient-to-r from-[#2f7d4b] to-[#3f9c68] px-8 py-3 text-center font-semibold text-white shadow-lg transition hover:scale-105 sm:w-auto"
               >
                 Become a Dealer
               </Link>
               <Link
                 to="/contact"
-                className="px-8 py-3 rounded-xl border border-white/30 text-white hover:bg-white/10 transition text-center inline-block"
+                className="inline-flex w-full max-w-sm items-center justify-center rounded-xl border border-white/30 px-8 py-3 text-center text-white transition hover:bg-white/10 sm:w-auto"
               >
                 Contact Us
               </Link>
             </div>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-white/70">
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 text-center text-sm text-white/70 sm:flex-row sm:flex-wrap sm:gap-6">
               <span className="flex items-center gap-2">
                 <FaHandshake className="text-[#9ac80f]" />
                 Trusted Partnerships
